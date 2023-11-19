@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { FC, useEffect, useState } from "react";
 import NavbarItem from "./NavbarItem";
 import Menu from "../../assets/images/menu.svg";
-
+import electroIcon from "../../assets/images/electro.png";
 /**
  * Navbar for the whole app.
  */
@@ -102,14 +102,8 @@ const Navbar: FC = () => {
         height={17}
         alt="menu icon"
       />
-      <Link href="/" className="mr-auto">
-        {/* <Image
-          src={RaykaIcon}
-          width={50}
-          height={50}
-          alt="rayka icon"
-          className="h-[25px] w-[25px] md:h-[50px] md:w-[50px]"
-        /> */}
+      <Link to="/" className="mr-auto">
+        <img src={electroIcon} style={{ width: "150px" }} alt="rayka icon" />
       </Link>
     </header>
   );
