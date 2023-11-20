@@ -4,7 +4,7 @@ import WhiteButton from '../../components/ui/WhiteButton';
 
 const DNSGaming = () => {
   return (
-    <section className="bg-slate-500 flex flex-col gap-5 py-5">
+    <section className="bg-slate-500 flex flex-col gap-5 py-8">
       <h2 className="text-center text-[2.5rem] font-bold">Gaming DNS</h2>
 
       <div className="flex justify-center gap-10 flex-wrap">
