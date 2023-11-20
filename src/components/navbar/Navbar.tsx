@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { FC, useEffect, useState } from "react";
+import {Link} from "react-router-dom";
+import {useLocation} from "react-router-dom";
+import {FC, useEffect, useState} from "react";
 import NavbarItem from "./NavbarItem";
 import Menu from "../../assets/images/menu.svg";
 import electroIcon from "../../assets/images/electro.png";
@@ -47,7 +47,7 @@ const Navbar: FC = () => {
 
   return (
     <header
-      className={` flex w-full items-center justify-between md:py-16 py-6   border-[#ffffff22]  `}
+      className={` flex w-full items-center justify-between md:py-16 py-6 bg-black border-[#ffffff22]  `}
     >
       <nav className="hidden lg:block">
         <ul className="hidden gap-16 lg:flex">
@@ -103,7 +103,7 @@ const Navbar: FC = () => {
         alt="menu icon"
       />
       <Link to="/" className="mr-auto">
-        <img src={electroIcon} style={{ width: "150px" }} alt="rayka icon" />
+        <img src={electroIcon} style={{width: "150px"}} alt="rayka icon" />
       </Link>
     </header>
   );
