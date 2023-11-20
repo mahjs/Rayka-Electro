@@ -1,9 +1,9 @@
-import MainPage from "../features/mainPage/MainPage";
+import Home from "../pages/home/Home";
 
 export const mainRoutes = [
   {
     path: "/",
-    element: <MainPage />,
+    element: <Home />,
     title: "main",
   },
 ];

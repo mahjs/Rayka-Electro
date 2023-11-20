@@ -1,7 +1,7 @@
 import DNSGaming from "./DNSGaming";
 import FirstOfMain from "./FirstOfMain";
 
-const MainPage = () => {
+const Home = () => {
   return (
     <div>
       <FirstOfMain />
@@ -10,4 +10,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default Home;
