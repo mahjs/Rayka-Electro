@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  height: 100%;
+}
+html,
 body {
-  direction: rtl;
+  position: relative;
+  height: 100%;
 }
 .col2 {
   transition: 2s ease;
@@ -23,26 +28,26 @@ body {
     transform: translateY(0);
   }
 }
-#particles-js canvas {
-  display: block;
-  vertical-align: bottom;
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  opacity: 1;
-  -webkit-transition:
-    opacity 0.8s ease,
-    -webkit-transform 1.4s ease;
-  transition:
-    opacity 0.8s ease,
-    transform 1.4s ease;
-}
 
-#particles-js {
+.swiper {
   width: 100%;
   height: 100%;
-  position: fixed;
-  z-index: -10;
-  top: 0;
-  left: 0;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

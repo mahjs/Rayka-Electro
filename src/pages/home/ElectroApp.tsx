@@ -7,7 +7,7 @@ const ElectroApp = () => {
   return (
     <section id="ElectroApp" className="flex relative justify-center flex-col gap-5 min-h-[95vh]">
       <div className="-mt-12 flex items-center">
-        <img src={Laptob} className="col2 w-[1000px]" />
+        <img alt="laptop" src={Laptob} className="col2 w-[1000px]" />
         <div className="flex flex-col">
           <p className="text-[5.5rem] font-bold text-white">
             دانلود اپلیکیشن <span className="text-[#8C39F3]">الکترو</span>
@@ -18,17 +18,17 @@ const ElectroApp = () => {
           </p>
           <div className="flex mt-4 gap-3">
             <button className="flex justify-center items-center gap-2 border-[2px] py-2 px-5 rounded-full bg-[#ffffff33]">
-              <img src={Windows} className="w-[20px]" />
+              <img alt="window" src={Windows} className="w-[20px]" />
               <p className="text-white">اپلیکیشن ویندوز</p>
             </button>
             <button className="flex justify-center items-center gap-2 py-2 px-5 bg-[#8C39F3] rounded-full">
-              <img src={Android} className="w-[20px]" />
+              <img alt="android" src={Android} className="w-[20px]" />
               <p className="text-white ">اپلیکیشن اندروید</p>
             </button>
           </div>
         </div>
       </div>
-      <img src={Caret} className="w-[45px] absolute bottom-20 left-[50%] -translate-x-[50%]" />
+      <img alt="caret" src={Caret} className="w-[45px] absolute bottom-20 left-[50%] -translate-x-[50%]" />
     </section>
   );
 };
