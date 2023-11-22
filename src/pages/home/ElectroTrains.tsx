@@ -1,7 +1,8 @@
 import Star from '../../assets/images/star.svg';
 import Crown from '../../assets/images/crown.svg';
 import PlanFeatures from '../../components/ui/PlanFeatures';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
+import useObserver from '../../utils/useObserver';
 
 const freePlan = {
   icon: Star,
@@ -29,35 +30,7 @@ const paidPlan = {
 
 const ElectroTrains = () => {
   const containerRef = useRef<HTMLElement | null>(null);
-  const [startAnimation, setStartAnimation] = useState<boolean>(false);
-
-  // Start animation when the component is fully visible.
-  useEffect(() => {
-    const refElem = containerRef.current as HTMLElement;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStartAnimation(true);
-          observer.unobserve(refElem);
-        }
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.8,
-      },
-    );
-
-    if (refElem) {
-      observer.observe(refElem);
-    }
-
-    return () => {
-      if (refElem) {
-        observer.unobserve(refElem);
-      }
-    };
-  });
+  const startAnimation = useObserver(containerRef);
 
   return (
     <section

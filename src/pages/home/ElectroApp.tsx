@@ -2,39 +2,12 @@ import Laptob from '../../assets/images/laptob.png';
 import Windows from '../../assets/images/windows.svg';
 import Android from '../../assets/images/android.svg';
 import Caret from '../../assets/images/caret.svg';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
+import useObserver from '../../utils/useObserver';
 
 const ElectroApp = () => {
   const containerRef = useRef<HTMLElement | null>(null);
-  const [startAnimation, setStartAnimation] = useState<boolean>(false);
-
-  // Start animation when the component is fully visible.
-  useEffect(() => {
-    const refElem = containerRef.current as HTMLElement;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStartAnimation(true);
-          observer.unobserve(refElem);
-        }
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.8,
-      },
-    );
-
-    if (refElem) {
-      observer.observe(refElem);
-    }
-
-    return () => {
-      if (refElem) {
-        observer.unobserve(refElem);
-      }
-    };
-  });
+  const startAnimation = useObserver(containerRef);
 
   return (
     <section id="ElectroApp" ref={containerRef} className="flex justify-center flex-col gap-5 min-h-[100vh]">
