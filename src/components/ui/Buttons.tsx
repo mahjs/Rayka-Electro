@@ -28,6 +28,7 @@ const Buttons: React.FC<ButtonProps> = ({ children, kind = 'blue' }) => {
               kind === 'yellow',
             '': kind === 'skyblue',
             '': kind === 'purple',
+            '': kind === 'white',
           },
         )}
       >

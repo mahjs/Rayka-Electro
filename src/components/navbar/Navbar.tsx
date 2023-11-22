@@ -1,109 +1,90 @@
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { FC, useEffect, useState } from "react";
-import NavbarItem from "./NavbarItem";
-import Menu from "../../assets/images/menu.svg";
-import electroIcon from "../../assets/images/electro.png";
+import { Link } from 'react-router-dom';
+import { FC, useEffect, useState } from 'react';
+import NavbarItem from './NavbarItem';
+import Logo from '../../assets/images/Logo.svg';
+import Person from '../../assets/images/person.svg';
+
 /**
  * Navbar for the whole app.
  */
 
 const Navbar: FC = () => {
-  const [showNavbar, setShowNavbar] = useState<boolean>(false);
+  // const [showNavbar, setShowNavbar] = useState<boolean>(false);
 
-  const pathname = useLocation();
-  const [isScrolled, setIsScrolled] = useState(false);
+  // const pathname = useLocation();
+  // const [isScrolled, setIsScrolled] = useState(false);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > 100) {
+  //       setIsScrolled(true);
+  //     } else {
+  //       setIsScrolled(false);
+  //     }
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
+
+  // // Make menu close after choosing one page.
+  // useEffect(() => {
+  //   setShowNavbar(false);
+  // }, [pathname]);
+
+  // // Make body not scrollable after menu opened
+  // useEffect(() => {
+  //   if (showNavbar) {
+  //     document.body.style.overflow = 'hidden';
+  //   } else {
+  //     document.body.style.overflow = 'auto';
+  //   }
+  // }, [showNavbar]);
+
+  const [startAnimation, setStartAnimation] = useState(false);
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
+    setStartAnimation(true);
   }, []);
 
-  // Make menu close after choosing one page.
-  useEffect(() => {
-    setShowNavbar(false);
-  }, [pathname]);
-
-  // Make body not scrollable after menu opened
-  useEffect(() => {
-    if (showNavbar) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [showNavbar]);
-
-  const handleLinkClick = () => {
-    setShowNavbar(false);
+  const renderLoginButton = () => {
+    return (
+      <li
+        className="flex font-bold gap-2 bg-[#8C39F3] py-2 px-3 rounded-full"
+        style={{
+          opacity: startAnimation ? 1 : 0,
+          transform: startAnimation ? 'translateX(-1rem)' : '',
+          transition: 'all 1s linear',
+        }}
+      >
+        <img src={Person} className="w-3" />
+        <button className="text-white">ورود به حساب کاربری</button>
+      </li>
+    );
   };
 
   return (
     <header
-      className={` flex w-full items-center justify-between md:py-16 py-6   border-[#ffffff22]  `}
+      className={`absolute flex w-full items-center justify-between md:py-16 py-6 border-[#ffffff22] px-10 lg:px-20`}
     >
-      <nav className="hidden lg:block">
-        <ul className="hidden gap-16 lg:flex">
-          <NavbarItem href="/" text="صفحه اصلی" />
-          <NavbarItem href="/Financial-support" text="حمایت مالی" />
-          <NavbarItem href="/status" text="وضعیت" />
-          <NavbarItem text="حالت" />
+      <nav className="hidden md:block">
+        <ul className="hidden gap-16 lg:flex items-center">
+          {renderLoginButton()}
+          <NavbarItem href="/" text="صفحه اصلی" delay={200} />
+          <NavbarItem href="/financial-support" text="اپلیکیشن و دی‌ان‌اس" delay={400} />
+          <NavbarItem href="/prices" text="تعرفه" delay={600} />
+          <NavbarItem href="/servers-status" text="وضعیت سرورها" delay={800} />
         </ul>
       </nav>
-      <nav className="lg:hidden">
-        <ul
-          className={`fixed ${
-            showNavbar ? "left-0" : "left-full"
-          } top-0 flex h-full w-full flex-col justify-center gap-10 bg-[#000000cc] backdrop-blur-md transition-all duration-500 lg:hidden`}
-        >
-          <button
-            onClick={() => setShowNavbar(false)}
-            className="absolute left-9 top-8 flex items-center gap-3"
-          >
-            <p className="miniText text-white">بازگشت</p>
-            {/* <Image
-              src={Arrow}
-              width={15}
-              height={15}
-              className="h-[15px] w-[15px]"
-              alt="arrow icon"
-            /> */}
-          </button>
-          <NavbarItem onClick={handleLinkClick} href="/" text="خانه" />
-          <NavbarItem
-            onClick={handleLinkClick}
-            href="/about-us"
-            text="درباره‌ما"
-          />
-          <NavbarItem
-            onClick={handleLinkClick}
-            href="/contact-us"
-            text="ارتباط با ما"
-          />
-          <NavbarItem
-            onClick={handleLinkClick}
-            href="/jobs"
-            text="فرصت‌های شغلی"
-          />
-        </ul>
-      </nav>
-      <img
+      {/* <img
         onClick={() => setShowNavbar(!showNavbar)}
         className="h-[17px] w-[25px] lg:hidden"
         src={Menu}
         width={25}
         height={17}
         alt="menu icon"
-      />
+      /> */}
       <Link to="/" className="mr-auto">
-        <img src={electroIcon} style={{ width: "150px" }} alt="rayka icon" />
+        <img src={Logo} style={{ width: '40px' }} alt="rayka icon" />
       </Link>
     </header>
   );

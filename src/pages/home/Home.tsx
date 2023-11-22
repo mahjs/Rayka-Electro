@@ -1,13 +1,19 @@
-import Navbar from "../../components/navbar/Navbar";
-import FirstOfMain from "./FirstOfMain";
+import ElectroDNS from './ElectroDNS';
+import FreeElectro from './FreeElectro';
+import FullImage from '../../assets/images/FullPage.svg';
+import Navbar from '../../components/navbar/Navbar';
+import ElectroApp from './ElectroApp';
+import ElectroTrains from './ElectroTrains';
 
 const Home = () => {
   return (
-    <div>
-      <div className="h-[100dvh] lg:px-48 md:px-20 px-4 bg-black">
-        <Navbar />
-        <FirstOfMain />
-      </div>
+    <div className="flex flex-col gap-10">
+      <img src={FullImage} className="absolute w-full min-h-full -z-10" />
+      <Navbar />
+      <FreeElectro />
+      <ElectroApp />
+      <ElectroDNS />
+      <ElectroTrains />
     </div>
   );
 };
