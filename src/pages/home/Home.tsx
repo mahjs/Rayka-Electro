@@ -16,29 +16,13 @@ import { Mousewheel } from 'swiper/modules';
 const Home = () => {
   return (
     <div className="relative h-full flex flex-col gap-10">
+      {' '}
       <img src={FullImage} className="absolute w-full min-h-full -z-10" />
-      <Swiper
-        direction={'vertical'}
-        slidesPerView={1}
-        speed={1200} // Add this line
-        mousewheel={true}
-        modules={[Mousewheel]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <Navbar />
-          <FreeElectro />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ElectroApp />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ElectroDNS />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ElectroTrains />
-        </SwiperSlide>
-      </Swiper>
+      <Navbar />
+      <FreeElectro />
+      <ElectroApp />
+      <ElectroDNS />
+      <ElectroTrains />
     </div>
   );
 };

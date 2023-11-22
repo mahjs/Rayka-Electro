@@ -9,6 +9,7 @@ html,
 body {
   position: relative;
   height: 100%;
+  direction: rtl;
 }
 .col2 {
   transition: 2s ease;
