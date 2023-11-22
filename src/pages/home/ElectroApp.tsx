@@ -7,7 +7,7 @@ const ElectroApp = () => {
   return (
     <section id="ElectroApp" className="flex relative justify-center flex-col gap-5 min-h-[95vh]">
       <div className="-mt-12 flex items-center">
-        <img src={Laptob} className="col2 w-[1000px]" />
+        <img src={Laptob} className="w-[1000px]" />
         <div className="flex flex-col">
           <p className="text-[5.5rem] font-bold text-white">
             دانلود اپلیکیشن <span className="text-[#8C39F3]">الکترو</span>

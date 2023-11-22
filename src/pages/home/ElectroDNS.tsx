@@ -19,7 +19,7 @@ const ElectroDNS = () => {
             <UnderlineCopyText text="78.157.42.101" />
           </div>
         </div>
-        <img src={Phone} className="w-[1000px] ml-20 col2" />
+        <img src={Phone} className="w-[1000px] ml-20" />
       </div>
       <img src={Caret} className="w-[45px] absolute bottom-10 left-[50%] -translate-x-[50%]" />
     </section>
