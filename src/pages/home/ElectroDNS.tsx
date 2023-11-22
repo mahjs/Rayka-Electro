@@ -1,39 +1,12 @@
 import Phone from '../../assets/images/phone.png';
 import Caret from '../../assets/images/caret.svg';
 import UnderlineCopyText from '../../components/ui/UnderlineCopyText';
-import { useEffect, useRef, useState } from 'react';
+import useObserver from '../../utils/useObserver';
+import { useRef } from 'react';
 
 const ElectroDNS = () => {
   const containerRef = useRef<HTMLElement | null>(null);
-  const [startAnimation, setStartAnimation] = useState<boolean>(false);
-
-  // Start animation when the component is fully visible.
-  useEffect(() => {
-    const refElem = containerRef.current as HTMLElement;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStartAnimation(true);
-          observer.unobserve(refElem);
-        }
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.8,
-      },
-    );
-
-    if (refElem) {
-      observer.observe(refElem);
-    }
-
-    return () => {
-      if (refElem) {
-        observer.unobserve(refElem);
-      }
-    };
-  });
+  const startAnimation = useObserver(containerRef);
 
   return (
     <section ref={containerRef} id="ElectroDNS" className="flex relative justify-around flex-wrap min-h-[100vh]">

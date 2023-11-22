@@ -16,10 +16,6 @@ import { Mousewheel } from 'swiper/modules';
 const Home = () => {
   return (
     <div className="flex flex-col gap-10">
-      <a href="#ElectroTrains" className="fixed z-50">
-        {' '}
-        this is the end
-      </a>
       <img src={FullImage} className="absolute w-full min-h-full -z-10" />
       <Navbar />
       <FreeElectro />
