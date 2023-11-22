@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import NavbarItem from './NavbarItem';
 import Logo from '../../assets/images/Logo.svg';
 import Person from '../../assets/images/person.svg';
@@ -41,9 +41,21 @@ const Navbar: FC = () => {
   //   }
   // }, [showNavbar]);
 
+  const [startAnimation, setStartAnimation] = useState(false);
+  useEffect(() => {
+    setStartAnimation(true);
+  }, []);
+
   const renderLoginButton = () => {
     return (
-      <li className="flex gap-2 bg-[#8C39F3] py-2 px-3 rounded-full">
+      <li
+        className="flex font-bold gap-2 bg-[#8C39F3] py-2 px-3 rounded-full"
+        style={{
+          opacity: startAnimation ? 1 : 0,
+          transform: startAnimation ? 'translateX(-1rem)' : '',
+          transition: 'all 1s linear',
+        }}
+      >
         <img src={Person} className="w-3" />
         <button className="text-white">ورود به حساب کاربری</button>
       </li>
@@ -57,10 +69,10 @@ const Navbar: FC = () => {
       <nav className="hidden md:block">
         <ul className="hidden gap-16 lg:flex items-center">
           {renderLoginButton()}
-          <NavbarItem href="/" text="صفحه اصلی" />
-          <NavbarItem href="/financial-support" text="اپلیکیشن و دی‌ان‌اس" />
-          <NavbarItem href="/prices" text="تعرفه" />
-          <NavbarItem href="/servers-status" text="وضعیت سرورها" />
+          <NavbarItem href="/" text="صفحه اصلی" delay={200} />
+          <NavbarItem href="/financial-support" text="اپلیکیشن و دی‌ان‌اس" delay={400} />
+          <NavbarItem href="/prices" text="تعرفه" delay={600} />
+          <NavbarItem href="/servers-status" text="وضعیت سرورها" delay={800} />
         </ul>
       </nav>
       {/* <img

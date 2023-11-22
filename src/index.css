@@ -52,3 +52,115 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+/* Animations */
+.slideUpScroll {
+  animation: slideUp 2.2s 2.2s both;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(6rem);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slideDown {
+  animation: slideDown 0.6s 0.9s both;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%) scale(1.1);
+  }
+
+  60% {
+    transform: scale(1.1);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.slideLeft {
+  animation: slideLeft 0.8s 1.2s both;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(4rem);
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 0.8;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.showFromRight {
+  position: relative;
+  z-index: -1;
+  animation: showFromRight 0.6s 1.8s linear both;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes showFromRight {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.rotateMagnifier {
+  animation: rotateMagnifier 0.8s both;
+}
+
+@keyframes rotateMagnifier {
+  from {
+    transform: rotate(20deg) scale(0.6);
+  }
+
+  to {
+    transform: rotate(0) scale(1);
+  }
+}
+
+.slideUpMagnifier {
+  animation: slideUpMagnifier 0.8s both;
+}
+
+@keyframes slideUpMagnifier {
+  from {
+    transform: translateY(8rem) scale(1.2);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(3rem) scale(1.2);
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
