@@ -27,6 +27,39 @@ const Home = () => {
       <ElectroDNS />
       <ElectroTrains />
     </div>
+
+    // <div style={{ position: 'relative', height: '100%' }}>
+    //   <a href="#ElectroTrains" className="fixed z-50">
+    //     {' '}
+    //     this is the end
+    //   </a>
+    //   <img src={FullImage} className="absolute w-full min-h-full -z-10" />
+    //   <Navbar />
+
+    //   <Swiper
+    //     direction={'vertical'}
+    //     slidesPerView={1}
+    //     speed={1200}
+    //     mousewheel={true}
+    //     modules={[Mousewheel]}
+    //     className="mySwiper"
+    //   >
+    //     <div className="flex flex-col gap-10">
+    //       <SwiperSlide>
+    //         <FreeElectro />
+    //       </SwiperSlide>
+    //       <SwiperSlide>
+    //         <ElectroApp />
+    //       </SwiperSlide>
+    //       <SwiperSlide>
+    //         <ElectroDNS />
+    //       </SwiperSlide>
+    //       <SwiperSlide>
+    //         <ElectroTrains />
+    //       </SwiperSlide>
+    //     </div>
+    //   </Swiper>
+    // </div>
   );
 };
 
