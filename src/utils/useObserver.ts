@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const useObserver = (containerRef: React.MutableRefObject<HTMLElement | null>) => {
   const [startAnimation, setStartAnimation] = useState<boolean>(false);
@@ -31,8 +31,7 @@ const useObserver = (containerRef: React.MutableRefObject<HTMLElement | null>) =
     };
   });
 
-  return startAnimation
+  return startAnimation;
+};
 
-}
-
-export default useObserver
+export default useObserver;
