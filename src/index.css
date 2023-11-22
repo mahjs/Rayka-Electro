@@ -6,7 +6,6 @@ body {
   direction: rtl;
 }
 .col2 {
-  min-width: 300px;
   transition: 2s ease;
   animation-name: trhead;
   animation-iteration-count: infinite;
@@ -31,8 +30,12 @@ body {
   -ms-transform: scale(1);
   transform: scale(1);
   opacity: 1;
-  -webkit-transition: opacity 0.8s ease, -webkit-transform 1.4s ease;
-  transition: opacity 0.8s ease, transform 1.4s ease;
+  -webkit-transition:
+    opacity 0.8s ease,
+    -webkit-transform 1.4s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 1.4s ease;
 }
 
 #particles-js {
