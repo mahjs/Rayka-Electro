@@ -9,7 +9,11 @@ const ElectroDNS = () => {
   const startAnimation = useObserver(containerRef);
 
   return (
-    <section ref={containerRef} id="ElectroDNS" className="flex relative justify-around flex-wrap min-h-[100vh]">
+    <section
+      ref={containerRef}
+      id="ElectroDNS"
+      className="flex relative justify-around flex-wrap min-h-[100dvh] h-[100dvh]"
+    >
       <div className="flex items-center justify-center">
         <div className="flex mr-auto max-w-[50%] pr-36 flex-col">
           <p
@@ -77,6 +81,7 @@ const ElectroDNS = () => {
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'rotate(0)' : 'rotate(20deg)',
               transition: 'all 1s ease-out',
+              width: '1000px',
             }}
             src={Phone}
             className="rotateMagnifier w-[1000px] ml-20 "
@@ -88,7 +93,10 @@ const ElectroDNS = () => {
           opacity: startAnimation ? 1 : 0,
           transform: startAnimation ? 'translateY(0)' : 'translateY(-2rem)',
           transition: 'all .8s 2.8s ease-out',
+          width: '45px',
+          height: '44px',
         }}
+        alt="caret"
         src={Caret}
         className="w-[45px] absolute bottom-10 left-[50%] translate-x-[50%]"
       />

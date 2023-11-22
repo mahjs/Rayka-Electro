@@ -115,7 +115,6 @@ body {
 }
 
 .showFromRight {
-  position: relative;
   z-index: -1;
   animation: showFromRight 0.6s 1.8s linear both;
   overflow: hidden;

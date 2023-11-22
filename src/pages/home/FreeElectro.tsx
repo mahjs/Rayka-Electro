@@ -3,7 +3,7 @@ import Mouse from '../../assets/images/mouse.svg';
 
 const FreeElectro = () => {
   return (
-    <div id="FreeElectro" className="px-10 md:px-20 flex flex-col justify-center min-h-[100vh] z-20">
+    <div id="FreeElectro" className="px-10 md:px-20 flex flex-col justify-center min-h-[100dvh]  z-20">
       <div className="flex justify-center items-center lg:justify-between">
         <div className="max-w-[40%]">
           <p className="text-white text-[5.5rem] font-bold slideLeft">

@@ -10,7 +10,11 @@ const ElectroApp = () => {
   const startAnimation = useObserver(containerRef);
 
   return (
-    <section id="ElectroApp" ref={containerRef} className="flex justify-center flex-col gap-5 min-h-[100vh]">
+    <section
+      id="ElectroApp"
+      ref={containerRef}
+      className="flex justify-center flex-col gap-5 min-h-[100dvh] h-[100dvh]"
+    >
       <div className="flex items-center">
         <img
           src={Laptob}
@@ -46,7 +50,7 @@ const ElectroApp = () => {
               }}
               className="flex justify-center items-center gap-2 border-[2px] py-2 px-5 rounded-full bg-[#ffffff33]"
             >
-              <img src={Windows} className="w-[20px]" />
+              <img src={Windows} className="w-[20px]" alt="windows" style={{ width: '20px' }} />
               <p className="text-white">اپلیکیشن ویندوز</p>
             </button>
             <button
@@ -57,20 +61,23 @@ const ElectroApp = () => {
               }}
               className="flex justify-center items-center gap-2 py-2 px-5 bg-[#8C39F3] rounded-full"
             >
-              <img src={Android} className="w-[20px]" />
+              <img alt="android" src={Android} className="w-[20px]" style={{ width: '20px' }} />
               <p className="text-white ">اپلیکیشن اندروید</p>
             </button>
           </div>
         </div>
       </div>
       <img
+        alt="caret"
         style={{
           opacity: startAnimation ? 1 : 0,
           transform: startAnimation ? 'translateY(0)' : 'translateY(-2rem)',
           transition: 'all .8s 2.3s ease-out',
+          width: '45px',
+          height: '45px',
         }}
         src={Caret}
-        className="w-[45px] absolute top-[198vh] bottom-10 left-[50%] translate-x-[50%]"
+        className="w-[45px] absolute  bottom-10 left-[50%] translate-x-[50%]"
       />
     </section>
   );
