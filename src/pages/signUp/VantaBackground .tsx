@@ -12,7 +12,7 @@ const VantaBackground: React.FC = () => {
       vantaEffect = NET({
         el: vantaRef.current,
         THREE: THREE,
-        // color: 0xff0000,
+        // color1: 0xff0000,
         color: 0x2b889a,
         backgroundColor: 0x23153c,
         points: 10,
