@@ -11,12 +11,12 @@ interface Props {
 
 const PlanFeatures: FC<Props> = ({ icon, title, featuresList, price }) => {
   return (
-    <div className="flex flex-col gap-5 min-w-[28%] min-h-[500px] p-5 border-[#ffffff33] border-[1.5px] rounded-lg  bg-[#ffffff33] ">
+    <div className="flex flex-col gap-5 md:min-w-[520px] min-h-[500px] p-5 border-[#ffffff33] border-[1.5px] rounded-lg  bg-[#ffffff33] ">
       <div className="flex gap-3 text-white items-center">
         <img alt="icon" src={icon} className="w-[40px] h-[40px]" style={{ width: '40px', height: '40px' }} />
         <h3 className="text-[2.5rem] font-bold">{title}</h3>
       </div>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-4">
         {featuresList.map((feature, index) => (
           <div key={index} className="flex items-center gap-3 text-white">
             <img

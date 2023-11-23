@@ -36,7 +36,7 @@ const ElectroTrains = () => {
     <section
       ref={containerRef}
       id="ElectroTrains"
-      className="overflow-hidden min-h-[100dvh] gap-20 flex justify-center items-center"
+      className="overflow-hidden min-w-full min-h-[100dvh] gap-20 flex justify-center items-center"
     >
       {startAnimation && (
         <>

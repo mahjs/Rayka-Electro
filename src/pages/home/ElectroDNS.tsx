@@ -22,7 +22,7 @@ const ElectroDNS = () => {
               transform: startAnimation ? 'translateX(0)' : 'translateX(2rem)',
               transition: 'all .6s .8s',
             }}
-            className="text-[5.5rem] font-bold text-white"
+            className="text-[5.5rem] text-right font-bold text-white"
           >
             دی‌ان‌اس <span className="text-[#8C39F3]">الکترو</span>
           </p>
@@ -82,6 +82,7 @@ const ElectroDNS = () => {
               transform: startAnimation ? 'rotate(0)' : 'rotate(20deg)',
               transition: 'all 1s ease-out',
               width: '1000px',
+              objectFit: 'contain',
             }}
             src={Phone}
             className="rotateMagnifier w-[1000px] ml-20 "

@@ -27,6 +27,7 @@ const ElectroApp = () => {
         />
         <div id="ElectroApp" className="flex flex-col">
           <div
+            className="flex flex-col items-start"
             style={{
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'translateX(0)' : 'translateX(3rem)',
@@ -36,7 +37,7 @@ const ElectroApp = () => {
             <p className="text-[5.5rem] font-bold text-white">
               دانلود اپلیکیشن <span className="text-[#8C39F3]">الکترو</span>
             </p>
-            <p className="text-[2rem] max-w-[80%] text-white">
+            <p className="text-[2rem] text-right max-w-[80%] text-white">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
               بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
             </p>
