@@ -15,15 +15,6 @@ import { Mousewheel } from 'swiper/modules';
 
 const Home = () => {
   return (
-    // <div className="flex flex-col gap-10">
-    //   <img src={FullImage} className="absolute w-full min-h-full -z-10" />
-    //   <Navbar />
-    //   <FreeElectro />
-    //   <ElectroApp />
-    //   <ElectroDNS />
-    //   <ElectroTrains />
-    // </div>
-
     <div style={{ position: 'relative', height: '100%' }}>
       <img alt="fullimage" src={FullImage} className="absolute w-full min-h-full -z-10" />
 
