@@ -6,6 +6,7 @@ import LeftArrow from '../../assets/images/left-arrow.svg';
 import StarPremium from '../../assets/images/star-premium.svg';
 import Bell from '../../assets/images/bell.svg';
 import { FC } from 'react';
+import { Tabs } from './Dashboard';
 
 export const user = {
   name: 'Alireza_AH191238',
@@ -33,9 +34,10 @@ const tabs = [
 
 interface Props {
   selectedTab: string;
+  handleSelectTab: (tab: Tabs) => void;
 }
 
-const SideBar: FC<Props> = ({ selectedTab }) => {
+const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
   return (
     <aside className="bg-[#ffffff33] rounded-2xl min-w-[300px] backdrop-blur-[37px] flex flex-col px-6 py-5 gap-4">
       <ProfileInfo name={user.name} email={user.email} premium={user.premium} />
@@ -43,6 +45,7 @@ const SideBar: FC<Props> = ({ selectedTab }) => {
       <div className="flex flex-col gap-1">
         {tabs.map((tab) => (
           <button
+            onClick={() => handleSelectTab(tab.name as Tabs)}
             key={tab.name}
             className="flex gap-3 items-center p-2 rounded-lg"
             style={{
