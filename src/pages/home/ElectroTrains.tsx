@@ -4,14 +4,14 @@ import PlanFeatures from '../../components/ui/PlanFeatures';
 import { useRef } from 'react';
 import useObserver from '../../utils/useObserver';
 
-const freePlan = {
+export const freePlan = {
   icon: Star,
   title: 'سطح معمولی',
   featuresList: ['استفاده از دی‌ان‌اس', 'استفاده از اپلیکیشن', 'لورم اپیسوم', 'لورم ایپسوم'],
   price: 0,
 };
 
-const paidPlan = {
+export const paidPlan = {
   icon: Crown,
   title: 'سطح ویژه',
   featuresList: [
@@ -36,20 +36,21 @@ const ElectroTrains = () => {
     <section
       ref={containerRef}
       id="ElectroTrains"
-      className="overflow-hidden min-w-full min-h-[100dvh] gap-20 flex justify-center items-center"
+      className="overflow-hidden min-w-full min-h-[100dvh] gap-10 flex justify-center items-center"
     >
       {startAnimation && (
         <>
-          <div className="slideUpMagnifier min-w-[28%] backdrop-blur-lg">
+          <div className="slideUpMagnifier min-h-[500px] min-w-[35%] backdrop-blur-lg">
             <PlanFeatures
               icon={paidPlan.icon}
               title={paidPlan.title}
               featuresList={paidPlan.featuresList}
               price={paidPlan.price}
+              absolute
             />
           </div>
           <div
-            className="slideUpMagnifier min-w-[28%] backdrop-blur-lg"
+            className="slideUpMagnifier min-h-[500px] min-w-[35%] backdrop-blur-lg"
             style={{
               animationDelay: '.5s',
             }}
@@ -59,6 +60,7 @@ const ElectroTrains = () => {
               title={freePlan.title}
               featuresList={freePlan.featuresList}
               price={freePlan.price}
+              absolute
             />
           </div>
         </>
