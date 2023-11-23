@@ -9,11 +9,7 @@ const ElectroDNS = () => {
   const startAnimation = useObserver(containerRef);
 
   return (
-    <section
-      ref={containerRef}
-      id="ElectroDNS"
-      className="flex relative justify-around flex-wrap min-h-[100dvh] h-[100dvh]"
-    >
+    <section ref={containerRef} id="ElectroDNS" className="flex relative justify-around flex-wrap min-h-[100dvh]">
       <div className="flex items-center justify-center">
         <div className="flex mr-auto max-w-[50%] pr-36 flex-col">
           <p
@@ -82,6 +78,7 @@ const ElectroDNS = () => {
               transform: startAnimation ? 'rotate(0)' : 'rotate(20deg)',
               transition: 'all 1s ease-out',
               width: '1000px',
+              height: '619px',
             }}
             src={Phone}
             className="rotateMagnifier w-[1000px] ml-20 "

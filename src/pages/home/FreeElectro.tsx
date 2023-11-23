@@ -5,19 +5,21 @@ const FreeElectro = () => {
   return (
     <div id="FreeElectro" className="px-10 md:px-20 flex flex-col justify-center min-h-[100dvh]  z-20">
       <div className="flex justify-center items-center lg:justify-between">
-        <div className="max-w-[40%]">
-          <p className="text-white text-[5.5rem] font-bold slideLeft">
+        <div className=" basis-2/5	text-justify	">
+          <p className="text-white text-[5.5rem] font-bold slideLeft header-1">
             با
             <span className="text-[#8C39F3]"> ((الکترو)) </span>
             آزادباش!
           </p>
-          <p className="text-white -mb-3 text-[2.5rem] showFromRight">
+          <p className="text-white -mb-3 mt-4 text-[2.5rem] showFromRight header-2 ">
             الکترو با هدف کمک به جامعه آنلاین ایران ایجاد شد تا{' '}
           </p>
-          <p className="text-white text-[2.5rem] showFromRight">تحریم های ظالمانه شرکت های خارجی مقابله کند...</p>
+          <p className="text-white text-[2.5rem] showFromRight header-2 ">
+            تحریم های ظالمانه شرکت های خارجی مقابله کند...
+          </p>
         </div>
-        <div className="lg:flex hidden slideDown">
-          <img src={Main} alt="الکترو electro Electro" className="w-[1000px]" />
+        <div className="flex  slideDown ">
+          <img src={Main} alt="الکترو electro Electro" style={{ width: '100%', height: '100%' }} />
         </div>
       </div>
 
