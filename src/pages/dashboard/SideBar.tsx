@@ -62,7 +62,7 @@ const SideBar: FC<Props> = ({ selectedTab }) => {
       </div>
 
       {/* Premium card */}
-      <div className="relative flex flex-col gap-5 py-2 px-4 text-white bg-gradient-to-tr from-[#859EBF77] to-[#5C749566] rounded-xl overflow-hidden mt-auto">
+      <div className="relative flex flex-col gap-5 py-2 px-4 text-white bg-[#ffffff22] rounded-xl overflow-hidden mt-auto">
         <img src={StarPremium} className="absolute w-[145px] h-[145px] opacity-10 -top-[60%] -left-[15%]" />
         <button className="flex gap-3 items-center ">
           <img src={StarPremium} />
@@ -76,7 +76,7 @@ const SideBar: FC<Props> = ({ selectedTab }) => {
         </div>
       </div>
 
-      <button className="flex items-center gap-3 text-white bg-gradient-to-tr from-[#859EBF77] to-[#5C749566] py-2 px-4 rounded-xl">
+      <button className="flex items-center gap-3 text-white  bg-[#ffffff22] py-2 px-4 rounded-xl">
         <img src={Bell} />
         <span className="font-bold">اعلانات</span>
         <span className="mr-auto py-1 px-2 text-[.8rem] rounded-full bg-white text-[#511A79]">{2}</span>

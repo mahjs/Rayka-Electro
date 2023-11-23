@@ -11,7 +11,7 @@ const MyAccount: FC<Props> = ({ premium }) => {
   return (
     <div className="w-full h-full text-white">
       <div className="flex h-full flex-col gap-5">
-        <div className="relative min-h-[200px] bg-gradient-to-tr from-[#859EBF77] to-[#5C749566] p-8 rounded-2xl backdrop-blur-md overflow-hidden">
+        <div className="flex flex-col gap-5 relative min-h-[200px]  p-8 rounded-2xl backdrop-blur-md overflow-hidden">
           <img
             src={StarPremium}
             className="absolute w-[400px] h-[400px] opacity-5 -top-[90%] -left-[5%]"
@@ -29,7 +29,7 @@ const MyAccount: FC<Props> = ({ premium }) => {
               </div>
             )}
             {!premium && <span>حساب کاربری عادی</span>}
-            <button className="mr-auto bg-white text-[#541A79] py-2 px-4 rounded-lg">
+            <button className="mr-auto bg-white text-[#541A79] py-3 px-5 rounded-lg">
               {premium ? 'تمدید اشتراک' : 'خرید اشتراک'}
             </button>
           </div>
