@@ -57,7 +57,7 @@ const Navbar: FC = () => {
         }}
       >
         <img src={Person} className="w-3" />
-        <button className="text-white">ورود به حساب کاربری</button>
+        <button className="text-white btn">ورود به حساب کاربری</button>
       </li>
     );
   };

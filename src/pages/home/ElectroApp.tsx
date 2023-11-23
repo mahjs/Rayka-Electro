@@ -24,21 +24,10 @@ const ElectroApp = () => {
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'scale(1)' : 'scale(.6)',
               transition: 'all .6s .1s linear',
-              width: '1000px',
+              width: '1200px',
             }}
           />
         </div>
-        {/* <img
-            style={{
-              opacity: startAnimation ? 1 : 0,
-              transform: startAnimation ? 'rotate(0)' : 'rotate(20deg)',
-              transition: 'all 1s ease-out',
-              width: '1000px',
-              height: '619px',
-            }}
-            src={Phone}
-            className="rotateMagnifier w-[1000px] ml-20 "
-          /> */}
 
         <div id="ElectroApp" className="flex flex-col">
           <div
