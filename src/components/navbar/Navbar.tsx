@@ -67,7 +67,7 @@ const Navbar: FC = () => {
       className={`absolute flex w-full items-center justify-between md:py-16 py-6 border-[#ffffff22] px-10 lg:px-20`}
     >
       <nav className="hidden md:block">
-        <ul className="hidden gap-16 lg:flex items-center btn">
+        <ul className="hidden gap-16 lg:flex items-center ">
           {renderLoginButton()}
           <NavbarItem href="/" text="صفحه اصلی" delay={200} />
           <NavbarItem href="/financial-support" text="اپلیکیشن و دی‌ان‌اس" delay={400} />

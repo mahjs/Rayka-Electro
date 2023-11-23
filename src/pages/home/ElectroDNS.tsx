@@ -11,7 +11,7 @@ const ElectroDNS = () => {
   return (
     <section ref={containerRef} id="ElectroDNS" className="flex relative justify-around flex-wrap min-h-[100dvh]">
       <div className="flex items-center justify-center">
-        <div className="flex mr-auto max-w-[50%] pr-36 flex-col text-justify">
+        <div className="flex mr-auto max-w-[50%] pr-36 flex-col text-justify z-20">
           <p
             style={{
               opacity: startAnimation ? 1 : 0,
@@ -30,7 +30,7 @@ const ElectroDNS = () => {
                   animationDelay: '1.2s',
                 }}
               >
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                لورم ایپسوم متن ساختگی با تولید سادگی از
               </p>
               <p
                 style={{
@@ -38,7 +38,7 @@ const ElectroDNS = () => {
                 }}
                 className="text-[2.5rem] text-white showFromRight header-2"
               >
-                صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و
+                صنعت چاپ و با استفاده از طراحان گرافیک است و
               </p>
               <p
                 style={{
@@ -46,7 +46,7 @@ const ElectroDNS = () => {
                 }}
                 className="text-[2.5rem] text-white showFromRight header-2"
               >
-                متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                متون بلکه روزنامه و مجله در ستون و سطرآنچنه
               </p>
             </>
           )}
