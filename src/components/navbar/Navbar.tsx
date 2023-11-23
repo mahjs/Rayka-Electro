@@ -49,7 +49,7 @@ const Navbar: FC = () => {
   const renderLoginButton = () => {
     return (
       <li
-        className="flex font-bold gap-2 bg-[#8C39F3] py-2 px-3 rounded-full"
+        className="flex font-bold gap-2 bg-[#8C39F3] p-5 rounded-full"
         style={{
           opacity: startAnimation ? 1 : 0,
           transform: startAnimation ? 'translateX(-1rem)' : '',
