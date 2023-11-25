@@ -103,7 +103,6 @@ const Navbar: FC = () => {
             <img src={ArrowLeft} className="rotate-[180deg]" />
             <p className="btn-3 text-white">بازگشت</p>
           </button>
-          0
           <p className="absolute btn-3 z-20 text-white bottom-5 left-[50%] whitespace-nowrap -translate-x-[50%]">
             POWERED BY ELECTRO
           </p>
