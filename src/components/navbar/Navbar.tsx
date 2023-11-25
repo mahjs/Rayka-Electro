@@ -97,7 +97,7 @@ const Navbar: FC = () => {
         <ul
           className={`fixed ${
             showNavbar ? 'right-0' : '-right-[100%]'
-          } top-0 flex h-full w-[20rem] flex-col justify-start pt-16 px-6 gap-5 bg-[#ffffff22] border-[1.5px] border-[#ffffff83] rounded-tl-3xl rounded-bl-3xl border-r-[0px] backdrop-blur-[40px] transition-all duration-500 lg:hidden`}
+          } top-0 flex h-full w-[20rem] flex-col justify-start pt-16 px-6 gap-5 bg-[#ffffff22] border-[1.5px] border-[#ffffff43] rounded-tl-3xl rounded-bl-3xl border-r-[0px] backdrop-blur-[40px] transition-all duration-500 lg:hidden`}
         >
           <button onClick={() => setShowNavbar(false)} className="absolute right-5 top-5 flex items-center gap-2">
             <img src={ArrowLeft} className="rotate-[180deg]" />
