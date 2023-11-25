@@ -4,8 +4,8 @@ import main from '../../assets/images/main.svg';
 
 const FreeElectro = () => {
   return (
-    <div id="FreeElectro" className="px-10 md:px-20 flex flex-col lg:justify-center justify-between ">
-      <div className="flex lg:flex-row  flex-col-reverse justify-center  items-center ">
+    <div id="FreeElectro" className="px-10 md:px-20  flex flex-col justify-center  min-h-[100dvh]">
+      <div className="flex lg:flex-row lg:gap-28  flex-col-reverse justify-center  items-center ">
         <div className="">
           <p className="text-white  slideLeft header-1 	">
             با
@@ -24,7 +24,7 @@ const FreeElectro = () => {
         </div>
       </div>
 
-      <div className="slideUpScroll flex    flex-col justify-center items-center gap-2">
+      <div className="slideUpScroll flex    flex-col justify-center items-center gap-2 mb-3">
         <img src={Mouse} style={{ width: '60px' }} />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
