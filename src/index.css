@@ -50,9 +50,9 @@ select {
   line-height: normal;
   /* font-weight: 700; */
 
-  /* @media screen and (max-width: 768px) {
-    font-size: 1.36719rem;
-  } */
+  @media screen and (max-width: 1770px) {
+    font-size: 3.875rem;
+  }
 }
 
 .title-1 {
