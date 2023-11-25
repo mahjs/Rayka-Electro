@@ -15,7 +15,7 @@ import { Mousewheel } from 'swiper/modules';
 
 const Home = () => {
   return (
-    <div style={{ position: 'relative', height: '100%' }}>
+    <div style={{ position: 'relative', height: '100%', zIndex: 10 }}>
       <img alt="fullimage" src={FullImage} className="absolute w-full min-h-full -z-10" />
 
       <Swiper
