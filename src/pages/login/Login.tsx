@@ -11,7 +11,7 @@ const Login: React.FC = () => {
       <div className="absolute top-0 left-0 right-0">
         <Navbar />
       </div>
-      <div className="flex flex-wrap absolute w-full justify-around items-center p-4 top-36">
+      <div className="flex flex-wrap absolute w-full justify-evenly items-center p-4 top-36">
         <LoginForm />
         <img src={LoginImg} alt="LoginImg" style={{ width: '33rem', height: '33rem' }} />
       </div>
