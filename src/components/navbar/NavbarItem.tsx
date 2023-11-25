@@ -30,7 +30,7 @@ const NavbarItem: FC<Props> = ({ onClick, href, text, delay = 0 }) => {
   return (
     <li
       onClick={onClick}
-      className={`text-white flex-col text-center text-[1.2rem] transition-all`}
+      className={`text-white flex-col text-center text-[1.2rem] transition-all btn`}
       style={{
         opacity: startAnimation ? 1 : 0,
         transform: startAnimation ? 'translateY(0)' : 'translateY(-.2rem)',

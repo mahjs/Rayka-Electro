@@ -16,7 +16,7 @@ const useObserver = (containerRef: React.MutableRefObject<HTMLElement | null>) =
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.8,
+        threshold: .8,
       },
     );
 

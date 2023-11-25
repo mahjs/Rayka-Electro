@@ -49,7 +49,7 @@ const Navbar: FC = () => {
   const renderLoginButton = () => {
     return (
       <li
-        className="flex font-bold gap-2 bg-[#8C39F3] py-2 px-3 rounded-full"
+        className="flex font-bold gap-2 bg-[#8C39F3] p-5 rounded-full"
         style={{
           opacity: startAnimation ? 1 : 0,
           transform: startAnimation ? 'translateX(-1rem)' : '',
@@ -57,19 +57,17 @@ const Navbar: FC = () => {
         }}
       >
         <img src={Person} className="w-3" />
-        <button className="text-white">
-          <a href="/login">ورود به حساب کاربری</a>
-        </button>
+        <button className="text-white btn">ورود به حساب کاربری</button>
       </li>
     );
   };
 
   return (
     <header
-      className={`absolute flex w-full items-center justify-between md:py-16 py-6 border-[#ffffff22] px-10 lg:px-20`}
+      className={`absolute z-20 flex w-full items-center justify-between md:py-16 py-6 border-[#ffffff22] px-10 lg:px-20`}
     >
       <nav className="hidden md:block">
-        <ul className="hidden gap-16 lg:flex items-center">
+        <ul className="hidden gap-16 lg:flex items-center ">
           {renderLoginButton()}
           <NavbarItem href="/" text="صفحه اصلی" delay={200} />
           <NavbarItem href="/financial-support" text="اپلیکیشن و دی‌ان‌اس" delay={400} />
