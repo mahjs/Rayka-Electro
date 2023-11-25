@@ -13,6 +13,7 @@ import Crown from '../../assets/images/small-crown.svg';
 import CrownWhite from '../../assets/images/small-crown-white.svg';
 import Server from '../../assets/images/server.svg';
 import ServerWhite from '../../assets/images/server-white.svg';
+import ArrowLeft from '../../assets/images/left-arrow.svg';
 import Person from '../../assets/images/person.svg';
 
 /**
@@ -98,9 +99,11 @@ const Navbar: FC = () => {
             showNavbar ? 'right-0' : '-right-[100%]'
           } top-0 flex h-full w-[20rem] flex-col justify-start pt-16 px-6 gap-5 bg-[#ffffff22] border-[1.5px] border-[#ffffff83] rounded-tl-3xl rounded-bl-3xl border-r-[0px] backdrop-blur-[40px] transition-all duration-500 lg:hidden`}
         >
-          <button onClick={() => setShowNavbar(false)} className="absolute right-5 top-5 flex items-center gap-3">
+          <button onClick={() => setShowNavbar(false)} className="absolute right-5 top-5 flex items-center gap-2">
+            <img src={ArrowLeft} className="rotate-[180deg]" />
             <p className="btn-3 text-white">بازگشت</p>
           </button>
+          0
           <p className="absolute btn-3 z-20 text-white bottom-5 left-[50%] whitespace-nowrap -translate-x-[50%]">
             POWERED BY ELECTRO
           </p>
