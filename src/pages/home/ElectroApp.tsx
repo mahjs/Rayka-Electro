@@ -10,12 +10,8 @@ const ElectroApp = () => {
   const startAnimation = useObserver(containerRef);
 
   return (
-    <div
-      id="ElectroApp"
-      ref={containerRef}
-      className="flex justify-center flex-col gap-5 min-h-[100dvh]  px-10 md:px-20"
-    >
-      <div className="flex lg:flex-row lg:justify-between lg:gap-44  flex-col gap-8 items-center">
+    <div id="ElectroApp" ref={containerRef} className="flex justify-center flex-col gap-5 h-[100dvh]  px-10 md:px-20">
+      <div className="flex lg:flex-row lg:justify-between lg:gap-44  flex-col  items-center">
         <div className="flex  slideDown		md:basis-9/12		">
           <img
             src={Laptop}
@@ -27,7 +23,7 @@ const ElectroApp = () => {
           />
         </div>
 
-        <div id="ElectroApp" className="flex flex-col gap-5">
+        <div id="ElectroApp" className="flex flex-col ">
           <div
             className="flex flex-col justify-center  lg:items-start items-center "
             style={{
@@ -52,7 +48,7 @@ const ElectroApp = () => {
                 transform: startAnimation ? 'translateY(0)' : 'translateY(2rem)',
                 transition: 'all .5s 1.3s ease',
               }}
-              className="flex justify-center items-center gap-2 border-[2px] py-2 btn px-5 rounded-full bg-[#ffffff33]"
+              className="flex justify-center items-center gap-2 border-[2px] py-2 btn px-5 rounded-full bg-[rgba(255,255,255,0.2)]"
             >
               <img src={Windows} className="w-[20px]" alt="windows" style={{ width: '20px' }} />
               <p className="text-white">اپلیکیشن ویندوز</p>

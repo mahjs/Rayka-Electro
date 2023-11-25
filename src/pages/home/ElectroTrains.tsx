@@ -36,11 +36,11 @@ const ElectroTrains = () => {
     <section
       ref={containerRef}
       id="ElectroTrains"
-      className="overflow-hidden min-w-full min-h-[100dvh] gap-10 flex justify-center items-center"
+      className="overflow-hidden min-w-full h-[100dvh] md:gap-10  flex flex-col md:flex-row gap-11  justify-center items-center"
     >
       {startAnimation && (
         <>
-          <div className="slideUpMagnifier min-h-[500px] min-w-[35%] backdrop-blur-lg">
+          <div className="slideUpMagnifier mt-32 md:mt-0  h-[550px]  md:w-[42%] w-[93%] backdrop-blur-lg">
             <PlanFeatures
               icon={paidPlan.icon}
               title={paidPlan.title}
@@ -50,7 +50,7 @@ const ElectroTrains = () => {
             />
           </div>
           <div
-            className="slideUpMagnifier min-h-[500px] min-w-[35%] backdrop-blur-lg"
+            className="slideUpMagnifier md:visible invisible h-[550px]  md:w-[42%] w-[93%] backdrop-blur-lg"
             style={{
               animationDelay: '.5s',
             }}

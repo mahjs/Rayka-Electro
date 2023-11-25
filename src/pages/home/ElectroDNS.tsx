@@ -12,7 +12,7 @@ const ElectroDNS = () => {
     <section
       ref={containerRef}
       id="ElectroDNS"
-      className="flex justify-center flex-col gap-5 min-h-[100dvh]  px-10 md:px-20"
+      className="flex justify-center flex-col gap-5 h-[100dvh]  px-10 md:px-20"
     >
       <div className="flex lg:flex-row flex-col-reverse items-center justify-center ">
         <div className="flex  lg:max-w-[50%] lg:pr-36 flex-col text-justify m-0 z-20 lg:items-start items-center">

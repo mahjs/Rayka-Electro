@@ -18,7 +18,7 @@ const PlanFeatures: FC<Props> = ({ icon, active, disable, title, featuresList, p
       style={{
         position: absolute ? 'absolute' : 'initial',
       }}
-      className="h-full w-full flex flex-col gap-5 py-5 px-8 border-[#ffffff33] border-[1.5px] rounded-lg  bg-[#ffffff22] "
+      className=" w-full flex flex-col gap-5 py-5 px-8 border-[#ffffff33] border-[1.5px] rounded-lg  bg-[#ffffff22] "
     >
       <div className="flex gap-3 text-white items-center">
         <img alt="icon" src={icon} className="w-[40px] h-[40px]" style={{ width: '40px', height: '40px' }} />
@@ -36,7 +36,7 @@ const PlanFeatures: FC<Props> = ({ icon, active, disable, title, featuresList, p
                 height: '20px',
               }}
             />
-            <span className="text-[1.5rem] body">{feature}</span>
+            <span className=" body">{feature}</span>
           </div>
         ))}
       </div>
