@@ -9,7 +9,7 @@ const App: FC = () => {
   return (
     <>
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           {mainRoutes.map((route) => (
             <Route key={route.path} path={route.path} element={route.element} />
