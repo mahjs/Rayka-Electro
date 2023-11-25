@@ -7,20 +7,26 @@ import Home from '../../assets/images/home.svg';
 import HomeWhite from '../../assets/images/home-white.svg';
 import Download from '../../assets/images/download.svg';
 import DownloadWhite from '../../assets/images/download-white.svg';
-// import DNS from '../../assets/images/dns.svg';
-// import DNSWhite from '../../assets/images/dns-white.svg';
+import DNS from '../../assets/images/dns.svg';
+import DNSWhite from '../../assets/images/dns-white.svg';
 import Crown from '../../assets/images/small-crown.svg';
 import CrownWhite from '../../assets/images/small-crown-white.svg';
 import Server from '../../assets/images/server.svg';
 import ServerWhite from '../../assets/images/server-white.svg';
 import ArrowLeft from '../../assets/images/left-arrow.svg';
 import Person from '../../assets/images/person.svg';
+import Swiper from 'swiper';
 
 /**
  * Navbar for the whole app.
  */
 
-const Navbar: FC = () => {
+interface Props {
+  swiper: Swiper | null;
+  currentIndex: number;
+}
+
+const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
 
   const { pathname } = useLocation();
@@ -85,12 +91,25 @@ const Navbar: FC = () => {
       }`}
     >
       <nav className="hidden lg:block">
-        <ul className="hidden gap-16 lg:flex items-center">
+        <ul className="hidden gap-10 lg:flex items-center">
           {renderLoginButton()}
-          <NavbarItem href="/" text="صفحه اصلی" delay={200} />
-          <NavbarItem href="/financial-support" text="اپلیکیشن و دی‌ان‌اس" delay={400} />
-          <NavbarItem href="/prices" text="تعرفه" delay={600} />
-          <NavbarItem href="/servers-status" text="وضعیت سرورها" delay={800} />
+          <NavbarItem
+            selected={currentIndex === 0}
+            onClick={() => {
+              swiper?.slideTo(0);
+            }}
+            text="صفحه اصلی"
+            delay={200}
+          />
+          <NavbarItem selected={currentIndex === 1} onClick={() => swiper?.slideTo(1)} text="اپلیکیشن" delay={400} />
+          <NavbarItem selected={currentIndex === 2} onClick={() => swiper?.slideTo(2)} text="دی‌ان‌اس" delay={600} />
+          <NavbarItem selected={currentIndex === 3} onClick={() => swiper?.slideTo(3)} text="تعرفه" delay={800} />
+          <NavbarItem
+            selected={currentIndex === 4}
+            onClick={() => swiper?.slideTo(4)}
+            text="وضعیت سرورها"
+            delay={1000}
+          />
         </ul>
       </nav>
       <nav className="lg:hidden">
@@ -107,29 +126,49 @@ const Navbar: FC = () => {
             POWERED BY ELECTRO
           </p>
           {renderLoginButton()}
-          <NavbarItem icon={pathname === '/' ? Home : HomeWhite} onClick={handleLinkClick} href="/" text="صفحه اصلی" />
           <NavbarItem
-            icon={pathname === '/financial-support' ? Download : DownloadWhite}
-            onClick={handleLinkClick}
-            href="/financial-support"
+            icon={currentIndex === 0 ? Home : HomeWhite}
+            selected={currentIndex === 0}
+            onClick={() => {
+              handleLinkClick();
+              swiper?.slideTo(0);
+            }}
+            text="صفحه اصلی"
+          />
+          <NavbarItem
+            onClick={() => {
+              handleLinkClick();
+              swiper?.slideTo(1);
+            }}
+            icon={currentIndex === 1 ? Download : DownloadWhite}
+            selected={currentIndex === 1}
             text="دانلود اپلیکیشن و دی‌ان‌اس"
           />
-          {/* <NavbarItem
-            icon={pathname === '/financial-support' ? DNS : DNSWhite}
-            onClick={handleLinkClick}
-            href="/financial-support"
-            text="دی‌ان‌اس"
-          /> */}
           <NavbarItem
-            icon={pathname === '/prices' ? Crown : CrownWhite}
-            onClick={handleLinkClick}
-            href="/prices"
+            icon={currentIndex === 2 ? DNS : DNSWhite}
+            selected={currentIndex === 2}
+            onClick={() => {
+              handleLinkClick();
+              swiper?.slideTo(2);
+            }}
+            text="دی‌ان‌اس"
+          />
+          <NavbarItem
+            icon={currentIndex === 3 ? Crown : CrownWhite}
+            selected={currentIndex === 3}
+            onClick={() => {
+              handleLinkClick();
+              swiper?.slideTo(3);
+            }}
             text="پلن‌های الکترو"
           />
           <NavbarItem
-            icon={pathname === '/servers-status' ? Server : ServerWhite}
-            onClick={handleLinkClick}
-            href="/servers-status"
+            icon={currentIndex === 4 ? Server : ServerWhite}
+            selected={currentIndex === 4}
+            onClick={() => {
+              handleLinkClick();
+              swiper?.slideTo(4);
+            }}
             text="وضعیت سرور‌ها"
           />
         </ul>
