@@ -168,11 +168,11 @@ const InputField: React.FC<InputFieldProps> = ({
   widthClass = 'w-full md:w-[11rem]',
 }) => {
   return (
-    <>
+    <div>
       <div
         className={`flex items-center border bg-transparent ${
-          error ? 'border-red-500' : 'border-slate-500 focus-within:border-white'
-        } p-4 mb-5 ${widthClass} rounded-[1.25rem]`}
+          error ? 'border-red-500 my-3' : 'border-slate-500 focus-within:border-white'
+        } p-4 mb-3 ${widthClass} rounded-[1.25rem]`}
       >
         {icon}
         <input
@@ -181,9 +181,9 @@ const InputField: React.FC<InputFieldProps> = ({
           type={type}
           placeholder={placeholder}
         />
-        {error && <span className="text-red-500 text-xs">{error.message}</span>}
       </div>
-    </>
+      {error && <span className="text-red-500 text-sm w-[11rem]">{error.message}</span>}
+    </div>
   );
 };
 

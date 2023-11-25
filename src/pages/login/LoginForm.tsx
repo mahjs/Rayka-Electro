@@ -113,8 +113,8 @@ const InputField: React.FC<InputFieldProps> = ({ name, placeholder, register, er
     <>
       <div
         className={`flex items-center border w-full ${
-          error ? 'border-red-500' : 'border-slate-500 focus-within:border-white'
-        } p-4 mb-5 rounded-[1.25rem] bg-transparent`}
+          error ? 'border-red-500 my-3' : 'border-slate-500 focus-within:border-white'
+        } p-4 mb-3 rounded-[1.25rem] bg-transparent`}
       >
         {icon}
         <input
@@ -123,8 +123,8 @@ const InputField: React.FC<InputFieldProps> = ({ name, placeholder, register, er
           type={type}
           placeholder={placeholder}
         />
-        {error && <span className="text-red-500 text-xs">{error.message}</span>}
       </div>
+      {error && <span className="text-red-500 text-xs">{error.message}</span>}
     </>
   );
 };
