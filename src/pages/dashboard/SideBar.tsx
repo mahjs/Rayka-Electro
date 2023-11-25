@@ -67,7 +67,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
       {/* Premium card */}
       <div className="relative flex flex-col gap-5 py-2 px-4 text-white bg-[#ffffff22] rounded-xl overflow-hidden mt-auto">
         <img src={StarPremium} className="absolute w-[145px] h-[145px] opacity-10 -top-[60%] -left-[15%]" />
-        <button className="flex gap-3 items-center ">
+        <button onClick={() => handleSelectTab('upgrade')} className="flex gap-3 items-center ">
           <img src={StarPremium} />
           <p>نوع حساب شما</p>
           <img src={LeftArrow} className="mr-auto" />

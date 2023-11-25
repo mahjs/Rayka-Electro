@@ -38,6 +38,12 @@ body {
   font-family: 'Kalameh';
 }
 
+select {
+  -webkit-appearance: none; /* Remove default arrow for Webkit browsers like Chrome and Safari */
+  -moz-appearance: none; /* Remove default arrow for Firefox */
+  appearance: none;
+}
+
 .header-1 {
   font-family: 'KalamehBold';
   font-size: 4.875rem;
@@ -52,6 +58,12 @@ body {
 .title-1 {
   font-family: 'KalamehBold';
   font-size: 2.875rem;
+  line-height: normal;
+}
+
+.title-2 {
+  font-family: 'KalamehBold';
+  font-size: 2.175rem;
   line-height: normal;
 }
 
@@ -70,6 +82,15 @@ body {
   font-family: 'kalameh';
   font-size: 1.3125rem;
   line-height: 1.07188rem;
+  /* @media screen and (max-width: 758px) {
+    font-size: 0.83rem;
+  } */
+}
+
+.btn-2 {
+  font-family: 'kalameh';
+  font-size: 1.0125rem;
+  line-height: 1.00188rem;
   /* @media screen and (max-width: 758px) {
     font-size: 0.83rem;
   } */
