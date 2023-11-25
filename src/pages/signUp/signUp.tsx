@@ -11,9 +11,9 @@ const SignUp: React.FC = () => {
       <div className="absolute top-0 left-0 right-0">
         <Navbar />
       </div>
-      <div className="flex flex-wrap absolute w-full justify-evenly p-4 top-36">
+      <div className="flex flex-wrap absolute w-full justify-evenly items-center p-4 top-72 md:top-44">
         <SignUpForm />
-        <img src={signImg} alt="sign image " style={{ width: '30rem', height: '33rem' }} />
+        <img src={signImg} alt="sign image " className="hidden md:flex w-[30%] h-[33%]" />
       </div>
     </div>
   );

@@ -48,12 +48,12 @@ const SignUpForm: React.FC = () => {
   const password = watch('password');
 
   return (
-    <div className="bg-[#501a79] mb-4 md:mb-0 rounded-[1.25rem] border border-zinc-600 w-[35rem] mt-2 p-6 flex flex-col items-center space-y-6">
+    <div className="bg-[#501a79] h-[90%] mb-4 lg:mb-0 rounded-[1.25rem] border border-zinc-600 w-[40rem] md:w-[44rem] mt-2 py-6 px-4 flex flex-col items-center space-y-6">
       <img src={Logo} alt="Logo" className="w-20 h-20" />
       <h2 className="text-white text-3xl font-bold">ساخت حساب جدید</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-[28rem] flex flex-wrap justify-between text-white bg-transparent"
+        className="w-full max-w-[90%] flex flex-wrap justify-between text-white bg-transparent"
       >
         <InputField
           name="username"
@@ -84,9 +84,9 @@ const SignUpForm: React.FC = () => {
           error={errors.email}
           type="email"
           validation={emailValidation}
-          widthClass="w-full md:w-[16rem]"
+          widthClass=" md:w-[22rem]"
           icon={
-            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="22" viewBox="0 0 27 22" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 22" fill="none">
               <path
                 opacity="0.4"
                 d="M6 6L8.69875 8.25C10.995 10.1625 12.1425 11.1188 13.5 11.1188C14.8575 11.1188 16.0063 10.1625 18.3013 8.24875L21 6M1 11C1 6.28625 1 3.92875 2.465 2.465C3.92875 1 6.28625 1 11 1H16C20.7137 1 23.0712 1 24.535 2.465C26 3.92875 26 6.28625 26 11C26 15.7138 26 18.0712 24.535 19.535C23.0712 21 20.7137 21 16 21H11C6.28625 21 3.92875 21 2.465 19.535C1 18.0712 1 15.7138 1 11Z"
@@ -99,12 +99,12 @@ const SignUpForm: React.FC = () => {
         />
         <InputField
           name="password"
-          placeholder="کلمه عبور"
+          placeholder="تکرار کلمه عبور"
           register={register}
           error={errors.password}
           type="password"
           validation={passwordValidation}
-          widthClass="w-full md:w-[16rem]"
+          widthClass=" md:w-[22rem]"
           icon={
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
               <path
@@ -169,10 +169,10 @@ const InputField: React.FC<InputFieldProps> = ({
   type,
   icon,
   validation,
-  widthClass = 'w-full md:w-[11rem]',
+  widthClass = ' md:w-[15rem]',
 }) => {
   return (
-    <div>
+    <div className={`w-full ${widthClass}`}>
       <div
         className={`flex items-center border bg-transparent ${
           error ? 'border-red-500 my-3' : 'border-slate-500 focus-within:border-white'
@@ -186,7 +186,7 @@ const InputField: React.FC<InputFieldProps> = ({
           placeholder={placeholder}
         />
       </div>
-      {error && <span className="text-red-500 text-sm w-[11rem]">{error.message}</span>}
+      {error && <span className="text-red-500 text-sm w-[15rem]">{error.message}</span>}
     </div>
   );
 };
