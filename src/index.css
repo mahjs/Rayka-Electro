@@ -118,19 +118,19 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
-.col2 {
-  transition: 2s ease;
-  animation-name: trhead;
+.bounce {
+  animation-name: bounce;
   animation-iteration-count: infinite;
-  animation-duration: 7s;
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
 }
 
-@keyframes trhead {
+@keyframes bounce {
   0% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
   1000% {
     transform: translateY(0);
