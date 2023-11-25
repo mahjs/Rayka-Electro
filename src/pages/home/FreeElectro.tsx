@@ -6,7 +6,7 @@ const FreeElectro = () => {
     <div id="FreeElectro" className="px-10 md:px-20 flex flex-col justify-center min-h-[100dvh]  z-20">
       <div className="flex justify-center items-center lg:justify-between">
         <div className="">
-          <p className="text-white  slideLeft header-1 	">
+          <p className="text-white whitespace-nowrap  slideLeft header-1 	">
             با
             <span className="text-[#8C39F3]"> ((الکترو)) </span>
             آزادباش!
