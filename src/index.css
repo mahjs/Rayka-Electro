@@ -162,7 +162,7 @@ body {
 
 /* Animations */
 .slideUpScroll {
-  animation: slideUp 2.2s 2.2s both;
+  animation: slideUp 2.2s 1.8s both;
 }
 
 @keyframes slideUp {
