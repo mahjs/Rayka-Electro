@@ -24,7 +24,7 @@ const FreeElectro = () => {
       </div>
 
       <div className="slideUpScroll flex absolute bottom-5 left-[50%] translate-x-[50%] flex-col justify-center items-center gap-2">
-        <img src={Mouse} className="opacity-75" />
+        <img src={Mouse} className="bounce opacity-75 w-[60px] h-[60px]" />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
     </div>

@@ -64,7 +64,7 @@ const Navbar: FC = () => {
 
   return (
     <header
-      className={`absolute z-20 flex w-full items-center justify-between md:py-16 py-6 border-[#ffffff22] px-10 lg:px-20`}
+      className={`absolute z-20 flex w-full items-center justify-between md:py-16 py-6 border-[#ffffff22] px-10 lg:px-20 backdrop-blur-[5px]`}
     >
       <nav className="hidden md:block">
         <ul className="hidden gap-16 lg:flex items-center ">
