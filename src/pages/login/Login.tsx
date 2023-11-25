@@ -1,13 +1,13 @@
 import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
-import LoginImg from '../../assets/images/login-.svg';
-import VantaBackground from '../signUp/VantaBackground ';
+import LoginImg from '../../assets/images/login.png';
+// import VantaBackground from '../signUp/VantaBackground ';
 import LoginForm from './LoginForm';
 
 const Login: React.FC = () => {
   return (
     <div className="overflow-x-hidden h-[100dvh] relative bg-[#23153c]">
-      <VantaBackground />
+      {/* <VantaBackground /> */}
       <div className="absolute top-0 left-0 right-0">
         <Navbar />
       </div>
