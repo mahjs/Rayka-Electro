@@ -140,7 +140,7 @@ const Navbar: FC = () => {
         height={17}
         alt="menu icon"
       />
-      <Link href="/" className="mr-auto">
+      <Link to="/" className="mr-auto">
         <img src={Logo} width={50} height={50} alt="rayka icon" className="h-[25px] w-[25px] md:h-[50px] md:w-[50px]" />
       </Link>
     </header>
