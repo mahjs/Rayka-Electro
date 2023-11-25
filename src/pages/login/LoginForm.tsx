@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../../assets/images/Logo.svg';
 import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-form';
 import { usernameValidation, passwordValidation } from '../signUp/ValidationRules';
+import { useNavigate } from 'react-router-dom';
 
 interface FormValues {
   username: string;
@@ -21,6 +22,8 @@ interface InputFieldProps {
 }
 
 const LoginForm: React.FC = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -31,6 +34,7 @@ const LoginForm: React.FC = () => {
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data);
     reset();
+    navigate('/dashboard');
     // Add form submission logic here
   };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../../assets/images/Logo.svg';
 import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-form';
 import { usernameValidation, emailValidation, passwordValidation, confirmPasswordValidation } from './ValidationRules';
+import { useNavigate } from 'react-router-dom';
 
 interface SignUpFormData {
   username: string;
@@ -23,6 +24,8 @@ interface InputFieldProps {
 }
 
 const SignUpForm: React.FC = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -35,6 +38,7 @@ const SignUpForm: React.FC = () => {
     try {
       console.log(data); // Replace with your API call
       reset();
+      navigate('/');
     } catch (error) {
       console.error(error);
       reset();
