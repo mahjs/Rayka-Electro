@@ -12,18 +12,21 @@ const ElectroApp = () => {
   return (
     <div id="ElectroApp" ref={containerRef} className="flex justify-center flex-col gap-5 h-[100dvh]  px-10 md:px-20">
       <div className="flex lg:flex-row lg:justify-between lg:gap-44  flex-col  items-center">
-        <div className="flex  slideDown		md:basis-9/12		">
+        <div className="flex  slideDown flex-1	justify-center	">
           <img
             src={Laptop}
             style={{
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'scale(1)' : 'scale(.6)',
               transition: 'all .6s .1s linear',
+              maxHeight: '60dvh',
+              maxWidth: '90%',
+              objectFit: 'contain',
             }}
           />
         </div>
 
-        <div id="ElectroApp" className="flex flex-col ">
+        <div id="ElectroApp" className="flex flex-col flex-1">
           <div
             className="flex flex-col justify-center  lg:items-start items-center "
             style={{
