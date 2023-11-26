@@ -1,5 +1,5 @@
 import Crown from '../../assets/images/small-crown.svg';
-import ShopCard from '../../assets/images/shop.svg';
+// import ShopCard from '../../assets/images/shop.svg';
 import MoneySign from '../../assets/images/money-sign.svg';
 import ArrowDown from '../../assets/images/arrow-down.svg';
 import Discount from '../../assets/images/discount.svg';
@@ -12,11 +12,11 @@ const steps = [
     title: 'انتخاب پلن',
     icon: Crown,
   },
-  {
-    id: 2,
-    title: 'نهایی سازی',
-    icon: ShopCard,
-  },
+  // {
+  //   id: 2,
+  //   title: 'نهایی سازی',
+  //   icon: ShopCard,
+  // },
   {
     id: 3,
     title: 'پرداخت',

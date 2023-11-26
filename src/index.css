@@ -49,30 +49,24 @@ select {
   font-size: clamp(2.05675rem, calc(2rem + ((1vw - 3.6px) * 2.365)), 4.875rem);
   line-height: normal;
 }
-
+.header-2 {
+  font-family: 'kalameh';
+  font-size: clamp(0.77488rem, calc(0.77488rem + ((1vw - 3.6px) * 0.742)), 1.83656rem);
+}
 .title-1 {
   font-family: 'KalamehBold';
-  font-size: 2.875rem;
+  font-size: clamp(0.77488rem, calc(0.77488rem + ((1vw - 3.6px) * 1.471)), 2.875rem);
   line-height: normal;
-  @media screen and (max-width: 1200px) {
-    font-size: 1rem;
-  }
-  @media screen and (max-width: 900px) {
-    font-size: 1.5rem;
-  }
-  @media screen and (max-width: 600px) {
-    font-size: 0.77488rem;
-  }
 }
-
+.body {
+  font-family: 'kalameh';
+  font-size: clamp(0.6rem, calc(0.6rem + ((1vw - 3.6px) * 0.445)), 1.22963rem);
+  line-height: normal;
+}
 .title-2 {
   font-family: 'KalamehBold';
   font-size: 2.175rem;
   line-height: normal;
-}
-.header-2 {
-  font-family: 'kalameh';
-  font-size: clamp(0.77488rem, calc(0.77488rem + ((1vw - 3.6px) * 0.742)), 1.83656rem);
 }
 
 .btn {
@@ -100,15 +94,6 @@ select {
   /* @media screen and (max-width: 758px) {
     font-size: 0.83rem;
   } */
-}
-
-.body {
-  font-family: 'kalameh';
-  font-size: 1.22963rem;
-  line-height: normal;
-  @media screen and (max-width: 758px) {
-    font-size: 0.83rem;
-  }
 }
 
 #root {

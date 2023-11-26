@@ -80,6 +80,7 @@ const ElectroDNS = () => {
         </div>
         {startAnimation && (
           <img
+            alt="phone"
             style={{
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'rotate(0)' : 'rotate(20deg)',
@@ -94,7 +95,7 @@ const ElectroDNS = () => {
         )}
       </div>{' '}
       <div className="slideUpScroll flex absolute  mt-7 bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-4">
-        <img src={Caret} style={{ width: '45px', height: '45px' }} />
+        <img alt="caret" src={Caret} style={{ width: '45px', height: '45px' }} />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
     </section>
