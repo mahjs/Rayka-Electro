@@ -1,19 +1,44 @@
+import React, { useState, useRef } from 'react';
 import Laptop from '../../assets/images/laptop.svg';
 import Windows from '../../assets/images/windows.svg';
 import Android from '../../assets/images/android.svg';
 import Caret from '../../assets/images/caret.svg';
-import { useRef } from 'react';
 import useObserver from '../../utils/useObserver';
 
+// LazyImage Component
+interface LazyImageProps {
+  src: string;
+  alt?: string;
+  style?: React.CSSProperties;
+}
+
+const LazyImage: React.FC<LazyImageProps> = ({ src, alt, style }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  const handleLoad = () => {
+    setLoaded(true);
+  };
+
+  const imageStyle: React.CSSProperties = {
+    ...style,
+    transition: 'filter 0.5s ease-in-out, opacity 0.5s ease-in-out',
+    filter: loaded ? 'none' : 'blur(8px)',
+    opacity: loaded ? 1 : 0,
+  };
+
+  return <img src={src} loading="lazy" onLoad={handleLoad} style={imageStyle} alt={alt} />;
+};
+
+// ElectroApp Component
 const ElectroApp = () => {
-  const containerRef = useRef<HTMLElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const startAnimation = useObserver(containerRef);
 
   return (
-    <div id="ElectroApp" ref={containerRef} className="flex justify-center flex-col gap-5 h-[100dvh]  px-10 md:px-20">
-      <div className="flex lg:flex-row lg:justify-between lg:gap-44  flex-col  items-center">
-        <div className="flex  slideDown flex-1	justify-center	">
-          <img
+    <div id="ElectroApp" ref={containerRef} className="flex justify-center flex-col gap-5 h-[100dvh] px-10 md:px-20">
+      <div className="flex lg:flex-row lg:justify-between lg:gap-44 flex-col items-center">
+        <div className="flex slideDown flex-1 justify-center">
+          <LazyImage
             src={Laptop}
             style={{
               opacity: startAnimation ? 1 : 0,
@@ -26,9 +51,9 @@ const ElectroApp = () => {
           />
         </div>
 
-        <div id="ElectroApp" className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1">
           <div
-            className="flex flex-col justify-center  lg:items-start items-center "
+            className="flex flex-col justify-center lg:items-start items-center"
             style={{
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'translateX(0)' : 'translateX(3rem)',
@@ -36,15 +61,15 @@ const ElectroApp = () => {
               textAlign: 'justify',
             }}
           >
-            <p className=" text-white header-1 ">
+            <p className="text-white header-1">
               دانلود اپلیکیشن <span className="text-[#8C39F3]">الکترو</span>
             </p>
-            <p className="text-[2rem] max-w-[80%] text-white header-2 ">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-              بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+            <p className="text-[2rem] max-w-[80%] text-white header-2">
+              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
+              متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
             </p>
           </div>
-          <div className="flex mt-4 gap-3 justify-center lg:justify-start ">
+          <div className="flex mt-4 gap-3 justify-center lg:justify-start">
             <button
               style={{
                 opacity: startAnimation ? 1 : 0,
@@ -53,7 +78,7 @@ const ElectroApp = () => {
               }}
               className="flex justify-center items-center gap-2 border-[2px] py-2 btn px-5 rounded-full bg-[rgba(255,255,255,0.2)]"
             >
-              <img src={Windows} className="w-[20px]" alt="windows" style={{ width: '20px' }} />
+              <LazyImage src={Windows} style={{ width: '20px' }} alt="windows" />
               <p className="text-white">اپلیکیشن ویندوز</p>
             </button>
             <button
@@ -64,14 +89,14 @@ const ElectroApp = () => {
               }}
               className="flex justify-center items-center gap-2 py-2 px-5 bg-[#8C39F3] rounded-full btn"
             >
-              <img alt="android" src={Android} className="w-[40px]" style={{ width: '40px' }} />
-              <p className="text-white ">اپلیکیشن اندروید</p>
+              <LazyImage src={Android} style={{ width: '40px' }} alt="android" />
+              <p className="text-white">اپلیکیشن اندروید</p>
             </button>
           </div>
         </div>
       </div>
-      <div className="slideUpScroll flex  mt-7  flex-col justify-center items-center gap-2 mb-3">
-        <img src={Caret} style={{ width: '45px', height: '45px' }} />
+      <div className="slideUpScroll flex mt-7 flex-col justify-center items-center gap-2 mb-3">
+        <LazyImage src={Caret} style={{ width: '45px', height: '45px' }} alt="caret" />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
     </div>

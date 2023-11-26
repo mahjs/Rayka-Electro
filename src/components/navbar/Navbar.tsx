@@ -74,7 +74,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
           transition: 'all 1s linear',
         }}
       >
-        <img src={Person} className="w-4" />
+        <img src={Person} className="w-4" loading="lazy" />
         <button className="text-white btn">ورود به حساب کاربری</button>
       </li>
     );
@@ -119,7 +119,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
           } top-0 flex h-full w-[20rem] flex-col justify-start pt-16 px-6 gap-5 bg-[#ffffff22] border-l-[2px] border-[#ffffff43] rounded-tl-3xl rounded-bl-3xl backdrop-blur-[40px] transition-all duration-500 lg:hidden`}
         >
           <button onClick={() => setShowNavbar(false)} className="absolute right-5 top-5 flex items-center gap-2">
-            <img src={ArrowLeft} className="rotate-[180deg]" />
+            <img loading="lazy" src={ArrowLeft} className="rotate-[180deg]" />
             <p className="btn-3 text-white">بازگشت</p>
           </button>
           <p className="absolute btn-3 z-20 text-white bottom-5 left-[50%] whitespace-nowrap -translate-x-[50%]">
@@ -180,9 +180,17 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
         width={25}
         height={17}
         alt="menu icon"
+        loading="lazy"
       />
       <Link to="/" className="mr-auto">
-        <img src={Logo} width={50} height={50} alt="rayka icon" className="h-[25px] w-[25px] md:h-[50px] md:w-[50px]" />
+        <img
+          loading="lazy"
+          src={Logo}
+          width={50}
+          height={50}
+          alt="rayka icon"
+          className="h-[25px] w-[25px] md:h-[50px] md:w-[50px]"
+        />
       </Link>
     </header>
   );

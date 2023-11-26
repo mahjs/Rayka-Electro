@@ -33,7 +33,7 @@ const AccountInfo = () => {
           <h4 className="text-white text-[2.2rem]">{user.name}</h4>
           <div className="flex gap-2">
             <p className="text-[#ffffff88] text-[1.2rem]">{user.email}</p>
-            <img src={Edit} />
+            <img loading='lazy' src={Edit} />
           </div>
         </div>
       </div>
