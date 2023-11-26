@@ -63,6 +63,7 @@ select {
   font-size: clamp(0.6rem, calc(0.6rem + ((1vw - 3.6px) * 0.445)), 1.22963rem);
   line-height: normal;
 }
+
 .title-2 {
   font-family: 'KalamehBold';
   font-size: 2.175rem;

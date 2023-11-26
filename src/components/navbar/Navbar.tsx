@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FC, useEffect, useState } from 'react';
 import NavbarItem from './NavbarItem';
 import Logo from '../../assets/images/Logo.svg';
@@ -22,13 +22,14 @@ import Swiper from 'swiper';
  */
 
 interface Props {
-  swiper: Swiper | null;
-  currentIndex: number;
+  swiper?: Swiper | null;
+  currentIndex?: number;
 }
 
 const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
 
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
@@ -96,17 +97,45 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
           <NavbarItem
             selected={currentIndex === 0}
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               swiper?.slideTo(0);
             }}
             text="صفحه اصلی"
             delay={200}
           />
-          <NavbarItem selected={currentIndex === 1} onClick={() => swiper?.slideTo(1)} text="اپلیکیشن" delay={400} />
-          <NavbarItem selected={currentIndex === 2} onClick={() => swiper?.slideTo(2)} text="دی‌ان‌اس" delay={600} />
-          <NavbarItem selected={currentIndex === 3} onClick={() => swiper?.slideTo(3)} text="تعرفه" delay={800} />
+          <NavbarItem
+            selected={currentIndex === 1}
+            onClick={() => {
+              if (pathname !== '/') navigate('/');
+              swiper?.slideTo(1);
+            }}
+            text="اپلیکیشن"
+            delay={400}
+          />
+          <NavbarItem
+            selected={currentIndex === 2}
+            onClick={() => {
+              if (pathname !== '/') navigate('/');
+              swiper?.slideTo(2);
+            }}
+            text="دی‌ان‌اس"
+            delay={600}
+          />
+          <NavbarItem
+            selected={currentIndex === 3}
+            onClick={() => {
+              if (pathname !== '/') navigate('/');
+              swiper?.slideTo(3);
+            }}
+            text="تعرفه"
+            delay={800}
+          />
           <NavbarItem
             selected={currentIndex === 4}
-            onClick={() => swiper?.slideTo(4)}
+            onClick={() => {
+              if (pathname !== '/') navigate('/');
+              swiper?.slideTo(4);
+            }}
             text="وضعیت سرورها"
             delay={1000}
           />
@@ -130,6 +159,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
             icon={currentIndex === 0 ? Home : HomeWhite}
             selected={currentIndex === 0}
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               handleLinkClick();
               swiper?.slideTo(0);
             }}
@@ -137,6 +167,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
           />
           <NavbarItem
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               handleLinkClick();
               swiper?.slideTo(1);
             }}
@@ -148,6 +179,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
             icon={currentIndex === 2 ? DNS : DNSWhite}
             selected={currentIndex === 2}
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               handleLinkClick();
               swiper?.slideTo(2);
             }}
@@ -157,6 +189,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
             icon={currentIndex === 3 ? Crown : CrownWhite}
             selected={currentIndex === 3}
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               handleLinkClick();
               swiper?.slideTo(3);
             }}
@@ -166,6 +199,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
             icon={currentIndex === 4 ? Server : ServerWhite}
             selected={currentIndex === 4}
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               handleLinkClick();
               swiper?.slideTo(4);
             }}
