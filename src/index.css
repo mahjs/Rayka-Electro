@@ -46,19 +46,36 @@ select {
 
 .header-1 {
   font-family: 'KalamehBold';
-  font-size: 4.875rem;
+  font-size: 3.875rem;
   line-height: normal;
-  /* font-weight: 700; */
-
-  @media screen and (max-width: 1770px) {
-    font-size: 3.875rem;
+  @media screen and (max-width: 1200px) {
+    font-size: 2rem;
   }
+  @media screen and (max-width: 900px) {
+    font-size: 2.5rem;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 2.05675rem;
+  }
+  /*
+  @media screen and (max-width: 900px) {
+    font-size: 3rem;
+  } */
 }
 
 .title-1 {
   font-family: 'KalamehBold';
   font-size: 2.875rem;
   line-height: normal;
+  @media screen and (max-width: 1200px) {
+    font-size: 1rem;
+  }
+  @media screen and (max-width: 900px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 0.77488rem;
+  }
 }
 
 .title-2 {
@@ -70,21 +87,24 @@ select {
 .header-2 {
   font-family: 'kalameh';
   font-size: 1.83656rem;
-  /* @media screen and (max-width: 1068px) {
-    font-size: 3.61406rem;
+  @media screen and (max-width: 1200px) {
+    font-size: 1rem;
   }
-  @media screen and (max-width: 768px) {
-    font-size: 2.81406rem;
-  } */
+  @media screen and (max-width: 900px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 0.77488rem;
+  }
 }
 
 .btn {
   font-family: 'kalameh';
   font-size: 1.3125rem;
   line-height: 1.07188rem;
-  /* @media screen and (max-width: 758px) {
+  @media screen and (max-width: 600px) {
     font-size: 0.83rem;
-  } */
+  }
 }
 
 .btn-2 {
@@ -109,9 +129,9 @@ select {
   font-family: 'kalameh';
   font-size: 1.22963rem;
   line-height: normal;
-  /* @media screen and (max-width: 758px) {
+  @media screen and (max-width: 758px) {
     font-size: 0.83rem;
-  } */
+  }
 }
 
 #root {
