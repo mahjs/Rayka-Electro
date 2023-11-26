@@ -1,33 +1,10 @@
-import React, { useState, useRef } from 'react';
-import Laptop from '../../assets/images/laptop.svg';
+import Laptop from '../../assets/images/Laptop.png';
 import Windows from '../../assets/images/windows.svg';
 import Android from '../../assets/images/android.svg';
 import Caret from '../../assets/images/caret.svg';
 import useObserver from '../../utils/useObserver';
-
-// LazyImage Component
-interface LazyImageProps {
-  src: string;
-  alt?: string;
-  style?: React.CSSProperties;
-}
-
-const LazyImage: React.FC<LazyImageProps> = ({ src, alt, style }) => {
-  const [loaded, setLoaded] = useState(false);
-
-  const handleLoad = () => {
-    setLoaded(true);
-  };
-
-  const imageStyle: React.CSSProperties = {
-    ...style,
-    transition: 'filter 0.5s ease-in-out, opacity 0.5s ease-in-out',
-    filter: loaded ? 'none' : 'blur(8px)',
-    opacity: loaded ? 1 : 0,
-  };
-
-  return <img src={src} loading="lazy" onLoad={handleLoad} style={imageStyle} alt={alt} />;
-};
+import { useRef } from 'react';
+import LazyImage from '../../components/ui/LazyImage';
 
 // ElectroApp Component
 const ElectroApp = () => {
@@ -35,9 +12,13 @@ const ElectroApp = () => {
   const startAnimation = useObserver(containerRef);
 
   return (
-    <div id="ElectroApp" ref={containerRef} className="flex justify-center flex-col gap-5 h-[100dvh] px-10 md:px-20">
-      <div className="flex lg:flex-row lg:justify-between lg:gap-44 flex-col items-center">
-        <div className="flex slideDown flex-1 justify-center">
+    <div
+      id="ElectroApp"
+      ref={containerRef}
+      className="flex justify-start  lg:justify-center flex-col gap-5 h-[100dvh]  px-10 md:px-20"
+    >
+      <div className="flex lg:flex-row lg:justify-between lg:gap-44  flex-col  items-center">
+        <div className="flex  slideDown flex-1	justify-center	">
           <LazyImage
             src={Laptop}
             style={{
@@ -69,7 +50,7 @@ const ElectroApp = () => {
               متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
             </p>
           </div>
-          <div className="flex mt-4 gap-3 justify-center lg:justify-start">
+          <div className="flex lg:flex-row flex-col mt-4 gap-3 justify-center lg:justify-start ">
             <button
               style={{
                 opacity: startAnimation ? 1 : 0,
@@ -95,7 +76,7 @@ const ElectroApp = () => {
           </div>
         </div>
       </div>
-      <div className="slideUpScroll flex mt-7 flex-col justify-center items-center gap-2 mb-3">
+      <div className="slideUpScroll absolute flex  mt-7 bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-3">
         <LazyImage src={Caret} style={{ width: '45px', height: '45px' }} alt="caret" />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>

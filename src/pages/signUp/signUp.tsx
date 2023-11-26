@@ -2,31 +2,8 @@ import React, { useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import Navbar from '../../components/navbar/Navbar';
 import signImg from '../../assets/images/signin.webp';
-
 import SignUpForm from './SignUpForm';
-
-interface LazyImageProps {
-  src: string;
-  alt?: string;
-}
-
-const LazyImage: React.FC<LazyImageProps> = ({ src, alt }) => {
-  const [loaded, setLoaded] = useState(false);
-
-  const handleLoad = () => {
-    setLoaded(true);
-  };
-
-  const imageStyle = {
-    width: '100%',
-    height: 'auto',
-    transition: 'filter 2s cubic-bezier(.35,.01,.53,.98), opacity 1s ease-in-out',
-    filter: loaded ? 'none' : 'blur(8px)',
-    opacity: loaded ? 1 : 0,
-  };
-
-  return <img src={src} loading="lazy" onLoad={handleLoad} style={imageStyle} alt={alt} />;
-};
+import LazyImage from '../../components/ui/LazyImage';
 
 const SignUp: React.FC = () => {
   const [currentSwiperIndex, setCurrentSwiperIndex] = useState<number>(0);

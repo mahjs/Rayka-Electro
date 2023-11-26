@@ -4,29 +4,7 @@ import Navbar from '../../components/navbar/Navbar';
 import LoginImg from '../../assets/images/login.png';
 // import VantaBackground from '../signUp/VantaBackground ';
 import LoginForm from './LoginForm';
-
-interface LazyImageProps {
-  src: string;
-  alt?: string;
-}
-
-const LazyImage: React.FC<LazyImageProps> = ({ src, alt }) => {
-  const [loaded, setLoaded] = useState(false);
-
-  const handleLoad = () => {
-    setLoaded(true);
-  };
-
-  const imageStyle = {
-    width: '100%',
-    height: 'auto',
-    transition: 'filter 2s cubic-bezier(.35,.01,.53,.98), opacity 1s ease-in-out',
-    filter: loaded ? 'none' : 'blur(8px)',
-    opacity: loaded ? 1 : 0,
-  };
-
-  return <img src={src} loading="lazy" onLoad={handleLoad} style={imageStyle} alt={alt} />;
-};
+import LazyImage from '../../components/ui/LazyImage';
 
 const Login: React.FC = () => {
   const [currentSwiperIndex, setCurrentSwiperIndex] = useState<number>(0);
@@ -39,7 +17,7 @@ const Login: React.FC = () => {
         <LoginForm />
         <div className="sign-img hidden 2xl:flex w-[50%]">
           <LazyImage src={LoginImg} alt="Login Image" />
-        </div>{' '}
+        </div>
       </div>
     </div>
   );
