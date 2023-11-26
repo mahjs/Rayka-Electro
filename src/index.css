@@ -46,21 +46,8 @@ select {
 
 .header-1 {
   font-family: 'KalamehBold';
-  font-size: 3.875rem;
+  font-size: clamp(2.05675rem, calc(2rem + ((1vw - 3.6px) * 2.365)), 4.875rem);
   line-height: normal;
-  @media screen and (max-width: 1200px) {
-    font-size: 2rem;
-  }
-  @media screen and (max-width: 900px) {
-    font-size: 2.5rem;
-  }
-  @media screen and (max-width: 600px) {
-    font-size: 2.05675rem;
-  }
-  /*
-  @media screen and (max-width: 900px) {
-    font-size: 3rem;
-  } */
 }
 
 .title-1 {
@@ -83,19 +70,9 @@ select {
   font-size: 2.175rem;
   line-height: normal;
 }
-
 .header-2 {
   font-family: 'kalameh';
-  font-size: 1.83656rem;
-  @media screen and (max-width: 1200px) {
-    font-size: 1rem;
-  }
-  @media screen and (max-width: 900px) {
-    font-size: 1.5rem;
-  }
-  @media screen and (max-width: 600px) {
-    font-size: 0.77488rem;
-  }
+  font-size: clamp(0.77488rem, calc(0.77488rem + ((1vw - 3.6px) * 0.742)), 1.83656rem);
 }
 
 .btn {
