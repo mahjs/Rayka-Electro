@@ -37,10 +37,9 @@ const ElectroApp = () => {
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'translateX(0)' : 'translateX(3rem)',
               transition: 'all .6s .7s ease-in-out',
-              textAlign: 'justify',
             }}
           >
-            <p className=" text-white header-1 ">
+            <p className=" text-white header-1 whitespace-nowrap	">
               دانلود اپلیکیشن <span className="text-[#8C39F3]">الکترو</span>
             </p>
             <p className="text-[2rem] max-w-[80%] text-white header-2 ">

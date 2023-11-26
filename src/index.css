@@ -46,7 +46,7 @@ select {
 
 .header-1 {
   font-family: 'KalamehBold';
-  font-size: clamp(2.05675rem, calc(2rem + ((1vw - 3.6px) * 2.365)), 4.875rem);
+  font-size: clamp(2.05675rem, calc(2rem + ((1vw - 3.6px) * 2.365)), 3.875rem);
   line-height: normal;
 }
 .header-2 {
