@@ -24,7 +24,6 @@ const ElectroApp = () => {
               transform: startAnimation ? 'scale(1)' : 'scale(.6)',
               transition: 'all .6s .1s linear',
               maxHeight: '100dvh',
-              maxWidth: '90%',
               objectFit: 'contain',
             }}
           />
