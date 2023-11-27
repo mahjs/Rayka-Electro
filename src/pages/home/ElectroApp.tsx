@@ -19,14 +19,13 @@ const ElectroApp = () => {
     >
       <div className="flex lg:flex-row lg:justify-between lg:gap-44  flex-col  items-center">
         <div className="flex  slideDown flex-1	justify-center	">
-          <LazyImage
+          <img
+            loading="lazy"
             src={Laptop}
             style={{
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'scale(1)' : 'scale(.6)',
               transition: 'all .6s .1s linear',
-              // maxHeight: '100dvh',
-              objectFit: 'contain',
             }}
           />
         </div>
