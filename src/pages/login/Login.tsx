@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
-import LoginImg from '../../assets/images/login.png';
+import LoginImg from '../../assets/images/login.webp';
 // import VantaBackground from '../signUp/VantaBackground ';
 import LoginForm from './LoginForm';
 import LazyImage from '../../components/ui/LazyImage';

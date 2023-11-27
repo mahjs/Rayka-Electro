@@ -1,5 +1,5 @@
 import Mouse from '../../assets/images/mouse.svg';
-import main from '../../assets/images/main.png';
+import main from '../../assets/images/main.webp';
 import LazyImage from '../../components/ui/LazyImage';
 
 const FreeElectro = () => {

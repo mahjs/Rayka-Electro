@@ -1,4 +1,4 @@
-import Laptop from '../../assets/images/Laptop.png';
+import Laptop from '../../assets/images/Laptop.webp';
 import Windows from '../../assets/images/windows.svg';
 import Android from '../../assets/images/android.svg';
 import Caret from '../../assets/images/caret.svg';

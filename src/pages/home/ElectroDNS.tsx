@@ -1,4 +1,4 @@
-import Phone from '../../assets/images/phone.png';
+import Phone from '../../assets/images/phone.webp';
 import Caret from '../../assets/images/caret.svg';
 import UnderlineCopyText from '../../components/ui/UnderlineCopyText';
 import useObserver from '../../utils/useObserver';
