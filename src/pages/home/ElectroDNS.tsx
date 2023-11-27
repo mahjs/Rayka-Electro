@@ -1,9 +1,11 @@
-import Phone from '../../assets/images/phone.png';
+import Phone from '../../assets/images/phone.webp';
 import Caret from '../../assets/images/caret.svg';
 import UnderlineCopyText from '../../components/ui/UnderlineCopyText';
 import useObserver from '../../utils/useObserver';
 import { useRef } from 'react';
+import LazyImage from '../../components/ui/LazyImage';
 
+// ElectroDNS Component
 const ElectroDNS = () => {
   const containerRef = useRef<HTMLElement | null>(null);
   const startAnimation = useObserver(containerRef);
@@ -23,7 +25,7 @@ const ElectroDNS = () => {
                 transform: startAnimation ? 'translateX(0)' : 'translateX(2rem)',
                 transition: 'all .6s .8s',
               }}
-              className=" text-white header-1"
+              className="text-white header-1"
             >
               دی‌ان‌اس <span className="text-[#8C39F3] ">الکترو</span>
             </p>
@@ -79,23 +81,22 @@ const ElectroDNS = () => {
           </div>
         </div>
         {startAnimation && (
-          <img
-            alt="phone"
+          <LazyImage
+            src={Phone}
             style={{
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'rotate(0)' : 'rotate(20deg)',
               transition: 'all 1s ease-out',
               objectFit: 'contain',
-              maxHeight: '80dvh',
-              maxWidth: '80%',
+              maxHeight: '40dvh',
+              maxWidth: '65vw',
             }}
-            src={Phone}
-            className="rotateMagnifier  "
+            alt="Phone"
           />
         )}
-      </div>{' '}
+      </div>
       <div className="slideUpScroll flex absolute  mt-7 bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-4">
-        <img alt="caret" src={Caret} className="lg:w-[45px] md:w-[30px] w-[25px] " />
+        <LazyImage alt="caret" src={Caret} className="lg:w-[45px] md:w-[30px] w-[25px] " />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
     </section>

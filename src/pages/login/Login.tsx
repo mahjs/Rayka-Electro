@@ -1,17 +1,20 @@
 import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
-import LoginImg from '../../assets/images/login.png';
+import LoginImg from '../../assets/images/login.webp';
 // import VantaBackground from '../signUp/VantaBackground ';
 import LoginForm from './LoginForm';
+import LazyImage from '../../components/ui/LazyImage';
 
 const Login: React.FC = () => {
   return (
-    <div className="overflow-x-hidden h-[100dvh] bg-[#23153c]">
+    <div className={`overflow-x-hidden h-[100vh] bg-[#23153c]`}>
       {/* <VantaBackground /> */}
-      <Navbar />
+      <Navbar swiper={null} currentIndex={0} />
       <div className="flex flex-wrap w-full h-full justify-evenly items-center px-4 md:px-0 mt-3">
         <LoginForm />
-        <img src={LoginImg} alt="login image " className="hidden md:flex w-[50%]" />
+        <div className="sign-img hidden 2xl:flex w-[50%]">
+          <LazyImage src={LoginImg} alt="Login Image" />
+        </div>
       </div>
     </div>
   );
