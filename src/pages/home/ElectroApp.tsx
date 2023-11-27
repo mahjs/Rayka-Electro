@@ -37,10 +37,9 @@ const ElectroApp = () => {
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'translateX(0)' : 'translateX(3rem)',
               transition: 'all .6s .7s ease-in-out',
-              textAlign: 'justify',
             }}
           >
-            <p className=" text-white header-1 ">
+            <p className=" text-white header-1 whitespace-nowrap	">
               دانلود اپلیکیشن <span className="text-[#8C39F3]">الکترو</span>
             </p>
             <p className="text-[2rem] max-w-[80%] text-white header-2 ">
@@ -75,7 +74,7 @@ const ElectroApp = () => {
         </div>
       </div>
       <div className="slideUpScroll absolute flex  mt-7 bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-3">
-        <img src={Caret} style={{ width: '45px', height: '45px' }} />
+        <img alt="caret" src={Caret} className="lg:w-[45px] md:w-[30px] w-[25px] " />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
     </div>

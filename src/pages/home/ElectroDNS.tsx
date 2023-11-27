@@ -95,7 +95,7 @@ const ElectroDNS = () => {
         )}
       </div>{' '}
       <div className="slideUpScroll flex absolute  mt-7 bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-4">
-        <img alt="caret" src={Caret} style={{ width: '45px', height: '45px' }} />
+        <img alt="caret" src={Caret} className="lg:w-[45px] md:w-[30px] w-[25px] " />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
     </section>
