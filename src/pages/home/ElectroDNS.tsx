@@ -80,20 +80,18 @@ const ElectroDNS = () => {
             </div>
           </div>
         </div>
-        {startAnimation && (
-          <LazyImage
-            src={Phone}
-            style={{
-              opacity: startAnimation ? 1 : 0,
-              transform: startAnimation ? 'rotate(0)' : 'rotate(20deg)',
-              transition: 'all 1s ease-out',
-              objectFit: 'contain',
-              maxHeight: '80dvh',
-              maxWidth: '65vw',
-            }}
-            alt="Phone"
-          />
-        )}
+        <img
+          loading="lazy"
+          src={Phone}
+          style={{
+            opacity: startAnimation ? 1 : 0,
+            transform: startAnimation ? 'rotate(0)' : 'rotate(40deg)',
+            transition: 'all .7s ease-out',
+            objectFit: 'contain',
+            maxHeight: '70dvh',
+          }}
+          alt="Phone"
+        />
       </div>
       <div className="slideUpScroll flex absolute  mt-7 bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-4">
         <LazyImage alt="caret" src={Caret} className="lg:w-[45px] md:w-[30px] w-[25px] " />
