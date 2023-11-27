@@ -20,6 +20,7 @@ const ElectroApp = () => {
       <div className="flex lg:flex-row lg:justify-between lg:gap-44  flex-col  items-center">
         <div className="flex  slideDown flex-1	justify-center	">
           <img
+            loading="lazy"
             src={Laptop}
             style={{
               opacity: startAnimation ? 1 : 0,
