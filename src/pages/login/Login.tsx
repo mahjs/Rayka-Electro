@@ -5,11 +5,9 @@ import LoginImg from '../../assets/images/login.webp';
 import LoginForm from './LoginForm';
 import LazyImage from '../../components/ui/LazyImage';
 
-const BACKGROUND_COLOR = '#23153c';
-
 const Login: React.FC = () => {
   return (
-    <div className={`overflow-x-hidden h-[100vh] bg-[${BACKGROUND_COLOR}]`}>
+    <div className={`overflow-x-hidden h-[100vh] bg-[#23153c]`}>
       {/* <VantaBackground /> */}
       <Navbar swiper={null} currentIndex={0} />
       <div className="flex flex-wrap w-full h-full justify-evenly items-center px-4 md:px-0 mt-3">
