@@ -25,7 +25,7 @@ const UnderlineCopyText: FC<Props> = ({ text }) => {
       }}
       className="flex cursor-pointer gap-3 bg-gradient-to-l px-5 py-2 rounded-full from-[#8C39F3] to-[#9F52FF]"
     >
-      <span className="relative text-white text-[1.5rem] hover:underline">
+      <span className="relative text-white text-[1.5rem] hover:underline body">
         {text}
         {showTooltip && (
           <span className="absolute text-[1rem] text-white -top-[150%] px-[1rem] py-[.5rem] bg-[#2d2d2d] rounded-md left-[50%] -translate-x-[50%] whitespace-nowrap">

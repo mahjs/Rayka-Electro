@@ -28,7 +28,7 @@ const FreeElectro = () => {
       </div>
 
       <div className="slideUpScroll flex absolute  bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-3">
-        <LazyImage src={Mouse} style={{ width: '60px' }} />
+        <LazyImage alt="mouse" src={Mouse} className="lg:w-[45px] md:w-[30px] w-[25px] " />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
     </div>
