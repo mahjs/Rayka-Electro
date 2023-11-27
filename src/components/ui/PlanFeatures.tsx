@@ -43,7 +43,7 @@ const PlanFeatures: FC<Props> = ({ icon, active, disable, title, featuresList, p
                 height: '20px',
               }}
             />
-            <span className=" body">{feature}</span>
+            <span className="body whitespace-nowrap">{feature}</span>
           </div>
         ))}
       </div>

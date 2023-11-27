@@ -25,8 +25,7 @@ const ElectroApp = () => {
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'scale(1)' : 'scale(.6)',
               transition: 'all .6s .1s linear',
-              maxHeight: '60dvh',
-              maxWidth: '90%',
+              // maxHeight: '100dvh',
               objectFit: 'contain',
             }}
           />
@@ -76,7 +75,7 @@ const ElectroApp = () => {
         </div>
       </div>
       <div className="slideUpScroll absolute flex  mt-7 bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-3">
-        <LazyImage alt="caret" src={Caret} className="lg:w-[45px] md:w-[30px] w-[25px] "/>
+        <LazyImage alt="caret" src={Caret} className="lg:w-[45px] md:w-[30px] w-[25px] " />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
     </div>

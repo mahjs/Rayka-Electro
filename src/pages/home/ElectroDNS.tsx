@@ -88,7 +88,7 @@ const ElectroDNS = () => {
               transform: startAnimation ? 'rotate(0)' : 'rotate(20deg)',
               transition: 'all 1s ease-out',
               objectFit: 'contain',
-              maxHeight: '40dvh',
+              maxHeight: '80dvh',
               maxWidth: '65vw',
             }}
             alt="Phone"

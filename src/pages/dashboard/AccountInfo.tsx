@@ -30,10 +30,10 @@ const AccountInfo = () => {
           </button>
         </div>
         <div className="flex flex-col">
-          <h4 className="text-white text-[2.2rem]">{user.name}</h4>
+          <h4 className="text-white text-[1.2rem] md:text-[1.8rem] lg:text-[2.2rem]">{user.name}</h4>
           <div className="flex gap-2">
-            <p className="text-[#ffffff88] text-[1.2rem]">{user.email}</p>
-            <img loading='lazy' src={Edit} />
+            <p className="text-[#ffffff88] text-[.8rem] md:text-[1rem] lg:text-[1.2rem]">{user.email}</p>
+            <img loading="lazy" src={Edit} />
           </div>
         </div>
       </div>
@@ -42,7 +42,10 @@ const AccountInfo = () => {
           <h5 className="opacity-40 text-[1.2rem] whitespace-nowrap">تغییر مشخصات</h5>
           <div className="h-[1px] bg-white opacity-10 w-[90%]" />
         </div>
-        <form onSubmit={(e) => e.preventDefault()} className="flex gap-x-10 gap-y-5 flex-wrap">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="flex justify-center md:justify-stretch gap-x-10 gap-y-5 flex-wrap"
+        >
           <Input
             title="نام"
             value={accountInfoState.name}
@@ -71,7 +74,7 @@ const AccountInfo = () => {
             setValue={(value: string) => setAccountInfoState((prevInfo) => ({ ...prevInfo, profileName: value }))}
             type="text"
           />
-          <button className="absolute top-[4rem] left-5 px-5 bg-white  text-[#511A79] text-[1.5rem] h-[3.5rem] self-end font-bold  rounded-2xl">
+          <button className="absolute md:text-[1.2rem] top-[8rem] lg:top-[4rem] left-5 px-5 py-2 bg-white  text-[#511A79] lg:h-[3.5rem] self-end font-bold  rounded-2xl">
             اعمال تفییرات
           </button>
         </form>
@@ -81,7 +84,10 @@ const AccountInfo = () => {
           <h5 className="opacity-40 text-[1.2rem] whitespace-nowrap">تغییر رمز عبور</h5>
           <div className="h-[1px] bg-white opacity-10 w-[90%]" />
         </div>
-        <form onSubmit={(e) => e.preventDefault()} className="flex gap-x-10 gap-y-5 flex-wrap">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="flex justify-center md:justify-stretch gap-x-10 gap-y-5 flex-wrap"
+        >
           <Input title="رمز عبور فعلی" value={passwordState.oldPassword} icon={HidePassword} type="password" disable />
           <Input
             title="رمز عبور جدید"
@@ -100,7 +106,7 @@ const AccountInfo = () => {
             type="password"
           />
           <div className="w-full">
-            <button className="bg-white  text-[#511A79] text-[1.5rem] h-[3.5rem] self-end font-bold min-w-[280px] rounded-2xl">
+            <button className="bg-white text-[#511A79] md:text-[1.5rem] h-[3.5rem] self-end font-bold min-w-full md:min-w-[280px] rounded-2xl">
               تغییر رمز عبور
             </button>
           </div>

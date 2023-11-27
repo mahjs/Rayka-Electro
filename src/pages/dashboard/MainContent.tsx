@@ -11,7 +11,7 @@ interface Props {
 
 const MainContent: FC<Props> = ({ selectedTab }) => {
   return (
-    <main className="bg-[#ffffff18] min-h-full px-10 py-7 rounded-2xl w-full backdrop-blur-[37px]">
+    <main className="bg-[#ffffff18] min-h-full min-w-[380px] w-full px-6 md:px-10 py-7 rounded-2xl backdrop-blur-[37px]">
       {/* My account component*/}
       {selectedTab === 'my-account' && <MyAccount premium={user.premium} />}
       {selectedTab === 'my-info' && <AccountInfo />}

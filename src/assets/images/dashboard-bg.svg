@@ -1,6 +1,6 @@
-<svg preserve-aspect-ratio='none' width="1920" height="2380" viewBox="0 0 1920 2380" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg preserve-aspect-ratio='none' width="1920" height="9380" viewBox="0 0 1920 9380" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_6_5764)">
-<rect width="1920" height="2380" fill="url(#paint0_linear_6_5764)"/>
+<rect width="1920" height="9380" fill="url(#paint0_linear_6_5764)"/>
 <path d="M1897.73 0H22.2704C9.97082 0 0 10.4434 0 23.326V1056.67C0 1069.56 9.97082 1080 22.2704 1080H1897.73C1910.03 1080 1920 1069.56 1920 1056.67V23.326C1920 10.4434 1910.03 0 1897.73 0Z" fill="url(#paint0_linear_6_5764)"/>
 <g opacity="0.4">
 <mask id="mask0_6_5764" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="31" y="-129" width="1901" height="2268">
@@ -370,7 +370,7 @@
 <stop offset="1" stop-color="#220076"/>
 </linearGradient>
 <clipPath id="clip0_6_5764">
-<rect width="1920" height="2380" fill="white"/>
+<rect width="1920" height="9380" fill="white"/>
 </clipPath>
 </defs>
 </svg>

@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FC, useEffect, useState } from 'react';
 import NavbarItem from './NavbarItem';
 import Logo from '../../assets/images/Logo.svg';
@@ -22,28 +22,29 @@ import Swiper from 'swiper';
  */
 
 interface Props {
-  swiper: Swiper | null;
-  currentIndex: number;
+  swiper?: Swiper | null;
+  currentIndex?: number;
 }
 
 const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
 
+  const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [isScrolled, setIsScrolled] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+  // const [isScrolled, setIsScrolled] = useState(false);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > 100) {
+  //       setIsScrolled(true);
+  //     } else {
+  //       setIsScrolled(false);
+  //     }
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   // Make menu close after choosing one page.
   useEffect(() => {
@@ -86,9 +87,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 flex w-full items-center justify-between  border-[#ffffff22] px-5 py-5  transition-all duration-500 ${
-        isScrolled ? 'bg-[#00000099] xl:backdrop-blur-sm' : ''
-      }`}
+      className={`fixed left-0 right-0 top-0 z-50 flex w-full items-center justify-between  border-[#ffffff22] px-5 py-5  transition-all duration-500 `}
     >
       <nav className="hidden lg:block">
         <ul className="hidden gap-10 lg:flex items-center">
@@ -96,17 +95,45 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
           <NavbarItem
             selected={currentIndex === 0}
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               swiper?.slideTo(0);
             }}
             text="صفحه اصلی"
             delay={200}
           />
-          <NavbarItem selected={currentIndex === 1} onClick={() => swiper?.slideTo(1)} text="اپلیکیشن" delay={400} />
-          <NavbarItem selected={currentIndex === 2} onClick={() => swiper?.slideTo(2)} text="دی‌ان‌اس" delay={600} />
-          <NavbarItem selected={currentIndex === 3} onClick={() => swiper?.slideTo(3)} text="تعرفه" delay={800} />
+          <NavbarItem
+            selected={currentIndex === 1}
+            onClick={() => {
+              if (pathname !== '/') navigate('/');
+              swiper?.slideTo(1);
+            }}
+            text="اپلیکیشن"
+            delay={400}
+          />
+          <NavbarItem
+            selected={currentIndex === 2}
+            onClick={() => {
+              if (pathname !== '/') navigate('/');
+              swiper?.slideTo(2);
+            }}
+            text="دی‌ان‌اس"
+            delay={600}
+          />
+          <NavbarItem
+            selected={currentIndex === 3}
+            onClick={() => {
+              if (pathname !== '/') navigate('/');
+              swiper?.slideTo(3);
+            }}
+            text="تعرفه"
+            delay={800}
+          />
           <NavbarItem
             selected={currentIndex === 4}
-            onClick={() => swiper?.slideTo(4)}
+            onClick={() => {
+              if (pathname !== '/') navigate('/');
+              swiper?.slideTo(4);
+            }}
             text="وضعیت سرورها"
             delay={1000}
           />
@@ -130,6 +157,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
             icon={currentIndex === 0 ? Home : HomeWhite}
             selected={currentIndex === 0}
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               handleLinkClick();
               swiper?.slideTo(0);
             }}
@@ -137,6 +165,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
           />
           <NavbarItem
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               handleLinkClick();
               swiper?.slideTo(1);
             }}
@@ -148,6 +177,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
             icon={currentIndex === 2 ? DNS : DNSWhite}
             selected={currentIndex === 2}
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               handleLinkClick();
               swiper?.slideTo(2);
             }}
@@ -157,6 +187,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
             icon={currentIndex === 3 ? Crown : CrownWhite}
             selected={currentIndex === 3}
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               handleLinkClick();
               swiper?.slideTo(3);
             }}
@@ -166,6 +197,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
             icon={currentIndex === 4 ? Server : ServerWhite}
             selected={currentIndex === 4}
             onClick={() => {
+              if (pathname !== '/') navigate('/');
               handleLinkClick();
               swiper?.slideTo(4);
             }}

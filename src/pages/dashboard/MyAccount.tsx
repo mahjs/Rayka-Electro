@@ -22,20 +22,22 @@ const MyAccount: FC<Props> = ({ premium }) => {
             <img loading="lazy" src={StarPremium} alt="Premium badge" />
             <h4 className="text-[1.5rem]">سطح حساب شما</h4>
           </div>
-          <div className="flex items-center">
+          <div className="flex flex-wrap items-center">
             {premium && (
               <div className="flex gap-5 items-center">
-                <p className="text-[2.5rem] font-bold">حساب کاربری ویژه</p>
-                <span className="opacity-60">{29} روز باقی مانده</span>
+                <p className="text-[1.5rem] whitespace-nowrap md:text-[2rem] lg:text-[2.5rem] font-bold">
+                  حساب کاربری ویژه
+                </p>
+                <span className="opacity-60 text-[.8rem] md:text-[1rem] whitespace-nowrap">{29} روز باقی مانده</span>
               </div>
             )}
             {!premium && <span>حساب کاربری عادی</span>}
-            <button className="mr-auto bg-white text-[#541A79] py-3 px-5 rounded-lg">
+            <button className="mx-auto mt-3 md:mr-auto md:ml-0 whitespace-nowrap bg-white text-[#541A79] py-3 px-5 rounded-lg">
               {premium ? 'تمدید اشتراک' : 'خرید اشتراک'}
             </button>
           </div>
         </div>
-        <div className="grid h-full grid-cols-2 gap-5">
+        <div className="grid h-full lg:grid-cols-2 gap-5">
           <PlanFeatures
             active
             icon={paidPlan.icon}
