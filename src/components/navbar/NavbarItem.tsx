@@ -40,7 +40,7 @@ const NavbarItem: FC<Props> = ({ onClick, icon, href, text, delay = 0, selected 
         color: selected ? '#511A79' : '#fff',
       }}
     >
-      {icon && <img src={icon} className="w-[20px] h-[20px]" />}
+      {icon && <img loading="lazy" src={icon} className="w-[20px] h-[20px]" />}
       {/* Use a regular anchor tag or a Link component from react-router-dom */}
       <a href={href}>{text}</a>
     </li>

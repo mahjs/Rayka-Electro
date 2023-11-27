@@ -13,12 +13,13 @@ const MyAccount: FC<Props> = ({ premium }) => {
       <div className="flex h-full flex-col gap-5">
         <div className="flex flex-col gap-5 relative min-h-[200px]  p-8 rounded-2xl backdrop-blur-md overflow-hidden">
           <img
+            loading="lazy"
             src={StarPremium}
             className="absolute w-[400px] h-[400px] opacity-5 -top-[90%] -left-[5%]"
             alt="Premium badge"
           />
           <div className="flex gap-3">
-            <img src={StarPremium} alt="Premium badge" />
+            <img loading="lazy" src={StarPremium} alt="Premium badge" />
             <h4 className="text-[1.5rem]">سطح حساب شما</h4>
           </div>
           <div className="flex flex-wrap items-center">

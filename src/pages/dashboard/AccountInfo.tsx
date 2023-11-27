@@ -32,8 +32,8 @@ const AccountInfo = () => {
         <div className="flex flex-col">
           <h4 className="text-white text-[1.2rem] md:text-[1.8rem] lg:text-[2.2rem]">{user.name}</h4>
           <div className="flex gap-2">
-            <p className="text-[#ffffff88] text-[.9rem] lg:text-[1.2rem]">{user.email}</p>
-            <img src={Edit} />
+            <p className="text-[#ffffff88] text-[.8rem] md:text-[1rem] lg:text-[1.2rem]">{user.email}</p>
+            <img loading="lazy" src={Edit} />
           </div>
         </div>
       </div>

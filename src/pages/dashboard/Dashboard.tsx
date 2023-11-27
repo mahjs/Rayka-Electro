@@ -17,7 +17,7 @@ const Dashboard = () => {
     <div className="relative min-h-full w-full overflow-hidden">
       <Navbar />
       <img src={DashboardBG} className="absolute min-w-[100vw] min-h-[100vh] -z-10" />
-      <div className="flex items-center md:items-stretch flex-col lg:flex-row min-w-[100vw] min-h-[100vh] gap-5 pt-[9rem] pb-[1.8rem] px-[6rem]">
+      <div className="flex items-center md:items-stretch flex-col lg:flex-row min-w-[100vw] min-h-[100vh] gap-5 pt-[4rem] md:pt-[6rem] lg:pt-[9rem] pb-[1.8rem] px-[6rem]">
         <SideBar selectedTab={selectedTab} handleSelectTab={handleSelectTab} />
         <MainContent selectedTab={selectedTab} />
       </div>

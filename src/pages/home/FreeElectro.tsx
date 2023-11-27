@@ -1,5 +1,6 @@
 import Mouse from '../../assets/images/mouse.svg';
-import main from '../../assets/images/main.png';
+import main from '../../assets/images/main.webp';
+import LazyImage from '../../components/ui/LazyImage';
 
 const FreeElectro = () => {
   return (
@@ -21,13 +22,13 @@ const FreeElectro = () => {
             تحریم های ظالمانه شرکت های خارجی مقابله کند...
           </p>
         </div>
-        <div className="flex  slideDown ">
-          <img src={main} alt="الکترو electro Electro" style={{ width: '100%', height: '100%' }} />
+        <div className="flex slideDown">
+          <LazyImage src={main} alt="الکترو electro Electro" style={{ width: '100%', height: '100%' }} />
         </div>
       </div>
 
       <div className="slideUpScroll flex absolute  bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-3">
-        <img src={Mouse} style={{ width: '60px' }} />
+        <LazyImage alt="mouse" src={Mouse} className="lg:w-[45px] md:w-[30px] w-[25px] " />
         <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
     </div>

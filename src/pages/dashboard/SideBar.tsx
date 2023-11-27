@@ -52,7 +52,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
                 background: selectedTab === tab.name ? 'white' : 'none',
               }}
             >
-              <img src={tab.image} alt={tab.name} className="bg-[#ffffff88] p-[2px] rounded-md" />
+              <img loading="lazy" src={tab.image} alt={tab.name} className="bg-[#ffffff88] p-[2px] rounded-md" />
               <p
                 style={{
                   color: selectedTab === tab.name ? '#541A79' : 'white',
@@ -63,18 +63,22 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
             </button>
           ))}
           <button onClick={() => setOpenExitModal(true)} className="flex gap-3 text-white items-center p-2 rounded-lg">
-            <img src={Logout} alt="exit" className="bg-[#ffffff88] p-[2px] rounded-md" />
+            <img loading="lazy" src={Logout} alt="exit" className="bg-[#ffffff88] p-[2px] rounded-md" />
             <p>خروج از حساب</p>
           </button>
         </div>
 
         {/* Premium card */}
         <div className="relative flex flex-col gap-5 py-2 px-4 text-white bg-[#ffffff22] rounded-xl overflow-hidden mt-auto">
-          <img src={StarPremium} className="absolute w-[145px] h-[145px] opacity-10 -top-[60%] -left-[15%]" />
+          <img
+            loading="lazy"
+            src={StarPremium}
+            className="absolute w-[145px] h-[145px] opacity-10 -top-[60%] -left-[15%]"
+          />
           <button onClick={() => handleSelectTab('upgrade')} className="flex gap-3 items-center ">
-            <img src={StarPremium} />
+            <img loading="lazy" src={StarPremium} />
             <p>نوع حساب شما</p>
-            <img src={LeftArrow} className="mr-auto" />
+            <img loading="lazy" src={LeftArrow} className="mr-auto" />
           </button>
 
           <div className="flex flex-col">
@@ -84,7 +88,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
         </div>
 
         <button className="flex items-center gap-3 text-white  bg-[#ffffff22] py-2 px-4 rounded-xl">
-          <img src={Bell} />
+          <img loading="lazy" src={Bell} />
           <span className="font-bold">اعلانات</span>
           <span className="mr-auto py-1 px-2 text-[.8rem] rounded-full bg-white text-[#511A79]">{2}</span>
         </button>

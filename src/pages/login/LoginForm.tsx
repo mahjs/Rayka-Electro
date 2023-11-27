@@ -29,7 +29,10 @@ const LoginForm: React.FC = () => {
     handleSubmit,
     reset,
     formState: { errors },
+    watch,
   } = useForm<FormValues>();
+
+  const rememberMe = watch('rememberMe');
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data);
@@ -39,8 +42,8 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#501a79] sm:mb-4 rounded-[1.25rem] border border-zinc-600 w-full md:w-[45rem] lg:w-[30rem] mt-2 p-6 flex flex-col items-center space-y-6">
-      <img src={Logo} alt="Logo-login" className="w-20 h-20" />
+    <div className="bg-[#501a79] sm:mb-4 rounded-[1.25rem] border border-zinc-600 w-full md:w-[50%] 2xl:w-[25%] mt-2 p-6 flex flex-col items-center space-y-6">
+      <img loading="lazy" src={Logo} alt="Logo-login" className="w-20 h-20" />
       <h2 className="text-white text-3xl font-bold">ورود به حساب کاربری</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-[100%] flex flex-wrap justify-between text-white">
         <InputField
@@ -85,8 +88,13 @@ const LoginForm: React.FC = () => {
           }
         />
         <div className="flex justify-between w-full items-center text-sm my-4">
-          <label className="flex items-center text-gray-300">
-            <input type="checkbox" {...register('rememberMe')} className="ml-2 mt-1.5" />
+          <label className="inline-flex items-center cursor-pointer">
+            <input type="checkbox" {...register('rememberMe')} className="sr-only" />
+            <span
+              className={`flex-shrink-0 ml-2 mt-1.5 w-3.5 h-3.5 inline-block mr-2 rounded-full border ${
+                rememberMe ? 'bg-blue-500' : 'bg-white'
+              } border-gray-400`}
+            ></span>
             بخاطر سپردن رمز عبور
           </label>
           <a href="#" className="text-white hover:text-blue-200 underline">
@@ -112,6 +120,14 @@ const LoginForm: React.FC = () => {
 const InputField: React.FC<InputFieldProps> = ({ name, placeholder, register, error, type, icon, validation }) => {
   return (
     <>
+      <style>
+        {`
+        .input-autofill:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 30px #501a79 inset;
+          -webkit-text-fill-color: #fcfcfc;
+        }
+      `}
+      </style>
       <div
         className={`flex items-center border w-full ${
           error ? 'border-red-500 my-3' : 'border-slate-500 focus-within:border-white'
@@ -120,7 +136,7 @@ const InputField: React.FC<InputFieldProps> = ({ name, placeholder, register, er
         {icon}
         <input
           {...register(name, validation)}
-          className="bg-transparent outline-none pl-2 mr-2 w-full text-white"
+          className="bg-transparent border-none outline-none pl-2 mr-2 w-full text-white input-autofill"
           type={type}
           placeholder={placeholder}
         />
