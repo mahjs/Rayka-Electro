@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import type { Swiper as SwiperType } from 'swiper';
+import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
 import LoginImg from '../../assets/images/login.png';
 // import VantaBackground from '../signUp/VantaBackground ';
 import LoginForm from './LoginForm';
 import LazyImage from '../../components/ui/LazyImage';
 
+const BACKGROUND_COLOR = '#23153c';
+
 const Login: React.FC = () => {
-  const [currentSwiperIndex, setCurrentSwiperIndex] = useState<number>(0);
-  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
   return (
-    <div className="overflow-x-hidden h-[100dvh] bg-[#23153c]">
+    <div className={`overflow-x-hidden h-[100vh] bg-[${BACKGROUND_COLOR}]`}>
       {/* <VantaBackground /> */}
-      <Navbar swiper={swiperInstance} currentIndex={currentSwiperIndex} />
+      <Navbar swiper={null} currentIndex={0} />
       <div className="flex flex-wrap w-full h-full justify-evenly items-center px-4 md:px-0 mt-3">
         <LoginForm />
         <div className="sign-img hidden 2xl:flex w-[50%]">
