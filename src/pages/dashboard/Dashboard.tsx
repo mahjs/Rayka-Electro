@@ -3,7 +3,7 @@ import DashboardBG from '../../assets/images/dashboard-bg.svg';
 import MainContent from './MainContent';
 import SideBar from './SideBar';
 
-export type Tabs = 'my-account' | 'my-info' | 'logout' | 'upgrade';
+export type Tabs = 'my-account' | 'my-info' | 'logout' | 'upgrade' | 'users' | 'history' | 'content';
 
 const Dashboard = () => {
   const [selectedTab, setSelectedTab] = useState<Tabs>('my-account');

@@ -4,6 +4,9 @@ import MyAccount from './MyAccount';
 import { user } from './SideBar';
 import AccountInfo from './AccountInfo';
 import BuyPlan from './BuyPlan';
+import Users from './Users';
+import History from './History';
+import Content from './Content';
 
 interface Props {
   selectedTab: Tabs;
@@ -16,6 +19,9 @@ const MainContent: FC<Props> = ({ selectedTab }) => {
       {selectedTab === 'my-account' && <MyAccount premium={user.premium} />}
       {selectedTab === 'my-info' && <AccountInfo />}
       {selectedTab === 'upgrade' && <BuyPlan />}
+      {selectedTab === 'users' && <Users />}
+      {selectedTab === 'history' && <History />}
+      {selectedTab === 'content' && <Content />}
     </main>
   );
 };
