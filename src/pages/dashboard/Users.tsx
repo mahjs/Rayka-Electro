@@ -112,6 +112,7 @@ const Users = () => {
         <select
           id="countries"
           className="bg-[#ffffff18] h-[3rem] backdrop-blur-[37px]  basis-1/5    text-white text-sm rounded-lg  block w-full p-2.5 "
+          title="Country Selection"
         >
           <option selected>همه تراکنش ها</option>
           <option value="US">United States</option>

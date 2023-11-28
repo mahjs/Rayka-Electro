@@ -10,11 +10,12 @@ type UserRow = {
   option: string;
 };
 type HistoryRow = {
+  code: number;
+  name: string;
+  status: string;
+  discrib: string;
   date: string;
-  hour: string;
-  categoryDis: string;
-  causeDis: string;
-  handle: string;
+  option: string;
 };
 interface Props {
   cellHeaders: string[];
@@ -51,7 +52,7 @@ const CustomTable: React.FC<Props> = ({ cellHeaders, userRows, isUser, historyRo
         {isUser ? (
           <div className="flex h-[400px] overflow-y-scroll w-full">
             <tbody className="w-full">
-              {userRows.map((userRows, index) => (
+              {userRows?.map((userRows, index) => (
                 <>
                   <tr className=" flex  text-center rounded-2xl items-center  h-[70px]" key={index}>
                     <th className="flex-[0.5]">{userRows.id}</th>
@@ -67,16 +68,23 @@ const CustomTable: React.FC<Props> = ({ cellHeaders, userRows, isUser, historyRo
             </tbody>
           </div>
         ) : (
-          <tbody>
-            <tr className=" flex  text-center rounded-2xl  h-[70px]">
-              <th className="flex-1">fnfkjn</th>
-              <th className="flex-1">fnfkjn</th>
-              <th className="flex-1">fnfkjn</th>
-              <th className="flex-1">fnfkjn</th>
-              <th className="flex-1">fnfkjn</th>
-              <th className="flex-1">fnfkjn</th>
-            </tr>
-          </tbody>
+          <div className="flex h-[400px] overflow-y-scroll w-full">
+            <tbody className="w-full">
+              {historyRows?.map((historyRows, index) => (
+                <>
+                  <tr className=" flex  text-center rounded-2xl items-center  h-[70px]" key={index}>
+                    <th className="flex-[0.5]">{historyRows.code}</th>
+                    <th className="flex-[0.5]">{historyRows.name}</th>
+                    <th className="flex-1">{historyRows.status}</th>
+                    <th className="flex-[1.5] text-right">{historyRows.discrib}</th>
+                    <th className="flex-[0.5]">{historyRows.date}</th>
+                    <th className="flex-1">{historyRows.option}</th>
+                  </tr>
+                  <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
+                </>
+              ))}
+            </tbody>
+          </div>
         )}
       </table>
     </div>
