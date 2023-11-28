@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../../assets/images/Logo.svg';
 import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-form';
 import { usernameValidation, passwordValidation } from '../signUp/ValidationRules';
+import { useNavigate } from 'react-router-dom';
 
 interface FormValues {
   username: string;
@@ -21,6 +22,8 @@ interface InputFieldProps {
 }
 
 const LoginForm: React.FC = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -31,17 +34,15 @@ const LoginForm: React.FC = () => {
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data);
     reset();
+    navigate('/dashboard');
     // Add form submission logic here
   };
 
   return (
-    <div className="bg-[#501a79] sm:mb-4 rounded-[1.25rem] border border-zinc-600 w-[28rem] mt-2 p-6 flex flex-col items-center space-y-6">
+    <div className="bg-[#501a79] sm:mb-4 rounded-[1.25rem] border border-zinc-600 w-full md:w-[45rem] lg:w-[30rem] mt-2 p-6 flex flex-col items-center space-y-6">
       <img src={Logo} alt="Logo-login" className="w-20 h-20" />
       <h2 className="text-white text-3xl font-bold">ورود به حساب کاربری</h2>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-[28rem] flex flex-wrap justify-between text-white"
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-[100%] flex flex-wrap justify-between text-white">
         <InputField
           name="username"
           placeholder="Alireza"

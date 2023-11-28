@@ -1,4 +1,4 @@
-import Phone from '../../assets/images/phone.svg';
+import Phone from '../../assets/images/phone.png';
 import Caret from '../../assets/images/caret.svg';
 import UnderlineCopyText from '../../components/ui/UnderlineCopyText';
 import useObserver from '../../utils/useObserver';
@@ -12,11 +12,11 @@ const ElectroDNS = () => {
     <section
       ref={containerRef}
       id="ElectroDNS"
-      className="flex justify-center flex-col gap-5 h-[100dvh]  px-10 md:px-20"
+      className="flex justify-start  lg:justify-center lg:pt-0 pt-12 items-center flex-col gap-5 h-[100dvh]  px-10 md:px-20"
     >
-      <div className="flex lg:flex-row flex-col-reverse items-center justify-center lg:gap-20">
-        <div className="flex  lg:max-w-[50%]  flex-col text-justify m-0 z-20 lg:items-start items-center">
-          <div className="flex flex-col lg:justify-start justify-center">
+      <div className="flex lg:flex-row flex-col-reverse items-center justify-between lg:gap-12  ">
+        <div className="flex md:gap-12 lg:max-w-[50%]  flex-col text-justify m-0 z-20 lg:items-start items-center">
+          <div className="flex flex-col lg:justify-start items-center justify-center">
             <p
               style={{
                 opacity: startAnimation ? 1 : 0,
@@ -25,7 +25,7 @@ const ElectroDNS = () => {
               }}
               className=" text-white header-1"
             >
-              دی‌ان‌اس <span className="text-[#8C39F3]">الکترو</span>
+              دی‌ان‌اس <span className="text-[#8C39F3] ">الکترو</span>
             </p>
             {startAnimation && (
               <>
@@ -80,25 +80,23 @@ const ElectroDNS = () => {
         </div>
         {startAnimation && (
           <img
+            alt="phone"
             style={{
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? 'rotate(0)' : 'rotate(20deg)',
               transition: 'all 1s ease-out',
               objectFit: 'contain',
-              maxHeight: '40dvh',
-              maxWidth: '65vw',
+              maxHeight: '80dvh',
+              maxWidth: '80%',
             }}
             src={Phone}
             className="rotateMagnifier  "
           />
         )}
-      </div>
-      <div className="slideUpScroll flex   flex-col justify-center items-center gap-2 mb-3">
-        {' '}
-        <div className="slideUpScroll flex  mt-7  flex-col justify-center items-center gap-2 mb-3">
-          <img src={Caret} style={{ width: '45px', height: '45px' }} />
-          <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
-        </div>
+      </div>{' '}
+      <div className="slideUpScroll flex absolute  mt-7 bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-4">
+        <img alt="caret" src={Caret} className="lg:w-[45px] md:w-[30px] w-[25px] " />
+        <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
       </div>
     </section>
   );

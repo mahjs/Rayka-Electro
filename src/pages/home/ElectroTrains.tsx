@@ -21,9 +21,6 @@ export const paidPlan = {
     'لورم اپیسوم۲',
     'لورم اپیسوم',
     'لورم اپیسوم',
-    'لورم اپیسوم',
-    'لورم اپیسوم',
-    'لورم ایپسوم',
   ],
   price: 119000,
 };
@@ -36,11 +33,11 @@ const ElectroTrains = () => {
     <section
       ref={containerRef}
       id="ElectroTrains"
-      className="overflow-hidden min-w-full h-[100dvh] md:gap-10  flex flex-col md:flex-row gap-11   justify-center  items-stretch"
+      className="flex justify-start lg:flex-row flex-col w-full  lg:justify-center lg:pt-0 pt-12 items-stretch  gap-5 lg:h-[60dvh] h-[100dvh]  px-10 md:px-20"
     >
       {startAnimation && (
         <>
-          <div className="slideUpMagnifier md:m-auto  h-[550px]  md:w-[42%] w-[93%] backdrop-blur-lg ">
+          <div className="slideUpMagnifier md:m-auto  h-full w-full lg:w-[70dvh] backdrop-blur-lg ">
             <PlanFeatures
               icon={paidPlan.icon}
               title={paidPlan.title}
@@ -50,7 +47,7 @@ const ElectroTrains = () => {
             />
           </div>
           <div
-            className="slideUpMagnifier md:visible invisible h-[550px]  md:w-[42%] w-[93%] backdrop-blur-lg m-auto"
+            className="slideUpMagnifier  h-full w-full lg:w-[70dvh] backdrop-blur-lg m-auto"
             style={{
               animationDelay: '.5s',
             }}

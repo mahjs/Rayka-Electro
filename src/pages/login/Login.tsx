@@ -1,19 +1,17 @@
 import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
-import LoginImg from '../../assets/images/login-.svg';
-import VantaBackground from '../signUp/VantaBackground ';
+import LoginImg from '../../assets/images/login.png';
+// import VantaBackground from '../signUp/VantaBackground ';
 import LoginForm from './LoginForm';
 
 const Login: React.FC = () => {
   return (
-    <div className="overflow-x-hidden h-[100dvh] relative bg-[#23153c]">
-      <VantaBackground />
-      <div className="absolute top-0 left-0 right-0">
-        <Navbar />
-      </div>
-      <div className="flex flex-wrap absolute w-full justify-around items-center p-4 top-36">
+    <div className="overflow-x-hidden h-[100dvh] bg-[#23153c]">
+      {/* <VantaBackground /> */}
+      <Navbar />
+      <div className="flex flex-wrap w-full h-full justify-evenly items-center px-4 md:px-0 mt-3">
         <LoginForm />
-        <img src={LoginImg} alt="LoginImg" style={{ width: '33rem', height: '33rem' }} />
+        <img src={LoginImg} alt="login image " className="hidden md:flex w-[50%]" />
       </div>
     </div>
   );
