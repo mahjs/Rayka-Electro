@@ -1,4 +1,4 @@
-import Phone from '../../assets/images/phone.png';
+import Phone from '../../assets/images/phone.webp';
 import UnderlineCopyText from '../../components/ui/UnderlineCopyText';
 
 const ElectroSection = () => {
