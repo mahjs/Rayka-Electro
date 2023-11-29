@@ -74,7 +74,7 @@ const CustomTable: React.FC<Props> = ({ cellHeaders, userRows, isUser, historyRo
                     <th className="flex-[0.5]">{userRows.date}</th>
                     <th className="flex-[0.5] flex justify-center gap-3">
                       {userRows.images?.map((images, index) => {
-                        return <img src={images} alt="" key={index} />;
+                        return <img src={images} alt="images" className="cursor-pointer	" key={index} />;
                       })}
                     </th>
                   </tr>
@@ -95,7 +95,7 @@ const CustomTable: React.FC<Props> = ({ cellHeaders, userRows, isUser, historyRo
                     <th className="flex-1 ">{historyRows.discrib}</th>
                     <th className="flex-1">{historyRows.date}</th>
                     <th className="flex-[0.5] flex justify-center">
-                      <img src={historyRows.images} alt="images" />
+                      <img src={historyRows.images} className="cursor-pointer	" alt="images" />
                     </th>
                   </tr>
                   <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
