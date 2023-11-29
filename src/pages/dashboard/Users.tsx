@@ -1,8 +1,9 @@
-import { useState } from 'react';
 import CustomTable from '../../components/ui/CustomTable';
 import exel from '../../assets/images/exel.svg';
-import ArrowDown from '../../assets/images/arrow-down.svg';
 import SelectButton from '../../components/ui/SelectButton';
+import deleteIcon from '../../assets/images/delete.svg';
+import edit from '../../assets/images/edit.svg';
+import option from '../../assets/images/option.svg';
 
 const cellHeaders = ['ایدی', 'نام کاربری', 'دسترسی پلان', 'ایمیل', 'تاریخ ساخت', 'گزینه‌ها'];
 const userRows = [
@@ -12,7 +13,7 @@ const userRows = [
     position: 'کاربر معمولی-رایگان',
     email: 'amir.hosein.clan@gmail.com',
     date: '1400/01/01',
-    option: 'حذف',
+    images: [deleteIcon, edit, option],
   },
   {
     id: 2,
@@ -20,15 +21,17 @@ const userRows = [
     position: 'مدیر',
     email: 'amir.hosein.clan@gmail.com',
     date: '1400/01/01',
-    option: 'حذف',
+    images: [deleteIcon, edit, option],
   },
   {
     id: 3,
     userName: 'محمدرضا',
+    discrib: 'خرید پلان ویژه',
+
     position: 'مدیر',
     email: 'amir.hosein.clan@gmail.com',
     date: '1400/01/01',
-    option: 'حذف',
+    images: [deleteIcon, edit, option],
   },
   {
     id: 4,
@@ -36,7 +39,7 @@ const userRows = [
     position: 'مدیر',
     email: 'amir.hosein.clan@gmail.com',
     date: '1400/01/01',
-    option: 'حذف',
+    images: [deleteIcon, edit, option],
   },
   {
     id: 5,
@@ -44,7 +47,7 @@ const userRows = [
     position: 'مدیر',
     email: 'amir.hosein.clan@gmail.com',
     date: '1400/01/01',
-    option: 'حذف',
+    images: [deleteIcon, edit, option],
   },
   {
     id: 5,
@@ -52,7 +55,7 @@ const userRows = [
     position: 'مدیر',
     email: 'amir.hosein.clan@gmail.com',
     date: '1400/01/01',
-    option: 'حذف',
+    images: [deleteIcon, edit, option],
   },
   {
     id: 5,
@@ -60,7 +63,7 @@ const userRows = [
     position: 'مدیر',
     email: 'amir.hosein.clan@gmail.com',
     date: '1400/01/01',
-    option: 'حذف',
+    images: [deleteIcon, edit, option],
   },
   {
     id: 5,
@@ -68,7 +71,7 @@ const userRows = [
     position: 'مدیر',
     email: 'amir.hosein.clan@gmail.com',
     date: '1400/01/01',
-    option: 'حذف',
+    images: [deleteIcon, edit, option],
   },
   {
     id: 5,
@@ -76,7 +79,7 @@ const userRows = [
     position: 'مدیر',
     email: 'amir.hosein.clan@gmail.com',
     date: '1400/01/01',
-    option: 'حذف',
+    images: [deleteIcon, edit, option],
   },
 ];
 const Users = () => {
@@ -105,7 +108,7 @@ const Users = () => {
             <input
               type="search"
               id="default-search"
-              className="block w-full p-4 ps-10 text-sm bg-[#ffffff18] h-[3rem] backdrop-blur-[37px]   rounded-lg  text-white"
+              className="block w-full p-4 ps-10 text-sm bg-[#ffffff18] h-[3rem] backdrop-blur-[37px] body-1  rounded-lg  text-white"
               placeholder="جستجو کنید ..."
               required
             />
@@ -117,11 +120,13 @@ const Users = () => {
           <option>2</option>
           <option>3</option>
         </SelectButton>
+
         <button
           type="button"
-          className="text-gray-900 h-[3rem] bg-gray-100 hover:bg-gray-200   font-medium rounded-lg text-sm px-9 py-2.5 text-center inline-flex items-center  me-2 mb-2"
+          className="text-[#511A79] btn  h-[3rem] bg-gray-100 hover:bg-gray-200   font-medium rounded-lg text-sm px-10 py-2.5 text-center inline-flex items-center  me-2 mb-2"
         >
-          خروجی اکسل <img src={exel} alt="exel" className="mr-1" />
+          خروجی اکسل
+          <img src={exel} alt="exel" className="mr-2 w-[20px]" />
         </button>
       </div>
 

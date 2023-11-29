@@ -28,7 +28,7 @@ const ElectroSection = () => {
               transition: 'all 1s ease-out',
               objectFit: 'contain',
               maxHeight: '100dvh',
-              maxWidth: '100%',
+              maxWidth: '90%',
             }}
             src={Phone}
             className="rotateMagnifier  "

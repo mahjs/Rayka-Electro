@@ -32,7 +32,7 @@ const ElectroPlan = () => {
       />
       <div className="flex bg-white flex-col w-[22.4375rem] items-center justify-center rounded-xl border-2 border-[#ffffff18] gap-4 py-8 px-[1.28rem] ">
         <img src={addPlan} alt="addPlan" />
-        <p className="text-[#541A79]">افزودن پلن</p>
+        <p className="text-[#541A79] header-4">افزودن پلن</p>
       </div>
     </div>
   );

@@ -1,66 +1,84 @@
 import React from 'react';
 import CustomTable from '../../components/ui/CustomTable';
 import exel from '../../assets/images/exel.svg';
-import ArrowDown from '../../assets/images/arrow-down.svg';
 import SelectButton from '../../components/ui/SelectButton';
+import deleteIcon from '../../assets/images/delete.svg';
+import edit from '../../assets/images/edit.svg';
+import option from '../../assets/images/option.svg';
 
-const cellHeaders = ['ایدی', 'نام کاربری', 'دسترسی پلان', 'ایمیل', 'تاریخ ساخت', 'گزینه‌ها'];
+const cellHeaders = ['کد تراکنش', 'نام کاربر', 'وضعیت', 'توضیحات', 'تاریخ تراکنش', 'گزینه‌ها'];
 const historyRows = [
   {
-    code: 1245,
-    name: 'محمدرضا',
+    code: 5481654831,
+    name: 'aliX0123',
     status: ' موفق',
-    discrib: 'پرداخت موفق',
+    discrib: 'خرید پلان ویژه',
     date: '1400/01/01',
-    option: 'حذف',
+    images: option,
   },
   {
-    code: 1245,
-    name: 'محمدرضا',
+    code: 5481654831,
+    name: 'aliX0123',
     status: ' موفق',
-    discrib: 'پرداخت موفق',
+    discrib: 'خرید پلان ویژه',
     date: '1400/01/01',
-    option: 'حذف',
+    images: option,
   },
   {
-    code: 1245,
-    name: 'محمدرضا',
+    code: 5481654831,
+    name: 'aliX0123',
     status: ' موفق',
-    discrib: 'پرداخت موفق',
+    discrib: 'خرید پلان ویژه',
     date: '1400/01/01',
-    option: 'حذف',
+    images: option,
   },
   {
-    code: 1245,
-    name: 'محمدرضا',
+    code: 5481654831,
+    name: 'aliX0123',
     status: ' موفق',
-    discrib: 'پرداخت موفق',
+    discrib: 'خرید پلان ویژه',
     date: '1400/01/01',
-    option: 'حذف',
+    images: option,
   },
   {
-    code: 1245,
-    name: 'محمدرضا',
+    code: 5481654831,
+    name: 'aliX0123',
     status: ' موفق',
-    discrib: 'پرداخت موفق',
+    discrib: 'خرید پلان ویژه',
     date: '1400/01/01',
-    option: 'حذف',
+    images: option,
   },
   {
-    code: 1245,
-    name: 'محمدرضا',
+    code: 5481654831,
+    name: 'aliX0123',
     status: ' موفق',
-    discrib: 'پرداخت موفق',
+    discrib: 'خرید پلان ویژه',
     date: '1400/01/01',
-    option: 'حذف',
+    images: option,
   },
   {
-    code: 1245,
-    name: 'محمدرضا',
+    code: 5481654831,
+    name: 'aliX0123',
     status: ' موفق',
-    discrib: 'پرداخت موفق',
+    discrib: 'خرید پلان ویژه',
     date: '1400/01/01',
-    option: 'حذف',
+    images: option,
+  },
+  {
+    code: 5481654831,
+    name: 'aliX0123',
+    status: ' موفق',
+    discrib: 'خرید پلان ویژه',
+    date: '1400/01/01',
+    images: option,
+  },
+  {
+    code: 5481654831,
+    name: 'aliX0123',
+    status: ' موفق',
+    discrib: 'خرید پلان ویژه',
+    date: '1400/01/01',
+    images: option,
   },
 ];
 
@@ -90,7 +108,7 @@ const History = () => {
             <input
               type="search"
               id="default-search"
-              className="block w-full p-4 ps-10 text-sm bg-[#ffffff18] h-[3rem] backdrop-blur-[37px]   rounded-lg  text-white"
+              className="block w-full p-4 ps-10 text-sm bg-[#ffffff18] h-[3rem] backdrop-blur-[37px] body-1  rounded-lg  text-white"
               placeholder="جستجو کنید ..."
               required
             />
@@ -102,11 +120,13 @@ const History = () => {
           <option>همه تراکنش‌ها</option>
           <option>همه تراکنش‌ها</option>
         </SelectButton>
+
         <button
           type="button"
-          className="text-gray-900 h-[3rem] bg-gray-100 hover:bg-gray-200   font-medium rounded-lg text-sm px-9 py-2.5 text-center inline-flex items-center  me-2 mb-2"
+          className="text-[#511A79] btn  h-[3rem] bg-gray-100 hover:bg-gray-200   font-medium rounded-lg text-sm px-10 py-2.5 text-center inline-flex items-center  me-2 mb-2"
         >
-          خروجی اکسل <img src={exel} alt="exel" className="mr-1" />
+          خروجی اکسل
+          <img src={exel} alt="exel" className="mr-2 w-[20px]" />
         </button>
       </div>
 

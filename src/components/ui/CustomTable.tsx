@@ -7,7 +7,7 @@ type UserRow = {
   position: string;
   email: string;
   date: string;
-  option: string;
+  images: string[];
 };
 type HistoryRow = {
   code: number;
@@ -15,7 +15,7 @@ type HistoryRow = {
   status: string;
   discrib: string;
   date: string;
-  option: string;
+  images: string;
 };
 interface Props {
   cellHeaders: string[];
@@ -25,32 +25,44 @@ interface Props {
 }
 const CustomTable: React.FC<Props> = ({ cellHeaders, userRows, isUser, historyRows }) => {
   return (
-    <div className="w-full p-6 rounded-xl border-2 border-[#ffffff18] h-[600px] 	">
-      <table className="table-fix transition duration-500 ease-in-out w-full text-white">
+    <div className="w-full p-6 rounded-xl border-2 border-[#ffffff18] h-[600px] 	body-2">
+      <table className="table-fix transition duration-500 ease-in-out w-full text-white ">
         <thead className="border-none ">
-          <tr className=" flex bg-[#ffffff18] backdrop-blur-[37px] rounded-lg h-[50px] items-center">
-            {cellHeaders.map((header, index) => (
-              <th
-                key={index}
-                className={
-                  index === 0
-                    ? 'flex-[0.5]'
-                    : index === 1
+          {isUser ? (
+            <tr className=" flex bg-[#ffffff18] backdrop-blur-[37px] rounded-lg h-[50px] items-center">
+              {cellHeaders.map((header, index) => (
+                <th
+                  key={index}
+                  className={
+                    index === 0
                       ? 'flex-[0.5]'
-                      : index === 3
-                        ? 'flex-[1.5] text-right'
-                        : index === 4
-                          ? 'flex-[0.5]'
-                          : 'flex-1'
-                }
-              >
-                {header}
-              </th>
-            ))}
-          </tr>
+                      : index === 1
+                        ? 'flex-[0.5]'
+                        : index === 3
+                          ? 'flex-1 text-right'
+                          : index === 4
+                            ? 'flex-[0.5]'
+                            : index === 5
+                              ? 'flex-[0.5]'
+                              : 'flex-1'
+                  }
+                >
+                  {header}
+                </th>
+              ))}
+            </tr>
+          ) : (
+            <tr className=" flex bg-[#ffffff18] backdrop-blur-[37px] rounded-lg h-[50px] items-center">
+              {cellHeaders.map((header, index) => (
+                <th key={index} className={index === 5 ? 'flex-[0.5]' : 'flex-1'}>
+                  {header}
+                </th>
+              ))}
+            </tr>
+          )}
         </thead>
         {isUser ? (
-          <div className="flex h-[500px] overflow-y-scroll w-full">
+          <div className="flex h-[500px] overflow-y-scroll w-full ">
             <tbody className="w-full">
               {userRows?.map((userRows, index) => (
                 <>
@@ -58,9 +70,13 @@ const CustomTable: React.FC<Props> = ({ cellHeaders, userRows, isUser, historyRo
                     <th className="flex-[0.5]">{userRows.id}</th>
                     <th className="flex-[0.5]">{userRows.userName}</th>
                     <th className="flex-1">{userRows.position}</th>
-                    <th className="flex-[1.5] text-right">{userRows.email}</th>
+                    <th className="flex-1 text-right">{userRows.email}</th>
                     <th className="flex-[0.5]">{userRows.date}</th>
-                    <th className="flex-1">{userRows.option}</th>
+                    <th className="flex-[0.5] flex justify-center gap-3">
+                      {userRows.images?.map((images, index) => {
+                        return <img src={images} alt="" key={index} />;
+                      })}
+                    </th>
                   </tr>
                   <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
                 </>
@@ -68,17 +84,19 @@ const CustomTable: React.FC<Props> = ({ cellHeaders, userRows, isUser, historyRo
             </tbody>
           </div>
         ) : (
-          <div className="flex h-[400px] overflow-y-scroll w-full">
+          <div className="flex h-[500px] overflow-y-scroll w-full">
             <tbody className="w-full">
               {historyRows?.map((historyRows, index) => (
                 <>
                   <tr className=" flex  text-center rounded-2xl items-center  h-[70px]" key={index}>
-                    <th className="flex-[0.5]">{historyRows.code}</th>
-                    <th className="flex-[0.5]">{historyRows.name}</th>
+                    <th className="flex-1">{historyRows.code}</th>
+                    <th className="flex-1">{historyRows.name}</th>
                     <th className="flex-1">{historyRows.status}</th>
-                    <th className="flex-[1.5] text-right">{historyRows.discrib}</th>
-                    <th className="flex-[0.5]">{historyRows.date}</th>
-                    <th className="flex-1">{historyRows.option}</th>
+                    <th className="flex-1 ">{historyRows.discrib}</th>
+                    <th className="flex-1">{historyRows.date}</th>
+                    <th className="flex-[0.5] flex justify-center">
+                      <img src={historyRows.images} alt="images" />
+                    </th>
                   </tr>
                   <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
                 </>
