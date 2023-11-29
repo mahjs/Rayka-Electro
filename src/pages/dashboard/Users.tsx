@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import CustomTable from '../../components/ui/CustomTable';
 import exel from '../../assets/images/exel.svg';
+import ArrowDown from '../../assets/images/arrow-down.svg';
+import SelectButton from '../../components/ui/SelectButton';
+
 const cellHeaders = ['ایدی', 'نام کاربری', 'دسترسی پلان', 'ایمیل', 'تاریخ ساخت', 'گزینه‌ها'];
 const userRows = [
   {
@@ -109,17 +112,11 @@ const Users = () => {
           </div>
         </form>
 
-        <select
-          id="countries"
-          className="bg-[#ffffff18] h-[3rem] backdrop-blur-[37px]  basis-1/5    text-white text-sm rounded-lg  block w-full p-2.5 "
-          title="Country Selection"
-        >
-          <option selected>همه تراکنش ها</option>
-          <option value="US">United States</option>
-          <option value="CA">Canada</option>
-          <option value="FR">France</option>
-          <option value="DE">Germany</option>
-        </select>
+        <SelectButton basis="medium">
+          <option>همه کاربر‌ها</option>
+          <option>2</option>
+          <option>3</option>
+        </SelectButton>
         <button
           type="button"
           className="text-gray-900 h-[3rem] bg-gray-100 hover:bg-gray-200   font-medium rounded-lg text-sm px-9 py-2.5 text-center inline-flex items-center  me-2 mb-2"

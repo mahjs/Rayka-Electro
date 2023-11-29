@@ -25,7 +25,7 @@ interface Props {
 }
 const CustomTable: React.FC<Props> = ({ cellHeaders, userRows, isUser, historyRows }) => {
   return (
-    <div className="w-full p-6 rounded-xl border-2 border-[#ffffff18] h-[480px] 	">
+    <div className="w-full p-6 rounded-xl border-2 border-[#ffffff18] h-[600px] 	">
       <table className="table-fix transition duration-500 ease-in-out w-full text-white">
         <thead className="border-none ">
           <tr className=" flex bg-[#ffffff18] backdrop-blur-[37px] rounded-lg h-[50px] items-center">
@@ -50,7 +50,7 @@ const CustomTable: React.FC<Props> = ({ cellHeaders, userRows, isUser, historyRo
           </tr>
         </thead>
         {isUser ? (
-          <div className="flex h-[400px] overflow-y-scroll w-full">
+          <div className="flex h-[500px] overflow-y-scroll w-full">
             <tbody className="w-full">
               {userRows?.map((userRows, index) => (
                 <>

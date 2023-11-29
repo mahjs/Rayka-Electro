@@ -81,7 +81,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
           </button>
         ))}
         <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
-        <div className="text-center text-white">بخش مدیریتی</div>
+        <div className="text-center text-white opacity-50 mb-4">بخش مدیریتی</div>
         {tabs.slice(3, 6).map((tab) => (
           <button
             onClick={() => handleSelectTab(tab.name as Tabs)}

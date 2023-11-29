@@ -33,7 +33,7 @@ const UnderlineCopyText: FC<Props> = ({ text }) => {
           </span>
         )}
       </span>
-      <img src={Copy} />
+      <img src={Copy} className="max-w-[20px]" />
     </div>
   );
 };

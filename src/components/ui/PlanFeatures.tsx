@@ -27,15 +27,7 @@ const PlanFeatures: FC<Props> = ({ icon, active, disable, title, featuresList, p
       <div className="grid grid-cols-2 gap-4 gap-x-10">
         {featuresList.map((feature, index) => (
           <div key={index} className="flex items-center gap-3 text-white">
-            <img
-              alt="tick"
-              src={Tick}
-              className="w-[30px] h-[20px]"
-              style={{
-                width: '30px',
-                height: '20px',
-              }}
-            />
+            <img alt="tick" src={Tick} className="w-[30px] h-[20px]" />
             <span className=" body">{feature}</span>
           </div>
         ))}
