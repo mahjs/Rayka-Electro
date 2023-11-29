@@ -23,7 +23,7 @@ const Input: FC<Props> = ({ title, value, type, disable, setValue = () => {}, ic
         placeholder={placeholder}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
       />
-      <img onClick={() => setShowPassword(!showPassword)} src={icon} className="absolute bottom-[.8rem] left-[.8rem]" />
+      <img loading='lazy' onClick={() => setShowPassword(!showPassword)} src={icon} className="absolute bottom-[.8rem] left-[.8rem]" />
     </p>
   );
 };

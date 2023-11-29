@@ -1,9 +1,11 @@
-import Phone from '../../assets/images/phone.png';
+import Phone from '../../assets/images/phone.webp';
 import Caret from '../../assets/images/caret.svg';
 import UnderlineCopyText from '../../components/ui/UnderlineCopyText';
 import useObserver from '../../utils/useObserver';
 import { useRef } from 'react';
+import LazyImage from '../../components/ui/LazyImage';
 
+// ElectroDNS Component
 const ElectroDNS = () => {
   const containerRef = useRef<HTMLElement | null>(null);
   const startAnimation = useObserver(containerRef);
@@ -14,16 +16,16 @@ const ElectroDNS = () => {
       id="ElectroDNS"
       className="flex justify-start  lg:justify-center lg:pt-0 pt-12 items-center flex-col gap-5 h-[100dvh]  px-10 md:px-20"
     >
-      <div className="flex lg:flex-row flex-col-reverse items-center justify-between lg:gap-12  ">
-        <div className="flex md:gap-12 lg:max-w-[50%]  flex-col text-justify m-0 z-20 lg:items-start items-center">
-          <div className="flex flex-col lg:justify-start items-center justify-center">
+      <div className="flex lg:flex-row flex-col-reverse items-center lg:gap-12  ">
+        <div className="flex gap-5 lg:max-w-[50%]  flex-col m-0 z-20 lg:items-start items-center">
+          <div className="flex flex-col">
             <p
               style={{
                 opacity: startAnimation ? 1 : 0,
                 transform: startAnimation ? 'translateX(0)' : 'translateX(2rem)',
                 transition: 'all .6s .8s',
               }}
-              className=" text-white header-1"
+              className="text-white text-right header-1"
             >
               دی‌ان‌اس <span className="text-[#8C39F3] ">الکترو</span>
             </p>
@@ -57,7 +59,7 @@ const ElectroDNS = () => {
             )}
           </div>
 
-          <div className="flex gap-3 mt-5 md:flex-row flex-col">
+          <div className="flex gap-3 md:flex-row flex-col">
             <div
               style={{
                 opacity: startAnimation ? 1 : 0,
@@ -78,26 +80,25 @@ const ElectroDNS = () => {
             </div>
           </div>
         </div>
-        {startAnimation && (
-          <img
-            alt="phone"
-            style={{
-              opacity: startAnimation ? 1 : 0,
-              transform: startAnimation ? 'rotate(0)' : 'rotate(20deg)',
-              transition: 'all 1s ease-out',
-              objectFit: 'contain',
-              maxHeight: '80dvh',
-              maxWidth: '80%',
-            }}
-            src={Phone}
-            className="rotateMagnifier  "
-          />
-        )}
-      </div>{' '}
-      <div className="slideUpScroll flex absolute  mt-7 bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-4">
-        <img alt="caret" src={Caret} className="lg:w-[45px] md:w-[30px] w-[25px] " />
-        <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
+        <img
+          loading="lazy"
+          src={Phone}
+          style={{
+            opacity: startAnimation ? 1 : 0,
+            transform: startAnimation ? 'rotate(0)' : 'rotate(40deg)',
+            transition: 'all .7s ease-out',
+            objectFit: 'contain',
+            maxHeight: '70dvh',
+          }}
+          alt="Phone"
+        />
       </div>
+      {startAnimation && (
+        <div className="slideUpScroll flex absolute  mt-7 bottom-1 left-0 right-0  flex-col justify-center items-center gap-2 mb-4">
+          <LazyImage alt="caret" src={Caret} className="lg:w-[45px] md:w-[30px] w-[25px] " />
+          <p className="text-white text-[.8rem] opacity-75">اسکرول کنید</p>
+        </div>
+      )}
     </section>
   );
 };

@@ -42,7 +42,7 @@ const BuyPlan = () => {
                 }}
                 className="w-[60px] h-[60px]  rounded-full flex justify-center items-center"
               >
-                <img src={step.icon} className="w-[20px] h-[20px]" />
+                <img loading="lazy" src={step.icon} className="w-[20px] h-[20px]" />
               </div>
               <span>{step.title}</span>
             </div>
@@ -61,14 +61,14 @@ const BuyPlan = () => {
       {/* Plans */}
       <div className="bg-[#ffffff33] flex flex-col gap-5 p-5 rounded-2xl border-[1.5px] border-[#ffffffaa]">
         <div className="flex min-w-[400px] items-center gap-3">
-          <img src={Crown} className="w-[30px] h-[30px]" />
+          <img loading="lazy" src={Crown} className="w-[30px] h-[30px]" />
           <h4 className="title-2">سطح ویژه</h4>
         </div>
         <SelectButton basis="small" />
 
         <div className="flex flex-col gap-3">
           <div className="flex gap-3">
-            <img src={Discount} />
+            <img loading="lazy" src={Discount} />
             <span className="btn">کد تخفیف</span>
           </div>
 
@@ -81,7 +81,7 @@ const BuyPlan = () => {
 
         <div className="flex flex-col gap-3">
           <div className="flex gap-3">
-            <img src={PriceBadge} />
+            <img loading="lazy" src={PriceBadge} />
             <span className="btn">قیمت نهایی با احتساب تخفیف</span>
           </div>
 

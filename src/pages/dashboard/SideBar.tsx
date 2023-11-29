@@ -8,8 +8,9 @@ import users from '../../assets/images/users.svg';
 import history from '../../assets/images/history.svg';
 import content from '../../assets/images/content.svg';
 import Bell from '../../assets/images/bell.svg';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Tabs } from './Dashboard';
+import { useNavigate } from 'react-router-dom';
 
 export const user = {
   name: 'Alireza_AH191238',
@@ -56,6 +57,9 @@ interface Props {
 }
 
 const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
+  const navigate = useNavigate();
+  const [openExitModal, setOpenExitModal] = useState<boolean>(false);
+
   return (
     <aside className="bg-[#ffffff18] rounded-2xl min-w-[300px] backdrop-blur-[37px] flex flex-col px-6 py-5 gap-4">
       <ProfileInfo name={user.name} email={user.email} premium={user.premium} />
@@ -103,27 +107,50 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
         ))}
       </div>
 
-      {/* Premium card */}
-      <div className="relative flex flex-col gap-5 py-2 px-4 text-white bg-[#ffffff22] rounded-xl overflow-hidden mt-auto">
-        <img src={StarPremium} className="absolute w-[145px] h-[145px] opacity-10 -top-[60%] -left-[15%]" />
-        <button onClick={() => handleSelectTab('upgrade')} className="flex gap-3 items-center ">
-          <img src={StarPremium} />
-          <p>نوع حساب شما</p>
-          <img src={LeftArrow} className="mr-auto" />
-        </button>
+        {/* Premium card */}
+        <div className="relative flex flex-col gap-5 py-2 px-4 text-white bg-[#ffffff22] rounded-xl overflow-hidden mt-auto">
+          <img
+            loading="lazy"
+            src={StarPremium}
+            className="absolute w-[145px] h-[145px] opacity-10 -top-[60%] -left-[15%]"
+          />
+          <button onClick={() => handleSelectTab('upgrade')} className="flex gap-3 items-center ">
+            <img loading="lazy" src={StarPremium} />
+            <p>نوع حساب شما</p>
+            <img loading="lazy" src={LeftArrow} className="mr-auto" />
+          </button>
 
-        <div className="flex flex-col">
-          <p className="text-[1.5rem] font-bold">حساب کاربری ویژه</p>
-          <span className="text-[#ffffff88]">{29} روز باقی مانده</span>
+          <div className="flex flex-col">
+            <p className="text-[1.5rem] font-bold">حساب کاربری ویژه</p>
+            <span className="text-[#ffffff88]">{29} روز باقی مانده</span>
+          </div>
         </div>
-      </div>
 
-      <button className="flex items-center gap-3 text-white  bg-[#ffffff22] py-2 px-4 rounded-xl">
-        <img src={Bell} />
-        <span className="font-bold">اعلانات</span>
-        <span className="mr-auto py-1 px-2 text-[.8rem] rounded-full bg-white text-[#511A79]">{2}</span>
-      </button>
-    </aside>
+        <button className="flex items-center gap-3 text-white  bg-[#ffffff22] py-2 px-4 rounded-xl">
+          <img loading="lazy" src={Bell} />
+          <span className="font-bold">اعلانات</span>
+          <span className="mr-auto py-1 px-2 text-[.8rem] rounded-full bg-white text-[#511A79]">{2}</span>
+        </button>
+      </aside>
+      {openExitModal && (
+        <div className="fixed flex justify-center items-center text-white backdrop-blur-[20px] z-50 top-0 left-0 right-0 bottom-0 bg-[#000000aa] w-[100vw] h-[100vh]">
+          <div className="flex flex-col gap-5 justify-center items-center">
+            <p>آیا میخواهید از حسابتان خارج شوید؟</p>
+            <div className="flex justify-between w-full">
+              <button
+                onClick={() => setOpenExitModal(false)}
+                className="bg-green-400 text-[#511A79] py-5 px-8 rounded-2xl"
+              >
+                خیر
+              </button>
+              <button onClick={() => navigate('/')} className="bg-red-400 text-[#511A79] py-5 px-8 rounded-2xl">
+                بله
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
