@@ -58,6 +58,7 @@ select {
   font-size: clamp(0.77488rem, calc(0.77488rem + ((1vw - 3.6px) * 0.742)), 1.83656rem);
   line-height: 1.07188rem;
 }
+
 .header-4 {
   font-family: 'KalamehBold';
   font-size: clamp(1.3rem, calc(2rem + ((1vw - 3.6px) * 2.365)), 2.5rem);
@@ -117,7 +118,9 @@ select {
     font-size: 0.83rem;
   } */
 }
-
+/* .scroll::-webkit-scrollbar {
+  display: -webkit-box;
+} */
 #root {
   height: 100%;
 }
@@ -127,7 +130,7 @@ body {
   height: 100%;
   direction: rtl;
 }
-.mySwiper::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none; /* For WebKit browsers */
 }
 ::-webkit-scrollbar-track {

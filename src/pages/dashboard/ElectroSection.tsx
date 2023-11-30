@@ -4,8 +4,8 @@ import UnderlineCopyText from '../../components/ui/UnderlineCopyText';
 const ElectroSection = () => {
   return (
     <div className="flex flex-col pt-6">
-      <div className="flex gap-4 justify-between ">
-        <div className="flex basis-2/5 flex-col justify-center gap-4	">
+      <div className="flex lg:flex-row flex-col-reverse gap-4 justify-between ">
+        <div className="flex basis-2/5 flex-col items-center lg:items-start justify-center gap-4	">
           <p className=" text-white header-1">
             دی‌ان‌اس <span className="text-[#8C39F3] ">الکترو</span>
           </p>

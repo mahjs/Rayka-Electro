@@ -85,8 +85,8 @@ const userRows = [
 const Users = () => {
   return (
     <div className="flex flex-col">
-      <div className="flex justify-start mb-7 gap-[0.94rem]">
-        <form className="basis-2/5">
+      <div className="flex  lg:justify-start justify-center mb-7 gap-[0.94rem] flex-wrap">
+        <form className=" lg:basis-2/5 basis-full">
           <div className="relative">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg

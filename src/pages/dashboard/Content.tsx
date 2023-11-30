@@ -18,7 +18,7 @@ const Content = () => {
         </SelectButton>
         <button
           type="button"
-          className="text-[#511A79] btn  h-[3rem] bg-gray-100 hover:bg-gray-200   font-medium rounded-lg text-sm px-14 py-2.5 text-center inline-flex items-center  me-2 mb-2"
+          className="text-[#511A79] btn  bg-gray-100 hover:bg-gray-200 whitespace-nowrap	  font-medium rounded-lg  lg:px-14 px-10 py-2.5 text-center inline-flex items-center  "
         >
           اعمال تغییرات{' '}
         </button>

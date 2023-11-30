@@ -9,13 +9,7 @@ type SelectButtonProps = {
 };
 const SelectButton: React.FC<SelectButtonProps> = ({ children, basis = 'small', onChange, value }) => {
   return (
-    <div
-      className={cn('relative', {
-        'basis-1/6': basis === 'small',
-        'basis-1/5': basis === 'medium',
-        'basis-1/4': basis === 'large',
-      })}
-    >
+    <div className="relative lg:basis-2/6 sm:basis-3/6 basis-full">
       <select
         onChange={onChange}
         value={value}

@@ -62,7 +62,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
 
   return (
     <>
-      <aside className="bg-[#ffffff18] rounded-2xl min-w-[300px] backdrop-blur-[37px] flex flex-col px-6 py-5 gap-4">
+      <aside className="bg-[#ffffff18] rounded-2xl min-w-[360px] backdrop-blur-[37px] flex flex-col px-6 py-5 gap-4">
         <ProfileInfo name={user.name} email={user.email} premium={user.premium} />
         <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
         <div className="flex flex-col gap-1">
