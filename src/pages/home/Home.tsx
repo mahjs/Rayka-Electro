@@ -22,7 +22,7 @@ const Home = () => {
   const [swiper, setSwiepr] = useState<boolean>(false);
 
   return (
-    <div style={{ position: 'relative', height: '100%', zIndex: 10 }}>
+    <div style={{ position: 'relative', height: '100%', zIndex: 10 }} className="me">
       <img alt="fullimage" src={FullImage} className="absolute w-full min-h-full -z-10" />
       <Navbar currentIndex={currentSwiperIndex} swiper={swiper ? swiperRef.current : null} />
 
