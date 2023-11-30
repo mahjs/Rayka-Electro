@@ -1,9 +1,10 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { mainRoutes, protectedRoutes } from './routes/Routes';
 
 const App: FC = () => {
-  const [isLogin, setIsLogin] = useState<boolean>(true);
+  // const [isLogin, setIsLogin] = useState<boolean>(true);
+  const isLogin = true;
 
   return (
     <>

@@ -4,7 +4,7 @@ import MoneySign from '../../assets/images/money-sign.svg';
 import ArrowDown from '../../assets/images/arrow-down.svg';
 import Discount from '../../assets/images/discount.svg';
 import PriceBadge from '../../assets/images/price-badge.svg';
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 
 const steps = [
   {
@@ -25,7 +25,8 @@ const steps = [
 ];
 
 const BuyPlan = () => {
-  const [setpNumber, setStepNumber] = useState<number>(1);
+  // const [setpNumber, setStepNumber] = useState<number>(1);
+  const setpNumber = 1;
 
   return (
     <div className="text-white h-full flex flex-col gap-5 justify-center items-center">

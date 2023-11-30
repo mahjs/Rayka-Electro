@@ -76,7 +76,9 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
         }}
       >
         <img src={Person} className="w-4" loading="lazy" />
-        <button className="text-white btn">ورود به حساب کاربری</button>
+        <Link to="/login">
+          <button className="text-white btn">ورود به حساب کاربری</button>
+        </Link>
       </li>
     );
   };
