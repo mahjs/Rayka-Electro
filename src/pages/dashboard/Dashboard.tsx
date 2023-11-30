@@ -4,7 +4,7 @@ import MainContent from './MainContent';
 import SideBar from './SideBar';
 import Navbar from '../../components/navbar/Navbar';
 
-export type Tabs = 'my-account' | 'my-info' | 'logout' | 'upgrade';
+export type Tabs = 'my-account' | 'my-info' | 'logout' | 'upgrade' | 'users' | 'history' | 'content';
 
 const Dashboard = () => {
   const [selectedTab, setSelectedTab] = useState<Tabs>('my-account');

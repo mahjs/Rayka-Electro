@@ -4,7 +4,9 @@ import MoneySign from '../../assets/images/money-sign.svg';
 import ArrowDown from '../../assets/images/arrow-down.svg';
 import Discount from '../../assets/images/discount.svg';
 import PriceBadge from '../../assets/images/price-badge.svg';
+
 import { Fragment } from 'react';
+import SelectButton from '../../components/ui/SelectButton';
 
 const steps = [
   {
@@ -64,14 +66,7 @@ const BuyPlan = () => {
           <img loading="lazy" src={Crown} className="w-[30px] h-[30px]" />
           <h4 className="title-2">سطح ویژه</h4>
         </div>
-        <div className="relative">
-          <select className="w-full focus:outline-none rounded-lg py-3 px-5 bg-[#ffffff33]">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-          </select>
-          <img loading="lazy" src={ArrowDown} className="absolute top-[50%] -translate-y-[50%] left-10" />
-        </div>
+        <SelectButton basis="small" />
 
         <div className="flex flex-col gap-3">
           <div className="flex gap-3">

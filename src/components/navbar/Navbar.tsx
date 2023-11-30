@@ -31,20 +31,6 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  // const [isScrolled, setIsScrolled] = useState(false);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 100) {
-  //       setIsScrolled(true);
-  //     } else {
-  //       setIsScrolled(false);
-  //     }
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, []);
 
   // Make menu close after choosing one page.
   useEffect(() => {
@@ -68,6 +54,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
   const renderLoginButton = () => {
     return (
       <li
+        onClick={() => navigate('/login')}
         className="flex w-[90%] whitespace-nowrap mb-5 lg:mb-0 lg:mr-0 items-center justify-center font-bold gap-2 bg-[#8C39F3] p-5 rounded-full"
         style={{
           opacity: startAnimation ? 1 : 0,

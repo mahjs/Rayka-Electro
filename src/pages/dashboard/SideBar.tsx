@@ -4,6 +4,9 @@ import Profile from '../../assets/images/profile.svg';
 import Logout from '../../assets/images/logout.svg';
 import LeftArrow from '../../assets/images/left-arrow.svg';
 import StarPremium from '../../assets/images/star-premium.svg';
+import users from '../../assets/images/users.svg';
+import history from '../../assets/images/history.svg';
+import content from '../../assets/images/content.svg';
 import Bell from '../../assets/images/bell.svg';
 import { FC, useState } from 'react';
 import { Tabs } from './Dashboard';
@@ -26,6 +29,26 @@ const tabs = [
     title: 'مشخصات من',
     image: Profile,
   },
+  {
+    name: 'logout',
+    title: 'خروج از حساب',
+    image: Logout,
+  },
+  {
+    name: 'users',
+    title: 'کاربران الکترو ',
+    image: users,
+  },
+  {
+    name: 'history',
+    title: 'تاریخچه‌ی پرداخت‌ها',
+    image: history,
+  },
+  {
+    name: 'content',
+    title: 'محتوای سایت',
+    image: content,
+  },
 ];
 
 interface Props {
@@ -39,11 +62,11 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
 
   return (
     <>
-      <aside className="bg-[#ffffff18] rounded-2xl min-w-[380px] md:min-w-full lg:min-w-[350px]  backdrop-blur-[37px] flex flex-col px-6 py-5 gap-4">
+      <aside className="bg-[#ffffff18] rounded-2xl min-w-[360px] backdrop-blur-[37px] flex flex-col px-6 py-5 gap-4">
         <ProfileInfo name={user.name} email={user.email} premium={user.premium} />
         <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
         <div className="flex flex-col gap-1">
-          {tabs.map((tab) => (
+          {tabs.slice(0, 3).map((tab) => (
             <button
               onClick={() => handleSelectTab(tab.name as Tabs)}
               key={tab.name}
@@ -52,7 +75,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
                 background: selectedTab === tab.name ? 'white' : 'none',
               }}
             >
-              <img loading="lazy" src={tab.image} alt={tab.name} className="bg-[#ffffff88] p-[2px] rounded-md" />
+              <img src={tab.image} alt={tab.name} className="bg-[#ffffff88] p-[2px] rounded-md" />
               <p
                 style={{
                   color: selectedTab === tab.name ? '#541A79' : 'white',
@@ -62,10 +85,27 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
               </p>
             </button>
           ))}
-          <button onClick={() => setOpenExitModal(true)} className="flex gap-3 text-white items-center p-2 rounded-lg">
-            <img loading="lazy" src={Logout} alt="exit" className="bg-[#ffffff88] p-[2px] rounded-md" />
-            <p>خروج از حساب</p>
-          </button>
+          <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
+          <div className="text-center text-white opacity-50 mb-4">بخش مدیریتی</div>
+          {tabs.slice(3, 6).map((tab) => (
+            <button
+              onClick={() => handleSelectTab(tab.name as Tabs)}
+              key={tab.name}
+              className="flex gap-3 items-center p-2 rounded-lg"
+              style={{
+                background: selectedTab === tab.name ? 'white' : 'none',
+              }}
+            >
+              <img src={tab.image} alt={tab.name} className="bg-[#ffffff88] p-[2px] rounded-md" />
+              <p
+                style={{
+                  color: selectedTab === tab.name ? '#541A79' : 'white',
+                }}
+              >
+                {tab.title}
+              </p>
+            </button>
+          ))}
         </div>
 
         {/* Premium card */}
