@@ -23,9 +23,9 @@ const UnderlineCopyText: FC<Props> = ({ text }) => {
         setShowTooltip(false);
         setIsClicked(false);
       }}
-      className="flex items-center cursor-pointer gap-3 bg-gradient-to-l px-5 pl-8 py-2 rounded-full from-[#8C39F3] to-[#9F52FF]"
+      className="flex justify-between cursor-pointer gap-5 bg-gradient-to-l  pr-8 pl-4 py-2 rounded-full from-[#8C39F3] to-[#9F52FF]"
     >
-      <span className="relative text-white text-[1.5rem] hover:underline body">
+      <span className="relative text-white lg:text-[1.5rem] md:text-[1.2rem] text-[1rem] hover:underline">
         {text}
         {showTooltip && (
           <span className="absolute text-[1rem] text-white -top-[150%] px-[1rem] py-[.5rem] bg-[#2d2d2d] rounded-md left-[50%] -translate-x-[50%] whitespace-nowrap">
@@ -33,7 +33,13 @@ const UnderlineCopyText: FC<Props> = ({ text }) => {
           </span>
         )}
       </span>
-      <img loading="lazy" src={Copy} />
+      <img
+        loading="lazy"
+        style={{
+          marginRight: 'auto',
+        }}
+        src={Copy}
+      />
     </div>
   );
 };
