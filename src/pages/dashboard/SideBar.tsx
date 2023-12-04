@@ -11,6 +11,7 @@ import Bell from '../../assets/images/bell.svg';
 import { FC, useState } from 'react';
 import { Tabs } from './Dashboard';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/authContext';
 
 export const user = {
   name: 'Alireza_AH191238',
@@ -58,7 +59,13 @@ interface Props {
 
 const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const [openExitModal, setOpenExitModal] = useState<boolean>(false);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <>
@@ -148,7 +155,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
               >
                 خیر
               </button>
-              <button onClick={() => navigate('/')} className="bg-red-400 text-[#511A79] py-5 px-8 rounded-2xl">
+              <button onClick={handleLogout} className="bg-red-400 text-[#511A79] py-5 px-8 rounded-2xl">
                 بله
               </button>
             </div>

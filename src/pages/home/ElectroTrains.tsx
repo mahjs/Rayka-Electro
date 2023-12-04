@@ -32,6 +32,7 @@ const ElectroTrains = () => {
   const startAnimation = useObserver(containerRef);
 
   const [plansDetails, setPlansDetails] = useState<Plan[]>([]);
+
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     setLoading(true);
