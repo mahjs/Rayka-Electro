@@ -93,6 +93,7 @@ const ElectroDNS = () => {
           </div>
         </div>
         <img
+          className="max-h-[50vh] mr:max-h-[60vh] lg:max-h-[70vh]"
           loading="lazy"
           src={Phone}
           style={{
@@ -100,7 +101,6 @@ const ElectroDNS = () => {
             transform: startAnimation ? 'rotate(0)' : 'rotate(40deg)',
             transition: 'all .7s ease-out',
             objectFit: 'contain',
-            maxHeight: '70dvh',
           }}
           alt="Phone"
         />
