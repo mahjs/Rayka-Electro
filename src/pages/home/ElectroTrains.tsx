@@ -1,8 +1,10 @@
 import Star from '../../assets/images/star.svg';
 import Crown from '../../assets/images/crown.svg';
 import PlanFeatures from '../../components/ui/PlanFeatures';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useObserver from '../../utils/useObserver';
+import { Plan } from '../../services/plans';
+import api from '../../services';
 
 export const freePlan = {
   icon: Star,
@@ -29,6 +31,16 @@ const ElectroTrains = () => {
   const containerRef = useRef<HTMLElement | null>(null);
   const startAnimation = useObserver(containerRef);
 
+  const [plansDetails, setPlansDetails] = useState<Plan[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  useEffect(() => {
+    setLoading(true);
+    api.plans.getAllPlans().then((data) => {
+      setLoading(false);
+      setPlansDetails(data.datas.results.plans);
+    });
+  }, []);
+
   return (
     <section
       ref={containerRef}
@@ -40,9 +52,9 @@ const ElectroTrains = () => {
           <div className="slideUpMagnifier md:m-auto h-[350px] md:h-[400px] w-full lg:w-[70dvh] backdrop-blur-lg ">
             <PlanFeatures
               icon={paidPlan.icon}
-              title={paidPlan.title}
-              featuresList={paidPlan.featuresList}
-              price={paidPlan.price}
+              title={loading ? paidPlan.title : plansDetails[0].title}
+              featuresList={loading ? paidPlan.featuresList : plansDetails[0].metas.map((meta) => meta.title)}
+              price={loading ? 0 : +plansDetails[0].price}
               absolute
             />
           </div>
@@ -54,9 +66,9 @@ const ElectroTrains = () => {
           >
             <PlanFeatures
               icon={freePlan.icon}
-              title={freePlan.title}
-              featuresList={freePlan.featuresList}
-              price={freePlan.price}
+              title={loading ? freePlan.title : plansDetails[1].title}
+              featuresList={loading ? freePlan.featuresList : plansDetails[1].metas.map((meta) => meta.title)}
+              price={loading ? freePlan.price : +plansDetails[1].price}
               absolute
             />
           </div>
