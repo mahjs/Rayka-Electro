@@ -3,6 +3,8 @@ import Logo from '../../assets/images/Logo.svg';
 import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-form';
 import { usernameValidation, passwordValidation } from '../signUp/ValidationRules';
 import { useNavigate } from 'react-router-dom';
+import api from '../../services';
+import { useAuth } from '../../contexts/authContext';
 
 interface FormValues {
   username: string;
@@ -23,6 +25,7 @@ interface InputFieldProps {
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const {
     register,
@@ -35,10 +38,16 @@ const LoginForm: React.FC = () => {
   const rememberMe = watch('rememberMe');
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data);
-    reset();
-    navigate('/dashboard');
-    // Add form submission logic here
+    api.auth
+      .login(data.username, data.password)
+      .then(() => {
+        login();
+        navigate('/dashboard');
+      })
+      .catch(() => {
+        reset();
+        console.log('something went wrong');
+      });
   };
 
   return (

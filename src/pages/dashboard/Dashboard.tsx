@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DashboardBG from '../../assets/images/dashboard-bg.svg';
 import MainContent from './MainContent';
 import SideBar from './SideBar';
 import Navbar from '../../components/navbar/Navbar';
+import { useAuth } from '../../contexts/authContext';
+import { useNavigate } from 'react-router-dom';
 
 export type Tabs = 'my-account' | 'my-info' | 'logout' | 'upgrade' | 'users' | 'history' | 'content';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const { isLogin } = useAuth();
+
+  useEffect(() => {
+    if (!isLogin) navigate('/');
+  });
+
   const [selectedTab, setSelectedTab] = useState<Tabs>('my-account');
 
   const handleSelectTab = (tab: Tabs) => {

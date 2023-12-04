@@ -3,9 +3,6 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { mainRoutes, protectedRoutes } from './routes/Routes';
 
 const App: FC = () => {
-  // const [isLogin, setIsLogin] = useState<boolean>(true);
-  const isLogin = true;
-
   return (
     <>
       <Router>
@@ -13,8 +10,9 @@ const App: FC = () => {
           {mainRoutes.map((route) => (
             <Route key={route.path} path={route.path} element={route.element} />
           ))}
-          {isLogin &&
-            protectedRoutes.map((route) => <Route key={route.path} path={route.path} element={route.element} />)}
+          {protectedRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
         </Routes>
       </Router>
     </>
