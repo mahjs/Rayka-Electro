@@ -4,6 +4,9 @@ import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-
 import { useNavigate } from 'react-router-dom';
 import storage from '../../../services/storage';
 import config from '../../../services/config';
+import api from '../../../services';
+import { useAuth } from '../../../contexts/authContext';
+import { toast } from 'react-toastify';
 
 interface FormValues {
   code: string;
@@ -21,6 +24,7 @@ interface InputFieldProps {
 }
 
 const ActivateEmailForm: React.FC = () => {
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const {
@@ -31,7 +35,18 @@ const ActivateEmailForm: React.FC = () => {
   } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    const otp_token = storage.get(config.otpTokenName);
+    const otp_token = storage.get(config.otpTokenName) as string;
+    api.auth
+      .activateEmail(otp_token, data.code)
+      .then(() => {
+        toast.success('تایید حساب با موفقیت انجام شد.');
+        login();
+        navigate('/login');
+      })
+      .catch(() => {
+        toast.error('کد اشتباه است، لطفا دوباره سعی کنید.');
+        reset();
+      });
   };
 
   return (
@@ -64,6 +79,14 @@ const ActivateEmailForm: React.FC = () => {
           تایید
         </button>
       </form>
+      <div className="flex w-full justify-center items-center text-sm my-4">
+        <a href="/sign-up" className="text-slate-300">
+          حساب کاربری ندارید؟
+        </a>
+        <a href="/sign-up" className="text-white hover:text-blue-200 underline">
+          ثبت نام
+        </a>
+      </div>
     </div>
   );
 };
