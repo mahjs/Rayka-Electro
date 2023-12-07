@@ -12,8 +12,8 @@ const ElectroSection = () => {
 
           <textarea
             id="message"
-            rows="4"
-            class="block p-2.5 w-full text-sm text-white bg-[#ffffff18] backdrop-blur-[37px] rounded-lg border border-gray-300 "
+            rows={4}
+            className="block p-2.5 w-full text-sm text-white bg-[#ffffff18] backdrop-blur-[37px] rounded-lg border border-gray-300 "
             placeholder="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده"
           ></textarea>
           <div className="flex gap-4 body ">
