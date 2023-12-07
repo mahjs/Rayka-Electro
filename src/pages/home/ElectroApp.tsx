@@ -3,13 +3,25 @@ import Windows from '../../assets/images/windows.svg';
 import Android from '../../assets/images/android.svg';
 import Caret from '../../assets/images/caret.svg';
 import useObserver from '../../utils/useObserver';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import LazyImage from '../../components/ui/LazyImage';
+import { Download } from '../../services/downloads';
+import api from '../../services';
 
 // ElectroApp Component
 const ElectroApp = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const startAnimation = useObserver(containerRef);
+
+  const [downloadsDetails, setDownloadDetails] = useState<Download[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  useEffect(() => {
+    setLoading(true);
+    api.downloads.getAllDownloads().then((data) => {
+      setDownloadDetails(data.datas.results.downloads);
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <div
@@ -48,7 +60,8 @@ const ElectroApp = () => {
             </p>
           </div>
           <div className="flex lg:flex-row flex-col mt-4 gap-3 justify-center lg:justify-start ">
-            <button
+            <a
+              href={loading ? '#' : downloadsDetails[0].link}
               style={{
                 opacity: startAnimation ? 1 : 0,
                 transform: startAnimation ? 'translateY(0)' : 'translateY(2rem)',
@@ -58,8 +71,9 @@ const ElectroApp = () => {
             >
               <LazyImage src={Windows} style={{ width: '20px' }} alt="windows" />
               <p className="text-white">اپلیکیشن ویندوز</p>
-            </button>
-            <button
+            </a>
+            <a
+              href={loading ? '#' : downloadsDetails[1].link}
               style={{
                 opacity: startAnimation ? 1 : 0,
                 transform: startAnimation ? 'translateY(0)' : 'translateY(2rem)',
@@ -69,7 +83,7 @@ const ElectroApp = () => {
             >
               <LazyImage src={Android} style={{ width: '40px' }} alt="android" />
               <p className="text-white">اپلیکیشن اندروید</p>
-            </button>
+            </a>
           </div>
         </div>
       </div>

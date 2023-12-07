@@ -3,6 +3,8 @@ import Logo from '../../assets/images/Logo.svg';
 import { useForm, SubmitHandler, FieldError, UseFormRegister, RegisterOptions } from 'react-hook-form';
 import { usernameValidation, emailValidation, passwordValidation, confirmPasswordValidation } from './ValidationRules';
 import { useNavigate } from 'react-router-dom';
+import api from '../../services';
+import { useAuth } from '../../contexts/authContext';
 
 interface SignUpFormData {
   username: string;
@@ -24,6 +26,7 @@ interface InputFieldProps {
 }
 
 const SignUpForm: React.FC = () => {
+  const { login } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -36,14 +39,15 @@ const SignUpForm: React.FC = () => {
   const rememberMe = watch('rememberMe');
 
   const onSubmit: SubmitHandler<SignUpFormData> = async (data) => {
-    try {
-      console.log(data); // Replace with your API call
-      reset();
-      navigate('/');
-    } catch (error) {
-      console.error(error);
-      reset();
-    }
+    api.auth
+      .register(data.email, data.username, data.password, data.confirmPassword)
+      .then(() => {
+        login();
+        navigate('/login');
+      })
+      .catch(() => {
+        reset();
+      });
   };
 
   const password = watch('password');

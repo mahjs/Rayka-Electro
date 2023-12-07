@@ -2,13 +2,25 @@ import Phone from '../../assets/images/phone.webp';
 import Caret from '../../assets/images/caret.svg';
 import UnderlineCopyText from '../../components/ui/UnderlineCopyText';
 import useObserver from '../../utils/useObserver';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import LazyImage from '../../components/ui/LazyImage';
+import { Dns } from '../../services/dns';
+import api from '../../services';
 
 // ElectroDNS Component
 const ElectroDNS = () => {
   const containerRef = useRef<HTMLElement | null>(null);
   const startAnimation = useObserver(containerRef);
+
+  const [dnses, setDnses] = useState<Dns[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  useEffect(() => {
+    setLoading(true);
+    api.dns.getAllDns().then((data) => {
+      setDnses(data.datas.results.dns);
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <section
@@ -67,7 +79,7 @@ const ElectroDNS = () => {
                 transition: 'all .6s 1.8s ease-in-out',
               }}
             >
-              <UnderlineCopyText text="78.157.42.100" />
+              <UnderlineCopyText text={loading ? '1.1.1.1' : dnses[0].domain} />
             </div>
             <div
               style={{
@@ -76,7 +88,7 @@ const ElectroDNS = () => {
                 transition: 'all .6s 2.1s ease-in-out',
               }}
             >
-              <UnderlineCopyText text="78.157.42.101" />
+              <UnderlineCopyText text={loading ? '2.2.2.2' : dnses[1].domain} />
             </div>
           </div>
         </div>

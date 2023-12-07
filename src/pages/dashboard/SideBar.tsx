@@ -11,6 +11,7 @@ import Bell from '../../assets/images/bell.svg';
 import { FC, useState } from 'react';
 import { Tabs } from './Dashboard';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/authContext';
 
 export const user = {
   name: 'Alireza_AH191238',
@@ -58,7 +59,13 @@ interface Props {
 
 const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const [openExitModal, setOpenExitModal] = useState<boolean>(false);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <>
@@ -66,7 +73,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
         <ProfileInfo name={user.name} email={user.email} premium={user.premium} />
         <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
         <div className="flex flex-col gap-1">
-          {tabs.slice(0, 3).map((tab) => (
+          {tabs.slice(0, 2).map((tab) => (
             <button
               onClick={() => handleSelectTab(tab.name as Tabs)}
               key={tab.name}
@@ -85,8 +92,12 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
               </p>
             </button>
           ))}
-          <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
-          <div className="text-center text-white opacity-50 mb-4">بخش مدیریتی</div>
+          <button onClick={() => setOpenExitModal(true)} className="flex gap-3 text-white items-center p-2 rounded-lg">
+            <img src={Logout} alt="خروج" className="bg-[#ffffff88] p-[2px] rounded-md" />
+            <p>خروج از حساب</p>
+          </button>
+          <div className="h-[1px] bg-[#ffffff44] mx-auto mt-3 w-[100%]" />
+          <div className="text-center text-white opacity-50 mb-3">بخش مدیریتی</div>
           {tabs.slice(3, 6).map((tab) => (
             <button
               onClick={() => handleSelectTab(tab.name as Tabs)}
@@ -144,7 +155,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
               >
                 خیر
               </button>
-              <button onClick={() => navigate('/')} className="bg-red-400 text-[#511A79] py-5 px-8 rounded-2xl">
+              <button onClick={handleLogout} className="bg-red-400 text-[#511A79] py-5 px-8 rounded-2xl">
                 بله
               </button>
             </div>

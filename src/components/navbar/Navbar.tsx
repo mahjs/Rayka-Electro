@@ -16,6 +16,7 @@ import ServerWhite from '../../assets/images/server-white.svg';
 import ArrowLeft from '../../assets/images/left-arrow.svg';
 import Person from '../../assets/images/person.svg';
 import Swiper from 'swiper';
+import { useAuth } from '../../contexts/authContext';
 
 /**
  * Navbar for the whole app.
@@ -27,6 +28,7 @@ interface Props {
 }
 
 const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
+  const { isLogin } = useAuth();
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
 
   const navigate = useNavigate();
@@ -54,7 +56,7 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
   const renderLoginButton = () => {
     return (
       <li
-        onClick={() => navigate('/login')}
+        onClick={() => navigate(isLogin ? '/dashboard' : '/login')}
         className="flex w-[90%] whitespace-nowrap mb-5 lg:mb-0 lg:mr-0 items-center justify-center font-bold gap-2 bg-[#8C39F3] p-5 rounded-full"
         style={{
           opacity: startAnimation ? 1 : 0,
@@ -63,8 +65,8 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
         }}
       >
         <img src={Person} className="w-4" loading="lazy" />
-        <Link to="/login">
-          <button className="text-white btn">ورود به حساب کاربری</button>
+        <Link to={isLogin ? '/dashboard' : '/login'}>
+          <button className="text-white btn">{isLogin ? 'داشبورد' : 'ورود به حساب کاربری'}</button>
         </Link>
       </li>
     );
