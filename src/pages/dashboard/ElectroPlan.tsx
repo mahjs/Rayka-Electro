@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Star from '../../assets/images/star.svg';
 import Crown from '../../assets/images/crown.svg';
 import CardPlan from '../../components/ui/CardPlan';
