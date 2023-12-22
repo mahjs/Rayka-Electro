@@ -4,7 +4,7 @@ import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-
 import { usernameValidation, emailValidation, passwordValidation, confirmPasswordValidation } from './ValidationRules';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services';
-import { useAuth } from '../../contexts/authContext';
+import { toast } from 'react-toastify';
 
 interface SignUpFormData {
   username: string;
@@ -26,7 +26,6 @@ interface InputFieldProps {
 }
 
 const SignUpForm: React.FC = () => {
-  const { login } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -42,10 +41,16 @@ const SignUpForm: React.FC = () => {
     api.auth
       .register(data.email, data.username, data.password, data.confirmPassword)
       .then(() => {
-        login();
-        navigate('/login');
+        navigate('/activate-email');
+
+        // Toastify Messages
+        toast.success('ثبت نام با موفقیت انجام شد');
+        setTimeout(() => {
+          toast.info('لطفا ایمیل خود را تایید کنید.');
+        }, 500);
       })
-      .catch(() => {
+      .catch((e) => {
+        toast.error(e.message);
         reset();
       });
   };

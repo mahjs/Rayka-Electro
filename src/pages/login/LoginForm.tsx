@@ -5,6 +5,7 @@ import { usernameValidation, passwordValidation } from '../signUp/ValidationRule
 import { useNavigate } from 'react-router-dom';
 import api from '../../services';
 import { useAuth } from '../../contexts/authContext';
+import { toast } from 'react-toastify';
 
 interface FormValues {
   username: string;
@@ -37,16 +38,17 @@ const LoginForm: React.FC = () => {
 
   const rememberMe = watch('rememberMe');
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     api.auth
       .login(data.username, data.password)
       .then(() => {
         login();
+        toast.success('شما با موفقیت وارد شدید');
         navigate('/dashboard');
       })
-      .catch(() => {
+      .catch((e) => {
+        toast.error(e.message);
         reset();
-        console.log('something went wrong');
       });
   };
 
