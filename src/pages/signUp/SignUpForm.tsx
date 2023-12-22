@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/images/Logo.svg';
-import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-form';
+import { useForm, SubmitHandler, FieldError, UseFormRegister, RegisterOptions } from 'react-hook-form';
 import { usernameValidation, emailValidation, passwordValidation, confirmPasswordValidation } from './ValidationRules';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services';
@@ -15,13 +15,13 @@ interface SignUpFormData {
 }
 
 interface InputFieldProps {
-  name: string;
+  name: keyof SignUpFormData;
   placeholder: string;
-  register: UseFormRegister<any>;
+  register: UseFormRegister<SignUpFormData>;
   error?: FieldError | undefined;
   type: string;
   icon?: JSX.Element;
-  validation?: any;
+  validation?: RegisterOptions;
   widthClass?: string;
 }
 
