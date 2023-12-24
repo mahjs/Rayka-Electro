@@ -1,4 +1,5 @@
 import Dashboard from '../pages/dashboard/Dashboard';
+import EducationLayout from '../pages/education/EducationLayout';
 import Home from '../pages/home/Home';
 import Login from '../pages/login/Login';
 import ActivateEmail from '../pages/signUp/activateEmail/ActivateEmail';
@@ -24,6 +25,11 @@ export const mainRoutes = [
     path: '/activate-email',
     element: <ActivateEmail />,
     title: 'activateEmail',
+  },
+  {
+    path: '/education',
+    element: <EducationLayout />,
+    title: 'education',
   },
 ];
 
