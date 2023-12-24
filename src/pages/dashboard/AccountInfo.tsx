@@ -22,7 +22,7 @@ const AccountInfo = () => {
 
   return (
     <div className="flex flex-col gap-16 text-white">
-      <div className="flex gap-3 ">
+      <div className="flex gap-3">
         <div className="relative w-[90px] h-[90px] border-[2px] border-white bg-[#ffffff22] rounded-2xl">
           {/* {profile && <img src={profile}/>} */}
           <button className="absolute -bottom-8 left-[50%] whitespace-nowrap -translate-x-[50%] underline text-[.8rem] opacity-50">
@@ -44,7 +44,7 @@ const AccountInfo = () => {
         </div>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="flex justify-center md:justify-stretch gap-x-10 gap-y-5 flex-wrap"
+          className="flex justify-center md:justify-stretch gap-x-[1.93rem] gap-y-5 flex-wrap"
         >
           <Input
             title="نام"
@@ -74,7 +74,7 @@ const AccountInfo = () => {
             setValue={(value: string) => setAccountInfoState((prevInfo) => ({ ...prevInfo, profileName: value }))}
             type="text"
           />
-          <button className="absolute md:text-[1.2rem] top-[8rem] lg:top-[4rem] left-5 px-5 py-2 bg-white  text-[#511A79] lg:h-[3.5rem] self-end font-bold  rounded-2xl">
+          <button className="absolute md:text-[1.2rem] top-[8rem] lg:top-[4rem] left-[2.5rem] px-6 py-2 bg-white  text-[#511A79] lg:h-[3.5rem] self-end font-bold  rounded-xl">
             اعمال تفییرات
           </button>
         </form>
@@ -86,7 +86,7 @@ const AccountInfo = () => {
         </div>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="flex justify-center md:justify-stretch gap-x-10 gap-y-5 flex-wrap"
+          className="flex justify-center md:justify-stretch gap-x-[1.93rem] gap-y-5 flex-wrap"
         >
           <Input title="رمز عبور فعلی" value={passwordState.oldPassword} icon={HidePassword} type="password" disable />
           <Input
@@ -106,7 +106,7 @@ const AccountInfo = () => {
             type="password"
           />
           <div className="w-full">
-            <button className="bg-white text-[#511A79] md:text-[1.5rem] h-[3.5rem] self-end font-bold min-w-full md:min-w-[280px] rounded-2xl">
+            <button className="bg-white text-[#511A79] md:text-[1.5rem] h-[3.5rem] self-end font-bold min-w-full md:min-w-[280px] rounded-xl">
               تغییر رمز عبور
             </button>
           </div>
