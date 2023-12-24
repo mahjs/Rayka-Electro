@@ -1,9 +1,9 @@
-import React from 'react';
+
 import CustomTable from '../../components/ui/CustomTable';
 import exel from '../../assets/images/exel.svg';
 import SelectButton from '../../components/ui/SelectButton';
-import deleteIcon from '../../assets/images/delete.svg';
-import edit from '../../assets/images/edit.svg';
+
+
 import option from '../../assets/images/option.svg';
 
 const cellHeaders = ['کد تراکنش', 'نام کاربر', 'وضعیت', 'توضیحات', 'تاریخ تراکنش', 'گزینه‌ها'];

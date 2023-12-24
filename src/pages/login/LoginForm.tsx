@@ -1,10 +1,11 @@
 import React from 'react';
 import Logo from '../../assets/images/Logo.svg';
-import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-form';
+import { useForm, SubmitHandler, FieldError, UseFormRegister, RegisterOptions } from 'react-hook-form';
 import { usernameValidation, passwordValidation } from '../signUp/ValidationRules';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services';
 import { useAuth } from '../../contexts/authContext';
+import { toast } from 'react-toastify';
 
 interface FormValues {
   username: string;
@@ -13,13 +14,13 @@ interface FormValues {
 }
 
 interface InputFieldProps {
-  name: string;
+  name: keyof FormValues;
   placeholder: string;
-  register: UseFormRegister<any>;
+  register: UseFormRegister<FormValues>;
   error?: FieldError | undefined;
   type: string;
   icon?: JSX.Element;
-  validation?: any;
+  validation?: RegisterOptions;
   widthClass?: string;
 }
 
@@ -37,16 +38,17 @@ const LoginForm: React.FC = () => {
 
   const rememberMe = watch('rememberMe');
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     api.auth
       .login(data.username, data.password)
       .then(() => {
         login();
+        toast.success('شما با موفقیت وارد شدید');
         navigate('/dashboard');
       })
-      .catch(() => {
+      .catch((e) => {
+        toast.error(e.message);
         reset();
-        console.log('something went wrong');
       });
   };
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import Logo from '../../assets/images/Logo.svg';
-import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-form';
+import { useForm, SubmitHandler, FieldError, UseFormRegister, RegisterOptions } from 'react-hook-form';
 import { usernameValidation, emailValidation, passwordValidation, confirmPasswordValidation } from './ValidationRules';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services';
-import { useAuth } from '../../contexts/authContext';
+import { toast } from 'react-toastify';
 
 interface SignUpFormData {
   username: string;
@@ -15,18 +15,17 @@ interface SignUpFormData {
 }
 
 interface InputFieldProps {
-  name: string;
+  name: keyof SignUpFormData;
   placeholder: string;
-  register: UseFormRegister<any>;
+  register: UseFormRegister<SignUpFormData>;
   error?: FieldError | undefined;
   type: string;
   icon?: JSX.Element;
-  validation?: any;
+  validation?: RegisterOptions;
   widthClass?: string;
 }
 
 const SignUpForm: React.FC = () => {
-  const { login } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -42,10 +41,16 @@ const SignUpForm: React.FC = () => {
     api.auth
       .register(data.email, data.username, data.password, data.confirmPassword)
       .then(() => {
-        login();
-        navigate('/login');
+        navigate('/activate-email');
+
+        // Toastify Messages
+        toast.success('ثبت نام با موفقیت انجام شد');
+        setTimeout(() => {
+          toast.info('لطفا ایمیل خود را تایید کنید.');
+        }, 500);
       })
-      .catch(() => {
+      .catch((e) => {
+        toast.error(e.message);
         reset();
       });
   };

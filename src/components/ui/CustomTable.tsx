@@ -1,5 +1,4 @@
 import React from 'react';
-import { user } from '../../pages/dashboard/SideBar';
 
 type UserRow = {
   id: number;

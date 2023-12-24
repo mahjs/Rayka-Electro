@@ -10,18 +10,19 @@ import Content from './Content';
 
 interface Props {
   selectedTab: Tabs;
+  selectedTabAdmin: Tabs;
 }
 
-const MainContent: FC<Props> = ({ selectedTab }) => {
+const MainContent: FC<Props> = ({ selectedTab, selectedTabAdmin }) => {
   return (
     <main className="bg-[#ffffff18] min-h-full min-w-[360px] w-full px-6 md:px-10 py-7 rounded-2xl backdrop-blur-[37px]">
       {/* My account component*/}
       {selectedTab === 'my-account' && <MyAccount premium={user.premium} />}
       {selectedTab === 'my-info' && <AccountInfo />}
       {selectedTab === 'upgrade' && <BuyPlan />}
-      {selectedTab === 'users' && <Users />}
-      {selectedTab === 'history' && <History />}
-      {selectedTab === 'content' && <Content />}
+      {selectedTabAdmin === 'users' && <Users />}
+      {selectedTabAdmin === 'history' && <History />}
+      {selectedTabAdmin === 'content' && <Content />}
     </main>
   );
 };

@@ -1,12 +1,17 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
-// @ts-ignore
+// @ts-expect-error Vanta types are not available
 import NET from 'vanta/dist/vanta.net.min.js';
+
+interface VantaEffect {
+  destroy(): void;
+}
 
 const VantaBackground: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    let vantaEffect: any = null;
+    let vantaEffect: VantaEffect | null = null;
 
     if (vantaRef.current) {
       vantaEffect = NET({

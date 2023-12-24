@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import close from '../../assets/images/close.svg';
 import edit from '../../assets/images/edit.svg';
 interface Props {
