@@ -7,7 +7,7 @@ import ios from '../../assets/images/ios.svg';
 import androindIcon from '../../assets/images/androidIcon.svg';
 import apple from '../../assets/images/apple.svg';
 
-const EducationMenu = () => {
+const EducationMenu = ({ onMenuItemClick }) => {
   const images = [
     {
       image: apple,
@@ -48,10 +48,11 @@ const EducationMenu = () => {
       {images.map((item, index) => (
         <div
           key={index}
+          onClick={() => onMenuItemClick(index)} // Add onClick handler here
           className="hoverable-div bg-[#ffffff18] rounded-2xl w-[280px] flex flex-col py-8 justify-between items-center gap-4 text-white
                      hover:bg-white hover:text-[#2D0172] transition duration-500"
         >
-          <img src={item.image} alt={item.text} className="svg-image w-[76px] " />
+          <img src={item.image} alt={item.text} className="svg-image w-[76px]" />
           <p>{item.text}</p>
         </div>
       ))}
