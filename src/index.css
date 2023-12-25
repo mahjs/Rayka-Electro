@@ -306,8 +306,8 @@ body {
   }
 }
 
-/* .hoverable-div:hover img {
+.hoverable-div:hover img,
+.hoverable-div:focus img {
   filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(5000%) hue-rotate(245deg) brightness(50%)
     contrast(100%);
-  transition: filter 0.5s ease;
-} */
+}

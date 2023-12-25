@@ -51,7 +51,8 @@ const EducationMenu = () => {
           className="hoverable-div bg-[#ffffff18] rounded-2xl w-[280px] flex flex-col py-8 justify-between items-center gap-4 text-white
                      hover:bg-white hover:text-[#2D0172] transition duration-500"
         >
-          <img src={item.image} alt={item.text} className="w-[76px] fill-current transition duration-500" />
+          {/* Ensure your image tag is set up to be styled by CSS */}
+          <img src={item.image} alt={item.text} className="svg-image w-[76px] " />
           <p>{item.text}</p>
         </div>
       ))}
