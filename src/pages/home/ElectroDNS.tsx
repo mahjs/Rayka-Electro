@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import LazyImage from '../../components/ui/LazyImage';
 import { Dns } from '../../services/dns';
 import api from '../../services';
+import InstructionLink from '../../components/ui/InstructionLink';
 
 // ElectroDNS Component
 const ElectroDNS = () => {
@@ -76,7 +77,7 @@ const ElectroDNS = () => {
               style={{
                 opacity: startAnimation ? 1 : 0,
                 transform: startAnimation ? 'translateY(0)' : 'translateY(2rem)',
-                transition: 'all .6s 1.8s ease-in-out',
+                transition: 'all .6s 1.3s ease-in-out',
               }}
             >
               <UnderlineCopyText text={loading ? '1.1.1.1' : dnses[0].domain} />
@@ -85,12 +86,14 @@ const ElectroDNS = () => {
               style={{
                 opacity: startAnimation ? 1 : 0,
                 transform: startAnimation ? 'translateY(0)' : 'translateY(2rem)',
-                transition: 'all .6s 2.1s ease-in-out',
+                transition: 'all .6s 1.8s ease-in-out',
               }}
             >
               <UnderlineCopyText text={loading ? '2.2.2.2' : dnses[1].domain} />
             </div>
           </div>
+          <InstructionLink startAnimation={startAnimation} />
+
         </div>
         <img
           className="max-h-[50vh] mr:max-h-[60vh] lg:max-h-[70vh]"

@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import LazyImage from '../../components/ui/LazyImage';
 import { Download } from '../../services/downloads';
 import api from '../../services';
+import InstructionLink from '../../components/ui/InstructionLink';
 
 // ElectroApp Component
 const ElectroApp = () => {
@@ -85,6 +86,8 @@ const ElectroApp = () => {
               <p className="text-white">اپلیکیشن اندروید</p>
             </a>
           </div>
+          <InstructionLink startAnimation={startAnimation} />
+
         </div>
       </div>
       {startAnimation && (
