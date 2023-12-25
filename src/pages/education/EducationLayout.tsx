@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
 import DashboardBG from '../../assets/images/dashboard-bg.svg';
 import EducationMenu from './EducationMenu';
+import EducationDetail from './EducationDetail';
 
 const Layout = () => {
   return (
@@ -12,7 +13,8 @@ const Layout = () => {
         <p className="text-white header-1">
           آموزش استفاده از سرویس‌های <span className="text-[#8C39F3]">الکترو</span>
         </p>
-        <EducationMenu />
+        {/* <EducationMenu /> */}
+        <EducationDetail />
       </div>
     </div>
   );
