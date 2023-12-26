@@ -8,9 +8,7 @@ import androindIcon from '../../assets/images/androidIcon.svg';
 import apple from '../../assets/images/apple.svg';
 import { useNavigate } from 'react-router-dom';
 
-interface EducationMenuProps {
-  onMenuItemClick: (index: number) => void;
-}
+interface EducationMenuProps {}
 
 const EducationMenu: React.FC<EducationMenuProps> = () => {
   const navigate = useNavigate();
