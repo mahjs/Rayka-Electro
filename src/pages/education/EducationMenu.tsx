@@ -6,6 +6,7 @@ import linux from '../../assets/images/linux.svg';
 import ios from '../../assets/images/ios.svg';
 import androindIcon from '../../assets/images/androidIcon.svg';
 import apple from '../../assets/images/apple.svg';
+import { useNavigate } from 'react-router-dom';
 
 const EducationMenu = ({ onMenuItemClick }) => {
   const images = [
@@ -49,7 +50,7 @@ const EducationMenu = ({ onMenuItemClick }) => {
         <div
           key={index}
           onClick={() => onMenuItemClick(index)} // Add onClick handler here
-          className="hoverable-div bg-[#ffffff18] rounded-2xl w-[280px] flex flex-col py-8 justify-between items-center gap-4 text-white
+          className="hoverable-div bg-[#ffffff18] rounded-2xl w-[380px] flex flex-col py-14 justify-between items-center gap-4 text-white
                      hover:bg-white hover:text-[#2D0172] transition duration-500"
         >
           <img src={item.image} alt={item.text} className="svg-image w-[76px]" />

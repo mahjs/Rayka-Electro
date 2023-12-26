@@ -15,7 +15,7 @@ export default function SwitchButton({ onTabChange }: SwitchButtonProps) {
   return (
     <div className="w-full flex flex-col items-center  ">
       <Tab.Group onChange={(index) => onTabChange(Object.keys(categories)[index])}>
-        <Tab.List className="flex justify-center max-w-md w-3/5  rounded-3xl bg-[#ffffff18] p-1">
+        <Tab.List className="flex justify-center max-w-md w-3/5  rounded-3xl bg-[#ffffff18] ">
           {Object.entries(categories).map(([category, label]) => (
             <Tab
               key={category}

@@ -1,7 +1,7 @@
-const AparatVideo = () => {
+const AparatVideo = ({ srcVideo }) => {
   return (
-    <div className="w-full h-full">
-      <iframe src="https://www.aparat.com/v/jKWD1" width="100%" height="100%" allowFullScreen></iframe>
+    <div className="w-full h-full aspect-video rounded-2xl">
+      <iframe className="w-full h-full rounded-2xl" src={srcVideo} title="YouTuvbe Video" allowFullScreen></iframe>
     </div>
   );
 };
