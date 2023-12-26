@@ -15,7 +15,7 @@ const ProfileInfo: FC<Props> = ({ name, premium, email /*, profile */ }) => {
       </div>
       <div className="flex flex-col">
         <h4 className="text-white text-[1.2rem]">{name}</h4>
-        <p className="text-[#ffffff88] text-[.8rem]">{premium ? 'کاربر ویژه' : email}</p>
+        <p className="text-[#ffffff88] text-[.8rem]">{premium ? ' کاربر ویژه (یا ایمیل)' : email}</p>
       </div>
     </div>
   );

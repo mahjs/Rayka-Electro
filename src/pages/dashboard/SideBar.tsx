@@ -96,7 +96,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
             <img src={Logout} alt="خروج" className="bg-[#ffffff88] p-[2px] rounded-md" />
             <p>خروج از حساب</p>
           </button>
-          <div className="h-[1px] bg-[#ffffff44] mx-auto mt-3 w-[100%]" />
+          {/* <div className="h-[1px] bg-[#ffffff44] mx-auto mt-3 w-[100%]" />
           <div className="text-center text-white opacity-50 mb-3">بخش مدیریتی</div>
           {tabs.slice(3, 6).map((tab) => (
             <button
@@ -116,7 +116,7 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
                 {tab.title}
               </p>
             </button>
-          ))}
+          ))} */}
         </div>
 
         {/* Premium card */}

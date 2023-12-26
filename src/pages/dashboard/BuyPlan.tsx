@@ -1,6 +1,7 @@
 import Crown from '../../assets/images/small-crown.svg';
+import Crown1 from '../../assets/images/pro-level.svg';
 import ShopCard from '../../assets/images/shop.svg';
-import MoneySign from '../../assets/images/money-sign.svg';
+import MoneySign from '../../assets/images/buy.svg';
 
 import Discount from '../../assets/images/discount.svg';
 import PriceBadge from '../../assets/images/price-badge.svg';
@@ -39,14 +40,27 @@ const BuyPlan = () => {
             <div className="flex flex-col">
               <div
                 style={{
-                  background: setpNumber >= step.id ? '#fff' : '#ffffff55',
-                  border: step.id - setpNumber === 1 ? '2px solid #fff' : 'none',
+                  background: setpNumber >= step.id ? '#fff' : '#583089',
+                  border:
+                    step.id - setpNumber === 1
+                      ? '2px solid #fff'
+                      : 'none' && step.id - setpNumber === 2
+                        ? '2px solid rgba(255, 255, 255, 0.10)'
+                        : 'none',
                 }}
                 className="w-[60px] h-[60px]  rounded-full flex justify-center items-center"
               >
-                <img loading="lazy" src={step.icon} className="w-[20px] h-[20px]" />
+                <img loading="lazy" src={step.icon} className="w-[23px] h-[23px]" />
               </div>
-              <span>{step.title}</span>
+              <span
+                className="text-[0.95944rem] mt-[0.7em]"
+                style={{
+                  marginRight: step.id === 3 ? '0.8em' : '0',
+                  color: step.id === 3 ? '#a28dbe' : '#FFFFFF',
+                }}
+              >
+                {step.title}
+              </span>{' '}
             </div>
             {step.id !== 3 && (
               <div
@@ -63,7 +77,7 @@ const BuyPlan = () => {
       {/* Plans */}
       <div className="bg-[#ffffff33] flex flex-col gap-5 p-5 rounded-2xl border-[1.5px] border-[#ffffffaa]">
         <div className="flex min-w-[400px] items-center gap-3">
-          <img loading="lazy" src={Crown} className="w-[30px] h-[30px]" />
+          <img loading="lazy" src={Crown1} className="w-[30px] h-[30px]" />
           <h4 className="title-2">سطح ویژه</h4>
         </div>
         <SelectButton basis="small" />
@@ -75,7 +89,10 @@ const BuyPlan = () => {
           </div>
 
           <form className="flex gap-4">
-            <input className="bg-[#ffffff33] w-full placeholder:opacity-30 focus:outline-none py-3 px-5 rounded-lg text-[#ffffff77]" />
+            <input
+              placeholder="OfferCode2023"
+              className="bg-[#ffffff33] w-full placeholder:opacity-90 focus:outline-none py-3 px-5 rounded-lg text-[#ffffff77]"
+            />
             <button className="bg-white text-[#511A79] rounded-xl px-6">اعمال</button>
           </form>
         </div>

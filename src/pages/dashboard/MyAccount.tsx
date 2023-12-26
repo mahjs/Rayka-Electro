@@ -32,7 +32,7 @@ const MyAccount: FC<Props> = ({ premium }) => {
               </div>
             )}
             {!premium && <span>حساب کاربری عادی</span>}
-            <button className="mx-auto mt-3 md:mr-auto md:ml-0 whitespace-nowrap bg-white text-[#541A79] py-3 px-5 rounded-lg">
+            <button className="mx-auto mt-3 md:mr-auto md:ml-0 whitespace-nowrap bg-white text-[#541A79] py-3 px-6 rounded-lg">
               {premium ? 'تمدید اشتراک' : 'خرید اشتراک'}
             </button>
           </div>
