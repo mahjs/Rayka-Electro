@@ -7,7 +7,7 @@ import ios from '../../assets/images/ios.svg';
 import androindIcon from '../../assets/images/androidIcon.svg';
 import apple from '../../assets/images/apple.svg';
 
-interface EducationItem {
+export interface EducationItem {
   image: string;
   text: string;
   id: string;

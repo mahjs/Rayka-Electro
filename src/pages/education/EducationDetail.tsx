@@ -25,7 +25,7 @@ const EducationDetail: React.FC<EducationDetailProps> = ({ selectedId }) => {
   }
 
   return (
-    <div className="flex justify-start gap-10 title-1 w-full">
+    <div className="flex lg:flex-row flex-col md:px-12 px-8 justify-start lg:gap-12 md:gap-14 gap-16 title-1 w-full">
       <div className="flex basis-3/5">
         <AparatVideo srcVideo={selectedEducation.videoPath} />
       </div>

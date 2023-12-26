@@ -9,7 +9,7 @@ const Layout = () => {
   const { id } = useParams();
 
   return (
-    <div className=" relative md:min-h-full w-full md:overflow-hidden ">
+    <div className=" relative min-h-full w-full overflow-hidden ">
       <Navbar />
       <img alt="dashboardBG" src={DashboardBG} className="absolute min-w-[100vw]  md:min-h-[100vh] -z-10 bg-cover" />
       <div className="flex absolute items-center  flex-col  min-w-[100vw] min-h-[100vh] justify-center md:justify-start gap-6 pt-[4rem] md:pt-[6rem] lg:pt-[6rem]  px-0 md:px-[3rem]">
