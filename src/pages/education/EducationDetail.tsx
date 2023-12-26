@@ -2,7 +2,11 @@ import AparatVideo from './AparatVideo';
 import SwitchBtn from '../../components/ui/SwitchButton';
 import { useState } from 'react';
 
-const EducationDetail = ({ selectedIndex }) => {
+interface EducationDetailProps {
+  selectedIndex: number; // Assuming selectedIndex is a number
+}
+
+const EducationDetail: React.FC<EducationDetailProps> = ({ selectedIndex }) => {
   const [selectedTab, setSelectedTab] = useState<string>('app');
 
   const handleTabChange = (tab: string) => {

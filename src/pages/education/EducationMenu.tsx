@@ -8,7 +8,11 @@ import androindIcon from '../../assets/images/androidIcon.svg';
 import apple from '../../assets/images/apple.svg';
 import { useNavigate } from 'react-router-dom';
 
-const EducationMenu = ({ onMenuItemClick }) => {
+interface EducationMenuProps {
+  onMenuItemClick: (index: number) => void;
+}
+
+const EducationMenu: React.FC<EducationMenuProps> = ({ onMenuItemClick }) => {
   const images = [
     {
       image: apple,
@@ -49,7 +53,7 @@ const EducationMenu = ({ onMenuItemClick }) => {
       {images.map((item, index) => (
         <div
           key={index}
-          onClick={() => onMenuItemClick(index)} // Add onClick handler here
+          onClick={() => onMenuItemClick(index)}
           className="hoverable-div bg-[#ffffff18] rounded-2xl w-[380px] flex flex-col py-14 justify-between items-center gap-4 text-white
                      hover:bg-white hover:text-[#2D0172] transition duration-500"
         >
