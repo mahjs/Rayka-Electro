@@ -31,6 +31,11 @@ export const mainRoutes = [
     element: <EducationLayout />,
     title: 'education',
   },
+  {
+    path: '/education/:id',
+    element: <EducationLayout />,
+    title: 'educationDetail',
+  },
 ];
 
 export const protectedRoutes = [

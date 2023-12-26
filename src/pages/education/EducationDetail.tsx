@@ -3,10 +3,11 @@ import SwitchBtn from '../../components/ui/SwitchButton';
 import { useState } from 'react';
 
 interface EducationDetailProps {
-  selectedIndex: number; // Assuming selectedIndex is a number
+  selectedIndex: number;
+  topic?: string;
 }
 
-const EducationDetail: React.FC<EducationDetailProps> = ({ selectedIndex }) => {
+const EducationDetail: React.FC<EducationDetailProps> = ({ selectedIndex, topic }) => {
   const [selectedTab, setSelectedTab] = useState<string>('app');
 
   const handleTabChange = (tab: string) => {
@@ -79,7 +80,9 @@ const EducationDetail: React.FC<EducationDetailProps> = ({ selectedIndex }) => {
       aparat: <AparatVideo srcVideo="https://www.aparat.com/video/video/embed/videohash/kvIbp/vt/frame" />,
     },
   ];
+
   const selectedEducation = education[selectedIndex];
+  const topicTitle = topic ? `Information about ${topic}` : 'Education Detail';
 
   return (
     <div className="flex justify-start gap-10 title-1 w-full">

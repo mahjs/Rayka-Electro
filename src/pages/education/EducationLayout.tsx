@@ -3,13 +3,11 @@ import DashboardBG from '../../assets/images/dashboard-bg.svg';
 import EducationMenu from './EducationMenu';
 import EducationDetail from './EducationDetail';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Layout = () => {
-  const [selectedMenuIndex, setSelectedMenuIndex] = useState<number | null>(null);
-
-  const handleMenuItemClick = (index: number) => {
-    setSelectedMenuIndex(index);
-  };
+  const { id } = useParams();
+  const selectedMenuIndex = id !== undefined ? parseInt(id, 10) : null;
 
   return (
     <div className=" relative md:min-h-full w-full md:overflow-hidden ">
@@ -19,11 +17,7 @@ const Layout = () => {
         <p className="text-white header-1 md:px-0 px-16">
           آموزش استفاده از سرویس‌های <span className="text-[#8C39F3]">الکترو</span>
         </p>
-        {selectedMenuIndex === null ? (
-          <EducationMenu onMenuItemClick={handleMenuItemClick} />
-        ) : (
-          <EducationDetail selectedIndex={selectedMenuIndex} />
-        )}
+        {selectedMenuIndex === null ? <EducationMenu /> : <EducationDetail selectedIndex={selectedMenuIndex} />}{' '}
       </div>
     </div>
   );

@@ -12,40 +12,49 @@ interface EducationMenuProps {
   onMenuItemClick: (index: number) => void;
 }
 
-const EducationMenu: React.FC<EducationMenuProps> = ({ onMenuItemClick }) => {
+const EducationMenu: React.FC<EducationMenuProps> = () => {
+  const navigate = useNavigate();
+
   const images = [
     {
       image: apple,
       text: 'آموزش ios',
+      id: 'apple',
     },
     {
       image: sony,
       text: 'آموزش پلی استیشن',
+      id: 'apple',
     },
     {
       image: windowsIcon,
       text: 'آموزش ویندوز',
+      id: 'apple',
     },
     {
       image: androindIcon,
       text: 'آموزش اندروید',
-      width: 'w-[76px]',
+      id: 'apple',
     },
     {
       image: xbox,
       text: 'آموزش ایکس باکس',
+      id: 'apple',
     },
     {
       image: router,
       text: 'آموزش روتر',
+      id: 'apple',
     },
     {
       image: linux,
       text: 'آموزش لینوکس',
+      id: 'apple',
     },
     {
       image: ios,
       text: 'آموزش ios',
+      id: 'apple',
     },
   ];
   return (
@@ -53,7 +62,7 @@ const EducationMenu: React.FC<EducationMenuProps> = ({ onMenuItemClick }) => {
       {images.map((item, index) => (
         <div
           key={index}
-          onClick={() => onMenuItemClick(index)}
+          onClick={() => navigate(`/education/${index}`)}
           className="hoverable-div bg-[#ffffff18] rounded-2xl w-[380px] flex flex-col py-14 justify-between items-center gap-4 text-white
                      hover:bg-white hover:text-[#2D0172] transition duration-500"
         >
