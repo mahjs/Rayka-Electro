@@ -10,20 +10,20 @@ function classNames(...classes: string[]) {
 }
 
 export default function SwitchButton({ onTabChange }: SwitchButtonProps) {
-  let [categories] = useState({ app: 'اپلیکیشن', dns: 'دی ان اس' });
+  let [categories] = useState<{ [key: string]: string }>({ app: 'اپلیکیشن', dns: 'دی ان اس' });
 
   return (
-    <div className="w-full flex flex-col items-center  ">
-      <Tab.Group onChange={(index) => onTabChange(Object.keys(categories)[index])}>
-        <Tab.List className="flex justify-center max-w-md w-3/5  rounded-3xl bg-[#ffffff18] ">
+    <div className="w-full flex flex-col items-center">
+      <Tab.Group onChange={(index: number) => onTabChange(Object.keys(categories)[index])}>
+        <Tab.List className="flex justify-center max-w-md w-3/5 rounded-3xl bg-[#ffffff18]">
           {Object.entries(categories).map(([category, label]) => (
             <Tab
               key={category}
-              className={({ selected }) =>
+              className={({ selected }: { selected: boolean }) =>
                 classNames(
-                  'w-full bg-transparent rounded-2xl  py-2.5 text-sm font-medium leading-5',
-                  'ring-[#2D0172] ring-offset-2  focus:outline-none focus:ring-2',
-                  selected ? 'bg-white text-[#2D0172] shadow' : 'text-white  hover:text-white',
+                  'w-full bg-transparent rounded-2xl py-2.5 text-sm font-medium leading-5',
+                  'ring-[#2D0172] ring-offset-2 focus:outline-none focus:ring-2',
+                  selected ? 'bg-white text-[#2D0172] shadow' : 'text-white hover:text-white',
                 )
               }
             >
@@ -31,7 +31,6 @@ export default function SwitchButton({ onTabChange }: SwitchButtonProps) {
             </Tab>
           ))}
         </Tab.List>
-        {/*  */}
       </Tab.Group>
     </div>
   );
