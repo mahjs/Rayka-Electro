@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-const ThreeBackground: React.FC<{ isCircular?: boolean }> = ({ isCircular = true }) => {
+const ThreeBackground: React.FC = () => {
   const refContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,46 +28,15 @@ const ThreeBackground: React.FC<{ isCircular?: boolean }> = ({ isCircular = true
     const camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
     camera.position.z = farPlane / 3;
 
-    // Create a circular texture
-    const createCircleTexture = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 16;
-      canvas.height = 16;
+    // Geometry
+    const geometry = new THREE.BufferGeometry();
+    const vertices = [];
+    const particleCount = 1500;
 
-      const context = canvas.getContext('2d');
-      if (context) {
-        context.beginPath();
-        context.arc(8, 8, 8, 0, 2 * Math.PI);
-        context.fillStyle = '#FFFFFF';
-        context.fill();
-      }
-
-      return new THREE.CanvasTexture(canvas);
-    };
-
-    // Create a texture with '404' text
-    const createTextTexture = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 64;
-      canvas.height = 64;
-
-      const context = canvas.getContext('2d');
-      if (context) {
-        context.fillStyle = '#FFFFFF'; // White text
-        context.font = '48px Arial'; // Adjust font size and style as needed
-        context.textAlign = 'center';
-        context.textBaseline = 'middle';
-        context.fillText('404', canvas.width / 2, canvas.height / 2);
-      }
-
-      return new THREE.CanvasTexture(canvas);
-    };
-
-    const circleTexture = createCircleTexture();
-    const textTexture = createTextTexture();
-
-    // Choose the texture based on isCircular
-    const particleTexture = isCircular ? circleTexture : textTexture;
+    for (let i = 0; i < particleCount; i++) {
+      vertices.push(Math.random() * 2000 - 1000, Math.random() * 2000 - 1000, Math.random() * 2000 - 1000);
+    }
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
     // Materials and Particles
     const parameters: [[number, number, number], number][] = [
@@ -76,7 +45,7 @@ const ThreeBackground: React.FC<{ isCircular?: boolean }> = ({ isCircular = true
       [[14 / 255, 0, 45 / 255], 3],
     ];
 
-    const particleCounts = [isCircular ? 1500 : 12000, isCircular ? 250 : 5000, 250];
+    const particleCounts = [1000, 250, 250];
     parameters.forEach(([color, size], index) => {
       const geometry = new THREE.BufferGeometry();
       const vertices = [];
@@ -87,12 +56,7 @@ const ThreeBackground: React.FC<{ isCircular?: boolean }> = ({ isCircular = true
 
       geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
-      const material = new THREE.PointsMaterial({
-        size,
-        map: particleTexture, // Use the chosen texture
-        transparent: true,
-        alphaTest: 0.5,
-      });
+      const material = new THREE.PointsMaterial({ size });
       material.color.setRGB(color[0], color[1], color[2]);
       const particles = new THREE.Points(geometry, material);
       particles.rotation.x = Math.random() * 6;
@@ -114,7 +78,7 @@ const ThreeBackground: React.FC<{ isCircular?: boolean }> = ({ isCircular = true
       camera.position.y += (-mouseY - camera.position.y) * 0.05;
       camera.lookAt(scene.position);
 
-      scene.children.forEach((child) => {
+      scene.children.forEach((child, i) => {
         if (child instanceof THREE.Points) {
           child.rotation.x = time * 0.3;
           child.rotation.y = time * 0.3;
@@ -149,9 +113,18 @@ const ThreeBackground: React.FC<{ isCircular?: boolean }> = ({ isCircular = true
         refContainer.current.removeChild(refContainer.current.firstChild);
       }
     };
-  }, [isCircular]); // Add isCircular as a dependency
+  }, []);
 
-  return <div ref={refContainer} style={{ width: '100%', height: '100%' }} />;
+  return (
+    <div
+      ref={refContainer}
+      style={{
+        width: '100%',
+        height: '100%',
+        // background: 'linear-gradient(to right, rgb(47,0,112), rgb(78,0,98))',
+      }}
+    />
+  );
 };
 
 export default ThreeBackground;
