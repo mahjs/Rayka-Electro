@@ -14,7 +14,7 @@ const InstructionLink: React.FC<InstructionLinkProps> = ({ startAnimation }) => 
     const svgTransition = 'fill 0.7s ease';
     return (
         <Link
-            to="/instructions"
+            to="/education"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             style={{
