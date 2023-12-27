@@ -61,30 +61,29 @@ const ElectroApp = () => {
             </p>
           </div>
           <div className="flex lg:flex-row flex-col mt-4 gap-3 justify-center lg:justify-start ">
-            <a
-              href={loading ? '#' : downloadsDetails[0].link}
-              style={{
-                opacity: startAnimation ? 1 : 0,
-                transform: startAnimation ? 'translateY(0)' : 'translateY(2rem)',
-                transition: 'all .5s 1.3s ease',
-              }}
-              className="flex justify-center items-center gap-2 border-[2px] py-2 btn px-5 rounded-full bg-[rgba(255,255,255,0.2)]"
-            >
-              <LazyImage src={Windows} style={{ width: '20px' }} alt="windows" />
-              <p className="text-white">اپلیکیشن ویندوز</p>
-            </a>
-            <a
-              href={loading ? '#' : downloadsDetails[1].link}
-              style={{
-                opacity: startAnimation ? 1 : 0,
-                transform: startAnimation ? 'translateY(0)' : 'translateY(2rem)',
-                transition: 'all .5s 1.8s ease',
-              }}
-              className="flex justify-center items-center gap-2 py-2 px-5 bg-[#8C39F3] rounded-full btn"
-            >
-              <LazyImage src={Android} style={{ width: '40px' }} alt="android" />
-              <p className="text-white">اپلیکیشن اندروید</p>
-            </a>
+            {downloadsDetails.map((item, index) => {
+              return (
+                <a
+                  key={index}
+                  href={loading ? '#' : item.link}
+                  style={{
+                    opacity: startAnimation ? 1 : 0,
+                    transform: startAnimation ? 'translateY(0)' : 'translateY(2rem)',
+                    transition: `all .5s ${1.3 + index * 0.5}s ease`,
+                  }}
+                  className={`flex justify-center items-center gap-2 border-[2px] py-2 btn px-5 rounded-full ${
+                    index === 0 ? 'bg-[rgba(255,255,255,0.2)]' : 'bg-[#8C39F3]'
+                  }`}
+                >
+                  <LazyImage
+                    src={index === 0 ? Windows : Android}
+                    style={{ width: index === 0 ? '20px' : '40px' }}
+                    alt={index === 0 ? 'windows' : 'android'}
+                  />
+                  <p className="text-white">{item.title}</p>
+                </a>
+              );
+            })}
           </div>
           <InstructionLink startAnimation={startAnimation} />
 
