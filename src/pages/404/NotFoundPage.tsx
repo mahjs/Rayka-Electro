@@ -8,7 +8,7 @@ const NotFoundPage = () => {
   };
   return (
     <div className={`overflow-x-hidden h-[100vh] relative bg-black`}>
-      <ThreeBackground />
+      <ThreeBackground isCircular={false} />
       <div className="flex absolute flex-col top-0 w-full h-full justify-evenly items-center px-4 md:px-0 mt-3">
         <main className="h-screen w-full flex flex-col justify-center items-center bg-transparent">
           <h1 className="text-9xl font-extrabold text-white tracking-widest">404</h1>
