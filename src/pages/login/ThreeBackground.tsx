@@ -123,7 +123,6 @@ const ThreeBackground: React.FC<{ isCircular?: boolean }> = ({ isCircular = true
 
       renderer.render(scene, camera);
     }
-
     function onWindowResize() {
       const newWidth = window.innerWidth;
       const newHeight = window.innerHeight;
