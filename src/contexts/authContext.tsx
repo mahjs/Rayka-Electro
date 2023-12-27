@@ -4,18 +4,21 @@ import config from '../services/config';
 
 type AuthContextType = {
   isLogin: boolean;
+  isAdmin: boolean;
   login: () => void;
   logout: () => void;
 };
 
 const AuthContext = createContext<AuthContextType>({
   isLogin: false,
+  isAdmin: false,
   login: () => {},
   logout: () => {},
 });
 
 const AuthContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
+  const [isAdmin] = useState<boolean>(true);
 
   useEffect(() => {
     const token = storage.get(config.tokenName);
@@ -36,6 +39,7 @@ const AuthContextProvider: FC<PropsWithChildren> = ({ children }) => {
     <AuthContext.Provider
       value={{
         isLogin,
+        isAdmin,
         login,
         logout,
       }}

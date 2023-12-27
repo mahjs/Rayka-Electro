@@ -59,7 +59,7 @@ interface Props {
 
 const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
   const navigate = useNavigate();
-  const { logout } = useAuth();
+  const { logout, isAdmin } = useAuth();
   const [openExitModal, setOpenExitModal] = useState<boolean>(false);
 
   const handleLogout = () => {
@@ -96,27 +96,28 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
             <img src={Logout} alt="خروج" className="bg-[#ffffff88] p-[2px] rounded-md" />
             <p>خروج از حساب</p>
           </button>
-          {/* <div className="h-[1px] bg-[#ffffff44] mx-auto mt-3 w-[100%]" />
+          <div className="h-[1px] bg-[#ffffff44] mx-auto mt-3 w-[100%]" />
           <div className="text-center text-white opacity-50 mb-3">بخش مدیریتی</div>
-          {tabs.slice(3, 6).map((tab) => (
-            <button
-              onClick={() => handleSelectTab(tab.name as Tabs)}
-              key={tab.name}
-              className="flex gap-3 items-center p-2 rounded-lg"
-              style={{
-                background: selectedTab === tab.name ? 'white' : 'none',
-              }}
-            >
-              <img src={tab.image} alt={tab.name} className="bg-[#ffffff88] p-[2px] rounded-md" />
-              <p
+          {isAdmin &&
+            tabs.slice(3, 6).map((tab) => (
+              <button
+                onClick={() => handleSelectTab(tab.name as Tabs)}
+                key={tab.name}
+                className="flex gap-3 items-center p-2 rounded-lg"
                 style={{
-                  color: selectedTab === tab.name ? '#541A79' : 'white',
+                  background: selectedTab === tab.name ? 'white' : 'none',
                 }}
               >
-                {tab.title}
-              </p>
-            </button>
-          ))} */}
+                <img src={tab.image} alt={tab.name} className="bg-[#ffffff88] p-[2px] rounded-md" />
+                <p
+                  style={{
+                    color: selectedTab === tab.name ? '#541A79' : 'white',
+                  }}
+                >
+                  {tab.title}
+                </p>
+              </button>
+            ))}
         </div>
 
         {/* Premium card */}

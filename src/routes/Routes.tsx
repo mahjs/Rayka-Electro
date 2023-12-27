@@ -33,9 +33,9 @@ export const protectedRoutes = [
     element: <Dashboard />,
     title: 'Dashboard',
   },
-  {
-    path: '/admin',
-    element: <Dashboard />,
-    title: 'Admin Dashboard',
-  },
+  // {
+  //   path: '/admin',
+  //   element: <Dashboard />,
+  //   title: 'Admin Dashboard',
+  // },
 ];
