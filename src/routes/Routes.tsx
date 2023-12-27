@@ -1,3 +1,4 @@
+import NotFoundPage from '../pages/404/NotFoundPage';
 import Dashboard from '../pages/dashboard/Dashboard';
 import EducationLayout from '../pages/education/EducationLayout';
 import Home from '../pages/home/Home';
@@ -35,6 +36,11 @@ export const mainRoutes = [
     path: '/education/:id',
     element: <EducationLayout />,
     title: 'educationDetail',
+  },
+  {
+    path: '/*',
+    element: <NotFoundPage />,
+    title: 'NotFound',
   },
 ];
 
