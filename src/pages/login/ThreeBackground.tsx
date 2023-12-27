@@ -78,7 +78,7 @@ const ThreeBackground: React.FC = () => {
       camera.position.y += (-mouseY - camera.position.y) * 0.05;
       camera.lookAt(scene.position);
 
-      scene.children.forEach((child, i) => {
+      scene.children.forEach((child) => {
         if (child instanceof THREE.Points) {
           child.rotation.x = time * 0.3;
           child.rotation.y = time * 0.3;
