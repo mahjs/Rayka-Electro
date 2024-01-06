@@ -55,7 +55,6 @@ const LoginForm: React.FC = () => {
           navigate('/activate-email');
           return;
         }
-        storage.set(config.userName, res.datas.results.user.name);
         login();
         toast.success('شما با موفقیت وارد شدید');
         navigate('/dashboard');

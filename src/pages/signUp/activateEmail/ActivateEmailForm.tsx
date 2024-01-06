@@ -54,6 +54,8 @@ const ActivateEmailForm: React.FC = () => {
         console.log(res);
 
         toast.success('تایید حساب با موفقیت انجام شد.');
+        storage.set(config.userName, res.datas.results.user.name);
+
         login();
         navigate('/dashboard');
       })
