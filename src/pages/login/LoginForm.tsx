@@ -44,7 +44,7 @@ const LoginForm: React.FC = () => {
     api.auth
       .login(data.username, data.password)
       .then((res) => {
-        console.log(res.datas.otp_token);
+        console.log(res.datas.results.user.name);
 
         if (res.statusCode === 401) {
           if (res.datas.otp_token) {
@@ -55,6 +55,7 @@ const LoginForm: React.FC = () => {
           navigate('/activate-email');
           return;
         }
+        storage.set(config.userName, res.datas.results.user.name);
         login();
         toast.success('شما با موفقیت وارد شدید');
         navigate('/dashboard');

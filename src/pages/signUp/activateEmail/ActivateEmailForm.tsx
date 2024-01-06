@@ -35,8 +35,8 @@ const ActivateEmailForm: React.FC = () => {
   } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    const signupOtpToken: string | null = storage.get('signup_otp_token'); // Token from signup
-    const loginOtpToken: string | null = storage.get('login_otp_token'); // Token from login
+    const signupOtpToken: string | null = storage.get('signup_otp_token');
+    const loginOtpToken: string | null = storage.get('login_otp_token');
 
     let otpTokenToUse: string | null = '';
 
