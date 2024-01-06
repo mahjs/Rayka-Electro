@@ -40,7 +40,7 @@ const SignUpForm: React.FC = () => {
   const onSubmit: SubmitHandler<SignUpFormData> = async (data) => {
     api.auth
       .register(data.email, data.username, data.password, data.confirmPassword)
-      .then(() => {
+      .then((res) => {
         navigate('/activate-email');
 
         // Toastify Messages
@@ -109,9 +109,9 @@ const SignUpForm: React.FC = () => {
         />
         <InputField
           name="password"
-          placeholder="تکرار کلمه عبور"
           register={register}
           error={errors.password}
+          placeholder=" کلمه عبور"
           type="password"
           validation={passwordValidation}
           widthClass=" md:w-[22rem]"
@@ -129,7 +129,7 @@ const SignUpForm: React.FC = () => {
         />
         <InputField
           name="confirmPassword"
-          placeholder=" کلمه عبور"
+          placeholder="تکرار کلمه عبور"
           register={register}
           error={errors.confirmPassword}
           type="password"

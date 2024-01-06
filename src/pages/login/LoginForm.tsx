@@ -41,7 +41,14 @@ const LoginForm: React.FC = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     api.auth
       .login(data.username, data.password)
-      .then(() => {
+      .then((res) => {
+        console.log(res);
+
+        if (res.statusCode === 401) {
+          toast.error(res.message);
+          navigate('/activate-email');
+          return;
+        }
         login();
         toast.success('شما با موفقیت وارد شدید');
         navigate('/dashboard');

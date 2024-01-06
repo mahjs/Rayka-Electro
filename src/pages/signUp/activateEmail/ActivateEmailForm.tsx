@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Logo from '../../../assets/images/Logo.svg';
 import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -38,10 +38,12 @@ const ActivateEmailForm: React.FC = () => {
     const otp_token = storage.get(config.otpTokenName) as string;
     api.auth
       .activateEmail(otp_token, data.code)
-      .then(() => {
+      .then((res) => {
+        console.log(res);
+
         toast.success('تایید حساب با موفقیت انجام شد.');
         login();
-        navigate('/login');
+        navigate('/dashboard');
       })
       .catch(() => {
         toast.error('کد اشتباه است، لطفا دوباره سعی کنید.');
