@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../services';
 import { useAuth } from '../../contexts/authContext';
 import { toast } from 'react-toastify';
+import storage from '../../services/storage';
+import config from '../../services/config';
 
 interface FormValues {
   username: string;
@@ -42,9 +44,13 @@ const LoginForm: React.FC = () => {
     api.auth
       .login(data.username, data.password)
       .then((res) => {
-        console.log(res);
+        console.log(res.datas.otp_token);
 
         if (res.statusCode === 401) {
+          if (res.datas.otp_token) {
+            storage.set('login_otp_token', res.datas.otp_token);
+          }
+
           toast.error(res.message);
           navigate('/activate-email');
           return;

@@ -5,6 +5,7 @@ import { usernameValidation, emailValidation, passwordValidation, confirmPasswor
 import { useNavigate } from 'react-router-dom';
 import api from '../../services';
 import { toast } from 'react-toastify';
+import storage from '../../services/storage';
 
 interface SignUpFormData {
   username: string;
@@ -41,6 +42,11 @@ const SignUpForm: React.FC = () => {
     api.auth
       .register(data.email, data.username, data.password, data.confirmPassword)
       .then((res) => {
+        console.log(res.datas.results.otp_token);
+
+        if (res.datas.results.otp_token) {
+          storage.set('signup_otp_token', res.datas.results.otp_token); // Store the signup OTP token
+        }
         navigate('/activate-email');
 
         // Toastify Messages

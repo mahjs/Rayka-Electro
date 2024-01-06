@@ -18,6 +18,7 @@ type AuthLoginReturnType = {
       active_account: number;
     };
   };
+  otp_token: string;
 };
 
 export const login = async (name: string, password: string): Promise<AxiosReturnType<AuthLoginReturnType>> =>

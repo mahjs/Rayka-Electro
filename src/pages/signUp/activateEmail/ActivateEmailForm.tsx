@@ -35,9 +35,21 @@ const ActivateEmailForm: React.FC = () => {
   } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    const otp_token = storage.get(config.otpTokenName) as string;
+    const signupOtpToken: string | null = storage.get('signup_otp_token'); // Token from signup
+    const loginOtpToken: string | null = storage.get('login_otp_token'); // Token from login
+
+    let otpTokenToUse: string | null = '';
+
+    if (signupOtpToken) {
+      otpTokenToUse = signupOtpToken;
+    } else if (loginOtpToken) {
+      otpTokenToUse = loginOtpToken;
+    } else {
+      toast.error('Invalid or missing OTP token.');
+      return;
+    }
     api.auth
-      .activateEmail(otp_token, data.code)
+      .activateEmail(otpTokenToUse, data.code)
       .then((res) => {
         console.log(res);
 
@@ -45,8 +57,10 @@ const ActivateEmailForm: React.FC = () => {
         login();
         navigate('/dashboard');
       })
-      .catch(() => {
-        toast.error('کد اشتباه است، لطفا دوباره سعی کنید.');
+      .catch((e) => {
+        console.log(e.response.data);
+
+        toast.error(e.response.data.message);
         reset();
       });
   };
