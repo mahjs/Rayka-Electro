@@ -122,19 +122,27 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
           <NavbarItem
             selected={currentIndex === 4}
             onClick={() => {
+              navigate('/education');
+              swiper?.slideTo(4);
+            }}
+            text="آموزش"
+            delay={1000}
+          />
+          <NavbarItem
+            selected={currentIndex === 4}
+            onClick={() => {
               if (pathname !== '/') navigate('/');
               swiper?.slideTo(4);
             }}
             text="وضعیت سرورها"
-            delay={1000}
+            delay={1200}
           />
         </ul>
       </nav>
       <nav className="lg:hidden">
         <ul
-          className={`fixed ${
-            showNavbar ? 'right-0' : '-right-[100%]'
-          } top-0 flex h-full w-[20rem] flex-col justify-start pt-16 px-6 gap-5 bg-[#ffffff22] border-l-[2px] border-[#ffffff43] rounded-tl-3xl rounded-bl-3xl backdrop-blur-[40px] transition-all duration-500 lg:hidden`}
+          className={`fixed ${showNavbar ? 'right-0' : '-right-[100%]'
+            } top-0 flex h-full w-[20rem] flex-col justify-start pt-16 px-6 gap-5 bg-[#ffffff22] border-l-[2px] border-[#ffffff43] rounded-tl-3xl rounded-bl-3xl backdrop-blur-[40px] transition-all duration-500 lg:hidden`}
         >
           <button onClick={() => setShowNavbar(false)} className="absolute right-5 top-5 flex items-center gap-2">
             <img loading="lazy" src={ArrowLeft} className="rotate-[180deg]" />
