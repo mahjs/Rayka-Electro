@@ -5,6 +5,7 @@ import { usernameValidation, emailValidation, passwordValidation, confirmPasswor
 import { useNavigate } from 'react-router-dom';
 import api from '../../services';
 import { toast } from 'react-toastify';
+import storage from '../../services/storage';
 
 interface SignUpFormData {
   username: string;
@@ -40,7 +41,12 @@ const SignUpForm: React.FC = () => {
   const onSubmit: SubmitHandler<SignUpFormData> = async (data) => {
     api.auth
       .register(data.email, data.username, data.password, data.confirmPassword)
-      .then(() => {
+      .then((res) => {
+        console.log(res.datas.results.otp_token);
+
+        if (res.datas.results.otp_token) {
+          storage.set('signup_otp_token', res.datas.results.otp_token); // Store the signup OTP token
+        }
         navigate('/activate-email');
 
         // Toastify Messages
@@ -72,7 +78,6 @@ const SignUpForm: React.FC = () => {
           }
         `}
       </style>
-
       <div className="bg-[#501a79] mb-4 lg:mb-0 rounded-[1.25rem] border border-zinc-600 w-[40rem] md:w-[44rem] mt-2 py-6 px-4 flex flex-col items-center space-y-6">
         <img src={Logo} alt="Logo" className="w-20 h-20" loading="lazy" />
         <h2 className="text-white text-3xl font-bold">ساخت حساب جدید</h2>
@@ -124,9 +129,9 @@ const SignUpForm: React.FC = () => {
           />
           <InputField
             name="password"
-            placeholder="تکرار کلمه عبور"
             register={register}
             error={errors.password}
+            placeholder=" کلمه عبور"
             type="password"
             validation={passwordValidation}
             widthClass=" md:w-[22rem]"
@@ -144,7 +149,7 @@ const SignUpForm: React.FC = () => {
           />
           <InputField
             name="confirmPassword"
-            placeholder=" کلمه عبور"
+            placeholder="تکرار کلمه عبور"
             register={register}
             error={errors.confirmPassword}
             type="password"

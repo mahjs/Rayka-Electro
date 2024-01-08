@@ -4,6 +4,7 @@ const config = {
   tokenName: 'eyesp_dashboard_token',
   otpTokenName: 'OTP_Token',
   cid: 'user-id',
+  userName: '403_user_name',
 };
 
 export type AxiosReturnType<T> = {

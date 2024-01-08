@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../services';
 import { useAuth } from '../../contexts/authContext';
 import { toast } from 'react-toastify';
+import storage from '../../services/storage';
+import config from '../../services/config';
 
 interface FormValues {
   username: string;
@@ -41,7 +43,18 @@ const LoginForm: React.FC = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     api.auth
       .login(data.username, data.password)
-      .then(() => {
+      .then((res) => {
+        console.log(res.datas.results.user.name);
+
+        if (res.statusCode === 401) {
+          if (res.datas.otp_token) {
+            storage.set('login_otp_token', res.datas.otp_token);
+          }
+
+          toast.error(res.message);
+          navigate('/activate-email');
+          return;
+        }
         login();
         toast.success('شما با موفقیت وارد شدید');
         navigate('/dashboard');
