@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Logo from '../../../assets/images/Logo.svg';
 import { useForm, SubmitHandler, FieldError, UseFormRegister } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -35,16 +35,34 @@ const ActivateEmailForm: React.FC = () => {
   } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    const otp_token = storage.get(config.otpTokenName) as string;
+    const signupOtpToken: string | null = storage.get('signup_otp_token');
+    const loginOtpToken: string | null = storage.get('login_otp_token');
+
+    let otpTokenToUse: string | null = '';
+
+    if (signupOtpToken) {
+      otpTokenToUse = signupOtpToken;
+    } else if (loginOtpToken) {
+      otpTokenToUse = loginOtpToken;
+    } else {
+      toast.error('Invalid or missing OTP token.');
+      return;
+    }
     api.auth
-      .activateEmail(otp_token, data.code)
-      .then(() => {
+      .activateEmail(otpTokenToUse, data.code)
+      .then((res) => {
+        console.log(res);
+
         toast.success('تایید حساب با موفقیت انجام شد.');
+        storage.set(config.userName, res.datas.results.user.name);
+
         login();
-        navigate('/login');
+        navigate('/dashboard');
       })
-      .catch(() => {
-        toast.error('کد اشتباه است، لطفا دوباره سعی کنید.');
+      .catch((e) => {
+        console.log(e.response.data);
+
+        toast.error(e.response.data.message);
         reset();
       });
   };

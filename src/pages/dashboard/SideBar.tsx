@@ -8,10 +8,12 @@ import users from '../../assets/images/users.svg';
 import history from '../../assets/images/history.svg';
 import content from '../../assets/images/content.svg';
 import Bell from '../../assets/images/bell.svg';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Tabs } from './Dashboard';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/authContext';
+import config from '../../services/config';
+import storage from '../../services/storage';
 
 export const user = {
   name: 'Alireza_AH191238',
@@ -61,16 +63,22 @@ const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
   const navigate = useNavigate();
   const { logout, isAdmin } = useAuth();
   const [openExitModal, setOpenExitModal] = useState<boolean>(false);
-
+  const [userName, setUserName] = useState<string>('');
   const handleLogout = () => {
     logout();
     navigate('/');
   };
+  useEffect(() => {
+    const storedName = storage.get(config.userName) as string;
 
+    if (storedName) {
+      setUserName(storedName);
+    }
+  }, []);
   return (
     <>
       <aside className="bg-[#ffffff18] rounded-2xl min-w-[360px] backdrop-blur-[37px] flex flex-col px-6 py-5 gap-4">
-        <ProfileInfo name={user.name} email={user.email} premium={user.premium} />
+        <ProfileInfo name={userName || user.name} email={user.email} premium={user.premium} />
         <div className="h-[1px] bg-[#ffffff44] mx-auto w-[100%]" />
         <div className="flex flex-col gap-1">
           {tabs.slice(0, 2).map((tab) => (
