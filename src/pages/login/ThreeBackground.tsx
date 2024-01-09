@@ -1,6 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
+/**
+ * ThreeBackground Component
+ *
+ * This component creates a 3D background using Three.js. It can render either circular particles
+ * or text-based particles depending on the `isCircular` prop. The scene includes animated
+ * particles and responds to mouse movements and window resize events.
+ *
+ * @component
+ * @param {boolean} [isCircular=true] - Determines the shape of the particles in the background.
+ *                                      `true` for circular particles, `false` for text '404' particles.
+ * @returns {React.ReactElement} The ThreeBackground component with a 3D scene.
+ */
 const ThreeBackground: React.FC<{ isCircular?: boolean }> = ({ isCircular = true }) => {
   const refContainer = useRef<HTMLDivElement>(null);
 

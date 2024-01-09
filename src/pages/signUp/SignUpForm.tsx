@@ -26,6 +26,16 @@ interface InputFieldProps {
   widthClass?: string;
 }
 
+/**
+ * SignUpForm component for user registration.
+ * 
+ * This component allows users to sign up by providing their username, email, password, and 
+ * confirmation of the password. It uses `react-hook-form` for form handling and validation, and
+ * `react-toastify` for displaying success or error messages. Upon successful registration, the user
+ * is navigated to an email activation page.
+ *
+ * @returns {React.ReactElement} The SignUpForm component.
+ */
 const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
   const {
@@ -196,6 +206,24 @@ const SignUpForm: React.FC = () => {
   );
 };
 
+/**
+ * InputField component.
+ * 
+ * This component renders a stylized input field for forms. It includes validation error display and
+ * an optional icon. It's used within the SignUpForm for various inputs like username, password, etc.
+ *
+ * @param {InputFieldProps} props - The properties passed to the InputField component.
+ * @param {string} props.name - The name of the input field.
+ * @param {string} props.placeholder - The placeholder text for the input field.
+ * @param {UseFormRegister} props.register - The register function from `useForm`.
+ * @param {FieldError | undefined} [props.error] - The error object for the input field.
+ * @param {string} props.type - The type of the input (e.g., 'text', 'password').
+ * @param {JSX.Element} [props.icon] - Optional icon to display in the input field.
+ * @param {RegisterOptions} [props.validation] - Validation rules for the input field.
+ * @param {string} [props.widthClass] - Optional CSS class to control the width.
+ * 
+ * @returns {React.ReactElement} The InputField component.
+ */
 const InputField: React.FC<InputFieldProps> = ({
   name,
   placeholder,

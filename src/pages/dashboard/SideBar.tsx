@@ -54,11 +54,31 @@ const tabs = [
   },
 ];
 
+/**
+ * Props for the SideBar component.
+ * 
+ * @prop {string} selectedTab - The current selected tab in the sidebar.
+ * @prop {(tab: Tabs) => void} handleSelectTab - Function to handle tab selection changes.
+ */
 interface Props {
   selectedTab: string;
   handleSelectTab: (tab: Tabs) => void;
 }
 
+/**
+ * SideBar component for the application.
+ * 
+ * This component renders the sidebar for the dashboard, including user information,
+ * navigation tabs, and logout functionality. It displays different tabs based on the
+ * user's admin status and handles logout through the `useAuth` hook.
+ * 
+ * @component
+ * @param {Props} props - The props for the SideBar component.
+ * @param {string} props.selectedTab - The current active tab.
+ * @param {(tab: Tabs) => void} props.handleSelectTab - Function to handle tab changes.
+ * 
+ * @returns {React.ReactElement} The rendered SideBar component.
+ */
 const SideBar: FC<Props> = ({ selectedTab, handleSelectTab }) => {
   const navigate = useNavigate();
   const { logout, isAdmin } = useAuth();

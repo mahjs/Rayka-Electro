@@ -18,15 +18,34 @@ import Person from '../../assets/images/person.svg';
 import Swiper from 'swiper';
 import { useAuth } from '../../contexts/authContext';
 
-/**
- * Navbar for the whole app.
- */
 
+/**
+ * Props for the Navbar component.
+ * 
+ * @prop {Swiper | null} [swiper] - An optional Swiper instance for navigation control.
+ * @prop {number} [currentIndex] - The current index of the selected navbar item.
+ */
 interface Props {
   swiper?: Swiper | null;
   currentIndex?: number;
 }
 
+/**
+ * Navbar component for the application.
+ * This component renders the main navigation bar and handles user interactions
+ * such as navigating between pages and toggling visibility of the navbar in
+ * mobile view.
+ * 
+ * It uses the `useAuth` hook to determine login status and conditionally
+ * renders the login or dashboard button.
+ * 
+ * @component
+ * @param {Props} props - The props for the Navbar component.
+ * @param {Swiper | null} [props.swiper] - Swiper instance for controlling page navigation.
+ * @param {number} [props.currentIndex] - The current active index for highlighting the navbar item.
+ * 
+ * @returns {React.ReactElement} The rendered Navbar component.
+ */
 const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
   const { isLogin } = useAuth();
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
@@ -53,6 +72,19 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
     setStartAnimation(true);
   }, []);
 
+  /**
+ * Renders the login button in the navigation bar.
+ *
+ * This function creates a list item (`<li>`) that serves as the login button. 
+ * The button's behavior changes based on the user's login status. If the user is logged in,
+ * clicking the button navigates to the dashboard. If not, it navigates to the login page.
+ *
+ * The button also has an animation effect controlled by the `startAnimation` state.
+ * When `startAnimation` is true, the button becomes fully visible and moves slightly to the left.
+ * This animation is applied with a linear transition over 1 second.
+ * 
+ * @returns {React.ReactElement} The rendered login button as a list item.
+ */
   const renderLoginButton = () => {
     return (
       <li

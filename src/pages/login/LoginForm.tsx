@@ -7,7 +7,6 @@ import api from '../../services';
 import { useAuth } from '../../contexts/authContext';
 import { toast } from 'react-toastify';
 import storage from '../../services/storage';
-import config from '../../services/config';
 
 interface FormValues {
   username: string;
@@ -26,6 +25,15 @@ interface InputFieldProps {
   widthClass?: string;
 }
 
+/**
+ * Represents a login form with username, password, and remember me fields.
+ * 
+ * This component is responsible for user authentication. It uses `react-hook-form` for form validation
+ * and `useAuth` for managing authentication state. It also handles API calls for logging in
+ * and navigation post successful login.
+ * 
+ * @returns {React.ReactElement} The LoginForm component.
+ */
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -155,6 +163,24 @@ const LoginForm: React.FC = () => {
   );
 };
 
+/**
+ * Custom input field component used in forms.
+ * 
+ * This component creates a stylized input field with optional error handling and custom icons.
+ * It utilizes `react-hook-form` for form registration and validation.
+ * 
+ * @param {InputFieldProps} props - The properties passed to the InputField component.
+ * @param {string} props.name - The name of the input field.
+ * @param {string} props.placeholder - The placeholder text for the input field.
+ * @param {UseFormRegister} props.register - The register function from `useForm`.
+ * @param {FieldError | undefined} [props.error] - The error object for the input field.
+ * @param {string} props.type - The type of the input (e.g., 'text', 'password').
+ * @param {JSX.Element} [props.icon] - Optional icon to display in the input field.
+ * @param {RegisterOptions} [props.validation] - Validation rules for the input field.
+ * @param {string} [props.widthClass] - Optional CSS class to control the width.
+ * 
+ * @returns {React.ReactElement} The InputField component.
+ */
 const InputField: React.FC<InputFieldProps> = ({ name, placeholder, register, error, type, icon, validation }) => {
   return (
     <>
