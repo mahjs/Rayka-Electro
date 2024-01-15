@@ -18,15 +18,34 @@ import Person from '../../assets/images/person.svg';
 import Swiper from 'swiper';
 import { useAuth } from '../../contexts/authContext';
 
-/**
- * Navbar for the whole app.
- */
 
+/**
+ * Props for the Navbar component.
+ * 
+ * @prop {Swiper | null} [swiper] - An optional Swiper instance for navigation control.
+ * @prop {number} [currentIndex] - The current index of the selected navbar item.
+ */
 interface Props {
   swiper?: Swiper | null;
   currentIndex?: number;
 }
 
+/**
+ * Navbar component for the application.
+ * This component renders the main navigation bar and handles user interactions
+ * such as navigating between pages and toggling visibility of the navbar in
+ * mobile view.
+ * 
+ * It uses the `useAuth` hook to determine login status and conditionally
+ * renders the login or dashboard button.
+ * 
+ * @component
+ * @param {Props} props - The props for the Navbar component.
+ * @param {Swiper | null} [props.swiper] - Swiper instance for controlling page navigation.
+ * @param {number} [props.currentIndex] - The current active index for highlighting the navbar item.
+ * 
+ * @returns {React.ReactElement} The rendered Navbar component.
+ */
 const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
   const { isLogin } = useAuth();
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
@@ -53,6 +72,19 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
     setStartAnimation(true);
   }, []);
 
+  /**
+ * Renders the login button in the navigation bar.
+ *
+ * This function creates a list item (`<li>`) that serves as the login button. 
+ * The button's behavior changes based on the user's login status. If the user is logged in,
+ * clicking the button navigates to the dashboard. If not, it navigates to the login page.
+ *
+ * The button also has an animation effect controlled by the `startAnimation` state.
+ * When `startAnimation` is true, the button becomes fully visible and moves slightly to the left.
+ * This animation is applied with a linear transition over 1 second.
+ * 
+ * @returns {React.ReactElement} The rendered login button as a list item.
+ */
   const renderLoginButton = () => {
     return (
       <li
@@ -122,19 +154,27 @@ const Navbar: FC<Props> = ({ swiper, currentIndex }) => {
           <NavbarItem
             selected={currentIndex === 4}
             onClick={() => {
+              navigate('/education');
+              swiper?.slideTo(4);
+            }}
+            text="آموزش"
+            delay={1000}
+          />
+          <NavbarItem
+            selected={currentIndex === 4}
+            onClick={() => {
               if (pathname !== '/') navigate('/');
               swiper?.slideTo(4);
             }}
             text="وضعیت سرورها"
-            delay={1000}
+            delay={1200}
           />
         </ul>
       </nav>
       <nav className="lg:hidden">
         <ul
-          className={`fixed ${
-            showNavbar ? 'right-0' : '-right-[100%]'
-          } top-0 flex h-full w-[20rem] flex-col justify-start pt-16 px-6 gap-5 bg-[#ffffff22] border-l-[2px] border-[#ffffff43] rounded-tl-3xl rounded-bl-3xl backdrop-blur-[40px] transition-all duration-500 lg:hidden`}
+          className={`fixed ${showNavbar ? 'right-0' : '-right-[100%]'
+            } top-0 flex h-full w-[20rem] flex-col justify-start pt-16 px-6 gap-5 bg-[#ffffff22] border-l-[2px] border-[#ffffff43] rounded-tl-3xl rounded-bl-3xl backdrop-blur-[40px] transition-all duration-500 lg:hidden`}
         >
           <button onClick={() => setShowNavbar(false)} className="absolute right-5 top-5 flex items-center gap-2">
             <img loading="lazy" src={ArrowLeft} className="rotate-[180deg]" />
